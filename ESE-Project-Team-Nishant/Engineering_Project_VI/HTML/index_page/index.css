@@ -1,0 +1,14 @@
+/*CSS for index Page*/
+#first_head{
+    text-align: center;
+    color:beige;
+}
+body {
+    background-color:orange;
+    color: red;
+  }
+  
+  h1 {
+    color:black;
+    
+  }
