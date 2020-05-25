@@ -2,6 +2,7 @@
 #first_head{
     text-align: center;
     color:beige;
+    text-decoration: underline;
 }
 body {
     background-color:orange;
@@ -10,5 +11,6 @@ body {
   
   h1 {
     color:black;
+    text-decoration: underline;
     
   }
