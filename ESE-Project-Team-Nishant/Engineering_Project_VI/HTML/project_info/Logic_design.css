@@ -1,0 +1,22 @@
+/*CSS for Logic_design.html*/
+body{
+    background-color:orange;
+    color: black;
+    font-size: large;
+    text-align: center;
+  }
+figure{
+    display: inline-block;  
+}
+figure img{
+    vertical-align: top;
+}
+figure figcaption{
+    text-align: center;
+}
+ul{
+    text-align: left;
+}
+ol{
+    text-align: left;
+}
