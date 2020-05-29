@@ -1,0 +1,32 @@
+.account_header{
+    display:inline-block;
+    margin-left: 15px;
+}
+li.menu { display: inline}
+ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 2px solid black
+}
+
+.column {
+    float: left;
+    width: 33.11%;
+    border: 1px solid black;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column3 {
+    float: right;
+    width: 33.3%;
+    border: 1px solid black;
+  }
