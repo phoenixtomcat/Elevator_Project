@@ -1,4 +1,17 @@
 /*CSS for the Teammate page*/
+.button{
+  background-color: yellow;
+  border: none;
+  color:black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 body {
     background-color: brown;
     color: blanchedalmond;

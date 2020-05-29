@@ -1,4 +1,17 @@
 /*CSS for Projects Info*/
+.button{
+  background-color: #1c87c9;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 body {
     background-color: plum;
     color: brown;
@@ -9,3 +22,4 @@ body {
     color: beige;
     
   }
+
