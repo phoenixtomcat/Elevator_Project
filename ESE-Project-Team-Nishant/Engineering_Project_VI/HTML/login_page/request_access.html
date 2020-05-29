@@ -10,8 +10,35 @@
     <body>
         <h1>Request Access</h1>
         <form action="request_access.php" method="POST" id="accessForm">
-            <p>Tell us a bit about yourself</p>
-            <textarea id="accessText" style="width: 500px; height: 200px;" name="accessText" form="accessForm">Other details...</textarea>
+            <fieldset style="width: 300px;">
+                <legend>Contact Details</legend>
+                <p><label>First Name*: <input type="text" name="firstname" required/></label></p>
+                <p><label>Last Name*:  <input type="text" name="lastname" required/></label></p>
+                <p><label>Email*:      <input type="email" name="email" required/></label></p>
+                <p><label>Website:     <input type="url" name="url" /></label></p>
+                <p><label>Birthday:    <input type="date" name="birthday" /></label></p>
+                <label><input type="radio" name="fac_or_student" value="faculty"/> Faculty</label>
+                <label><input type="radio" name="fac_or_student" value="student"/> Student</label>
+            </fieldset>
+            <fieldset style="width: 300px;">
+                <legend>Tell us a bit about yourself</legend>
+                <p>Check all apply to you:</p>
+                <input type="checkbox" name="involvement" value="none"> Have no involvement in project <br />
+                <input type="checkbox" name="involvement" value="instructor"> An instructorin this project <br />
+                <input type="checkbox" name="involvement" value="instructor_other"> An instructor in a different project <br />
+                <input type="checkbox" name="involvement" value="student"> A student in this project <br />
+                <input type="checkbox" name="involvement" value="student_other"> A student in a different project <br />
+                <input type="checkbox" name="involvement" value="admin"> A college administrator <br />
+                <input type="checkbox" name="involvement" value="external"> An external reviewer <br />
+                <p>Would you like to help improve the project?
+                    <select name="help_improve">
+                        <option value="no_answer" selected></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </p>
+                <textarea id="accessText" style="width: 500px; height: 200px;" name="accessText" form="accessForm">Other details...</textarea>
+            </fieldset>
             <br/>
             <input type="submit" value="submit" />
         </form>
