@@ -14,3 +14,7 @@ body {
     text-decoration: underline;
     
   }
+.account_header{
+    display:inline-block;
+    margin-left: 15px;
+}
