@@ -1,20 +1,22 @@
 /*CSS for index Page*/
-#first_head{
+
+#first_head {
     text-align: center;
-    color:beige;
+    color: greenyellow;
     text-decoration: underline;
 }
+
 body {
-    background-color:orange;
+    background-color: white;
     color: red;
-  }
-  
-  h1 {
-    color:black;
+}
+
+h1 {
+    color: black;
     text-decoration: underline;
-    
-  }
-.account_header{
-    display:inline-block;
+}
+
+.account_header {
+    display: inline-block;
     margin-left: 15px;
 }
