@@ -54,11 +54,6 @@ ul {
     display: block;
   }
 
-  #elevator1 {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
 
   .elvbut {
     margin-left: auto;
@@ -83,31 +78,13 @@ ul {
     height: 100px;
     vertical-align: middle;
   }
-<!--------------
-}
 
-
-/* Clear floats after the columns */
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.column3 {
-    float: right;
-    width: 33.3%;
-    border: 1px solid black;
-}
-
-body {
-    background-color: pink;
-}
-
-#elevator1 {
+  #elevator1 {
     animation-name: elevator;
     animation-duration: 4s;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 @keyframes elevator {
@@ -127,4 +104,30 @@ body {
         top: 0px;
     }
 }
-------->
+
+
+/*
+#elevator1 {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@keyframes elevator {
+    0% {
+        top: 0px;
+    }
+    25% {
+        top: 100px;
+    }
+    50% {
+        top: 200px;
+    }
+    75% {
+        top: 100px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+*/
