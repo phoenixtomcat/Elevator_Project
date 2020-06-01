@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta name="description" content="Elevator Page" />
-    <meta name="robots" content="noindex nofollow" />
-    <meta http-equiv="author" content="Eduard" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <link rel="stylesheet" type="text/css" href="elevator.css">
-</head>
-
-<body>
-    <div style="text-align: right;">
-        <a id="login" class="account_header" href="../login_page/login.html">Log-in</a>
-        <a id="request_access" class="account_header" href="../login_page/request_access.html">Request Access</a>
-    </div>
-    <hr/>
-    <h1>Team Name Elevator Project 2020 <img src="../images/pic_ra.png" id="logo" title="Logo" width="150"></h1>
-    <ul style="line-height: 50px;font-size: 20px;">
-        <li class="menu"><a href=../project_info/project_plan.html>Project Plan</a></li>
-        <li class="menu"><a href=../project_info/about.html>Information</a></li>
-        <li class="menu"><a href=../project_info/about.html>Project Log Books</li></a>
+    <head>
+        <meta name="description" content="Elevator Page" />
+        <meta name="robots" content="noindex nofollow" />
+        <meta http-equiv="author" content="Eduard" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <link rel = "stylesheet" type = "text/css" href="elevator.css">
+    </head>
+    <body>
+        <div style="text-align: right;">
+            <a id="login" class="account_header" href="../login_page/login.html">Log-in</a>
+            <a id="request_access" class="account_header" href="../login_page/request_access.html">Request Access</a>
+        </div>
+        <h1 id="title">Team Name Elevator Project 2020 <img src="../images/Buttons/Buttons for Eduard/Buttons--01.png" id="logo" title="Logo" width="50"></h1>
+        <ul style="line-height: 50px;font-size: 20px;">
+            <li class="menu"><a href=../project_info/project_plan.html>Project Plan</a></li>
+            <li class="menu"><a href=../project_info/about.html>Information</a></li>
+            <li class="menu"><a href=../project_info/about.html>Project Log Books</li></a>
             <li class="menu"><a href="https://stuconestogacon.sharepoint.com/:f:/s/EngineeringProject6/EvQUPpIswstLs5E6GhHk530BeNRB-BgkishTWClxPYCVmw?e=KSvZ37" target="_blank">Meeting Minutes</a></li>
             <li class="menu"><a href=../project_info/Status_report.html>Status Reports</a></li>
             <li class="menu"><a href="../teammate_info/about.html">About</a></li>
             <li class="menu"><a href="../elevator/elevator.html">Elevator</a></li>
-    </ul>
-    <div class="row">
-        <div class="column">
-            <h2 class="col1" id="headfl3">Floor 3</h2>
-            <input type="image" class="col1" id="dwnfl3" src="../images/Buttons/ButtonsDOWNB.png" width="100" />
-            <hr/>
-            <h2 class="col1" id="headfl2">Floor 2</h2>
-            <input type="image" class="col1" id="dwnfl2" src="../images/Buttons/ButtonsDOWNB.png" width="100" />
-            <input type="image" class="col1" id="upfl2" src="../images/Buttons/ButtonsUPB.png" width="100" />
-            <hr/>
-            <h2 class="col1" id="headfl1">Floor 1</h2>
-            <input type="image" class="col1" id="upfl2" src="../images/Buttons/ButtonsUPB.png" width="100" />
-        </div>
-        <div class="column">
-            <img class="col2" id="elevator1" src="../images/elevator1.png" width="200" title="Elevator" />
-        </div>
-        <div class="column3">
-            <h2 class="col3" id="elvcnt">Elevator Controls</h2>
-            <h3 class="col3" id="flr_nbr_hed">Current Floor Number</h3>
-            <img class="col3" id="flrnbr" src="../images/2.png" alt="2" width=1 00/>
-            <br/>
-            <input class="col3" id="elv1" type="image" src="../images/Buttons/Buttons1B.png" width="100" />
-            <br/>
-            <input class="col3" id="elv2" type="image" src="../images/Buttons/Buttons2B.png" width="100" />
-            <br/>
-            <input class="col3" id="elv3" type="image" src="../images/Buttons/Buttons3B.png" width="100" />
+
+        </ul>
+        <div class="row">
+            <div class="column">
+                <div class="floor">
+                    <h2 class="headflr" id="headfl3">Floor 3</h2>
+                        <input type="image" class="updn" id="dwnfl3" src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100"/>
+                </div>
+                <div class="floor">
+                    <h2 class="headflr" id="headfl2">Floor 2</h2>
+                        <div class="updn2">
+                            <input type="image" id="dwnfl2" src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100"/>
+                            <input type="image" id="upfl2" src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100"/>
+                        </div>
+                    </div>
+                <div class="floor">
+                    <h2 class="headflr" id="headfl1">Floor 1</h2>
+                    <input type="image" class="updn" id="upfl2" src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100"/>
+                </div>           
+            </div>
+            <div class="column">
+                <img id="elevator1" src="../images/elevator1.png" width="200" title="Elevator"/>
+            </div>
+            <div class="column">
+                <h2 class="elvhead" id="elvcnt">Elevator Controls</h2>
+                <img  id="flrnbr" src="../images/2.png" width = 100/>
+                <h3 class="elvhead" id="flr_nbr_hed">Current Floor Number</h3>
+                <hr/>
+                <br/>
+                <input class="elvbut" id="elv1" type="image" src="../images/Buttons/Buttons for Eduard/Buttons--01.png" width="100"/>
+                <br/>
+                <input class="elvbut" id="elv2" type="image" src="../images/Buttons/Buttons for Eduard/Buttons--03.png" width="100"/>
+                <br/>
+                <input class="elvbut" id="elv3" type="image" src="../images/Buttons/Buttons for Eduard/Buttons--05.png" width="100"/>
+
 
         </div>
     </div>
