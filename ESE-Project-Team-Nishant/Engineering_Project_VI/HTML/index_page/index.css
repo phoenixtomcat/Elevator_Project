@@ -37,3 +37,20 @@ h1 {
     display: block;
     height: 150px;
 }
+.content_list:link{
+    color: red;
+    text-decoration: none;
+}
+.content_list:visited{
+    color: red;
+    text-decoration: none;
+}
+.content_list:hover{
+    color: blue;
+    text-decoration: none;
+}
+.content_list:active{
+    background-color: black;
+    color:red;
+    text-decoration: none;
+}
