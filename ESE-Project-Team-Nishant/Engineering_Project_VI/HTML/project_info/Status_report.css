@@ -1,0 +1,25 @@
+body {
+    background-color: peachpuff;
+}
+.pageheader{
+    text-align: center;
+}
+table{
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table td{
+    border: 5px black solid;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.passed{
+    background-color: aqua;
+}
+.future{
+    background-color: orange;
+}
