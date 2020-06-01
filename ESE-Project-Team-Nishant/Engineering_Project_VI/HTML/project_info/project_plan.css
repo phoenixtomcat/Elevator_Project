@@ -1,15 +1,18 @@
 /*Project Plan style CSS*/
-.tasks{
+
+.tasks {
     text-align: left;
     color: blue;
-    font-family:cursive;
+    font-family: cursive;
 }
-.weeks{
+
+.weeks {
     text-align: center;
-    color:orangered;
+    color: #FF69B4;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.button{
+
+.button {
     background-color: red;
     border: none;
     color: white;
@@ -20,19 +23,71 @@
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
-  }
-body{
-    background-color: yellow;
 }
-h1{
+
+body {
+    background-color: peachpuff;
+}
+
+h1 {
+    text-decoration: underline;
     color: tomato;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-h2{
+
+h2 {
+    text-decoration: underline;
     color: teal;
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
 }
-td{
+
+td {
     font-weight: bold;
+}
+
+.tasks {
+    border: 5px black solid;
+    border-collapse: collapse;
+}
+
+.weeks {
+    border: 5px black solid;
+    border-collapse: collapse;
+    empty-cells: show;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table td {
+    border: 5px black solid;
+    border-collapse: collapse;
+    empty-cells: hide;
+}
+
+.things {
+    text-align: center;
+}
+
+.every {
+    background-color: purple;
+}
+
+.WeinEdu {
+    background-color: #FF4500;
+}
+
+.NisnRam {
+    background-color: #98FB98;
+}
+
+.NisnWei {
+    background-color: #00FFFF;
+}
+
+.RamnEdu {
+    background-color: #FF00FF;
 }
