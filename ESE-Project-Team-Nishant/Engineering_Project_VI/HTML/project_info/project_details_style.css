@@ -1,8 +1,11 @@
 head {
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
-body {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+body {font-family: Georgia, serif; 
+    width: 950px; 
+    padding: 10px; 
+    border: 2px solid black; 
+    margin: 1px auto 1px auto;
 }
 p, li {
     font-size: 100%;
@@ -20,6 +23,10 @@ p {
 }
 img {
     height: 300px;
+    margin: 0 auto 0 auto; 
+    display: block; 
+    border: 2px solid green; 
+    box-shadow: 10px 10px 5px gray;
 }
 figcaption {
     text-align: center;
@@ -35,3 +42,11 @@ figcaption {
 #can, #hcs12 {
     font-weight: bold;
 }
+figure {
+    border: 2px solid blue; 
+    border-radius: 25px;
+}
+
+
+
+
