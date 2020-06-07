@@ -35,9 +35,15 @@ article {
   }
   
   body{
-      padding-top: 35px;
+      padding-top: 33px;
   }
 .navbar-brand, #home{
     display: inline-block;
 
+}
+
+#button_array{
+    height: 445px;
+    border: 2px solid white;
+    margin-top: 5px;
 }
