@@ -10,6 +10,10 @@
 #feature, .article {
     height: 100px;
 }
+li {
+    display: inline;
+    padding: 5px;
+}
 
 article {
     background-color: rgb(223, 224, 229);
@@ -31,7 +35,7 @@ article {
   }
   
   body{
-      padding-top: 33px;
+      padding-top: 60px;
   }
 .navbar-brand, #home{
     display: inline-block;
