@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Request Access</title>
+    <meta name="description" content="Prjoect Home Page" />
+    <meta name="robots" content="noindex nofollow" />
+    <meta http-equiv="author" content="Eduard Nishant Ramtin Weipeng" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="request_access.css">
+    <link rel="stylesheet" type="text/css" href="../general.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="page" class="container">
+        <header id="header" class="grid_12">
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="header_menu">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" id="home" href="../index_page/index.html"><img src="../images/logo2.png"
+                                height="30px"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown nav-list">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Project
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://stuconestogacon.sharepoint.com/:f:/s/EngineeringProject6/EvQUPpIswstLs5E6GhHk530BeNRB-BgkishTWClxPYCVmw?e=KSvZ37"
+                                            target="_blank">Meeting Minutes</a></li>
+                                    <li><a href=../project_info/Status_report.html>Status Reports</a></li>
+                                    <li><a href=../project_info/project_plan.html>Project Plan</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown nav-list">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Log Books
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../log_books/Eduard_log_book.html">Eduard's Log Book</a></li>
+                                    <li><a href="https://docs.google.com/document/d/1pvT69yBrxHiE4KcT7D9cRQAKpWuq0mQMVHCXHAZnF1M/edit"
+                                            target="_blank">Nishant's Log Book</a></li>
+                                    <li><a href="../log_books/Ramtin_log_book.html">Ramtin's Log Book</a></li>
+                                    <li><a href="../log_books/Weipeng_log_book.html">Weipeng's Log Book</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-list"><a href="../project_info/about.html">About</a></li>
+                            <li class="nav-list"><a href="../elevator/elevator.html">Elevator</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-list"><a href="../login_page/request_access.html"><span
+                                        class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li class="nav-list"><a href="../login_page/login.html"><span
+                                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        <br />
+        <br />
+        <br />
+
+        <h1>Request Access</h1>
+        <form action="request_access.php" method="POST" id="accessForm">
+            <fieldset style="width: 300px; margin: 0px 0px 10px 0px;">
+                <legend>Contact Details</legend>
+                <div class="fieldset_div">
+                    <div class="input_row"><label for="firstname" class="input_label">First Name*: </label>
+                        <input id="firstname" class="input_box" type="text" name="firstname" required /></div>
+                    <div class="input_row"><label for="lastname" class="input_label">Last Name*: </label>
+                        <input id="lastname" class="input_box" type="text" name="lastname" required /></div>
+                    <div class="input_row"><label for="email" class="input_label">Email*: </label>
+                        <input id="email" class="input_box" type="email" name="email" required />
+                    </div>
+                    <div class="input_row"><label for="url" class="input_label">Website: </label>
+                        <input id="url" class="input_box" type="url" name="url" /></div>
+                    <div class="input_row"><label for="bdate" class="input_label">Birthday: </label>
+                        <input id="bdate" class="input_box" type="date" name="birthday" /></div>
+                    <div class="input_row">
+                        <label class="text_label"><input type="radio" name="fac_or_student" value="faculty"
+                                checked="checked" /> Faculty</label>
+                        <label><input type="radio" name="fac_or_student" value="student" /> Student</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset style="width: 300px;">
+                <legend>Tell us a bit about yourself</legend>
+                <p>Check all apply to you:</p>
+                <input type="checkbox" name="involvement" value="none"> Have no involvement in project <br />
+                <input type="checkbox" name="involvement" value="instructor"> An instructorin this project <br />
+                <input type="checkbox" name="involvement" value="instructor_other"> An instructor in a different project
+                <br />
+                <input type="checkbox" name="involvement" value="student"> A student in this project <br />
+                <input type="checkbox" name="involvement" value="student_other"> A student in a different project <br />
+                <input type="checkbox" name="involvement" value="admin"> A college administrator <br />
+                <input type="checkbox" name="involvement" value="external"> An external reviewer <br />
+                <p>Would you like to help improve the project?
+                    <select name="help_improve">
+                        <option value="no_answer" selected></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </p>
+                <textarea id="accessText" style="width: 500px; height: 200px;" name="accessText"
+                    form="accessForm">Other details...</textarea>
+            </fieldset>
+            <br />
+            <div style="width: 534px;"><input type="submit" value="submit" style="float: right;" /></div>
+        </form>
+    </div>
+    <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
+</body>
+
+</html>
