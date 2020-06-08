@@ -1,0 +1,14 @@
+* {
+    font-family: Arial, Verdana, sans-serif;
+    color: #35322f;
+    text-align: left;
+}
+body{
+    padding-top: 45px;
+}
+h1{
+    text-align: center;
+}
+article{
+    padding-top: 30px;
+}
