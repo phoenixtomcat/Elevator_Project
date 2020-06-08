@@ -6,3 +6,13 @@ body {
     font-size: medium;
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
+.navbar-brand, #home{
+    display: inline-block;
+
+}
+header {
+    font-size: medium;
+}
+.nav-list{
+    padding: 5px;
+}

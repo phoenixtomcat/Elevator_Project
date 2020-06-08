@@ -10,10 +10,6 @@
 #feature, .article {
     height: 100px;
 }
-li {
-    display: inline;
-    padding: 5px;
-}
 
 article {
     background-color: rgb(223, 224, 229);

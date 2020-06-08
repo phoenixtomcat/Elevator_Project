@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
+
+    <meta name="description" content="Weipeng Log Book" />
+    <meta name="robots" content="noindex nofollow" />
+    <meta http-equiv="author" content="Weipeng" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="../general.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="page" class="container">
+        <header id="header" class="grid_12">
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="header_menu">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" id="home" href="../index_page/index.html"><img src="../images/logo2.png"
+                                height="30px"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown nav-list">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Project
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://stuconestogacon.sharepoint.com/:f:/s/EngineeringProject6/EvQUPpIswstLs5E6GhHk530BeNRB-BgkishTWClxPYCVmw?e=KSvZ37"
+                                            target="_blank">Meeting Minutes</a></li>
+                                    <li><a href=../project_info/Status_report.html>Status Reports</a></li>
+                                    <li><a href=../project_info/project_plan.html>Project Plan</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown nav-list">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Log Books
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../log_books/Eduard_log_book.html">Eduard's Log Book</a></li>
+                                    <li><a href="https://docs.google.com/document/d/1pvT69yBrxHiE4KcT7D9cRQAKpWuq0mQMVHCXHAZnF1M/edit"
+                                            target="_blank">Nishant's Log Book</a></li>
+                                    <li><a href="../log_books/Ramtin_log_book.html">Ramtin's Log Book</a></li>
+                                    <li><a href="../log_books/Weipeng_log_book.html">Weipeng's Log Book</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-list"><a href="../project_info/about.html">About</a></li>
+                            <li class="nav-list"><a href="../elevator/elevator.html">Elevator</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-list"><a href="../login_page/request_access.html"><span
+                                        class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li class="nav-list"><a href="../login_page/login.html"><span
+                                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        <br/>
+        <br/>
+        <br/>
+
         <h1>Weipeng's Log Book</h1>
-        <meta name="description" content="Weipeng Log Book" />
-        <meta name="robots" content="noindex nofollow" />
-        <meta http-equiv="author" content="Weipeng" />
-        <meta http-equiv="pragma" content="no-cache" />
-        <link rel="stylesheet" type="text/css" href="../general.css" />
-    </head>
-    <body>
         <h1 id="week1">Week 1</h1>
 
         <ul style="line-height: 30px;">
@@ -18,7 +81,7 @@
                     <li>Finished github set up</li>
                 </ul>
             </li>
-            <br/>
+            <br />
             <li>May 22, 2020
                 <ul>
                     <li>Set up Nucleo board for programming</li>
@@ -26,11 +89,12 @@
                     <li>Encounter "GDB server" error. Solved by switch power source to ST-link</li>
                 </ul>
             </li>
-            <br/>
+            <br />
             <li>May 23, 2020
                 <ul>
                     <li>continue on Nucleo board programming</li>
-                    <li>code can be complied and uploaded successfully, when push blue button, difficult to tell if it's triggered because of reciving message</li>
+                    <li>code can be complied and uploaded successfully, when push blue button, difficult to tell if it's
+                        triggered because of reciving message</li>
                     <li>need to figure out a way to verify message is actually received</li>
                     <li>try to work with external button and LEDs
                         <ul>
@@ -41,7 +105,7 @@
                                     <tr>
                                         <td>Floor</td>
                                         <td>Button</td>
-                                        <td>LED</td> 
+                                        <td>LED</td>
                                     </tr>
                                     <tr>
                                         <td> 1 </td>
@@ -60,24 +124,28 @@
                                     </tr>
                                 </table>
                             </li>
-                            <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the pin to HAL_GPIO_EXTI_IQRHandler()</li>
-                            <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different button flag</li>
+                            <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the pin to
+                                HAL_GPIO_EXTI_IQRHandler()</li>
+                            <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different button flag
+                            </li>
                             <li>In main function, will send out different floor message according to button flags</li>
                         </ul>
                     </li>
                     <li>Set up filter
                         <ul>
                             <li>Assume need to accept ID 0x100 to 0x103</li>
-                            <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because standard ID only has 11 digits)</li>
-                            <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9 digits have to exact match)</li>
+                            <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because standard ID only
+                                has 11 digits)</li>
+                            <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9 digits have to
+                                exact match)</li>
                             <li>set sender ID to 0x100 ~ 0x103, the LEDs works properly</li>
                             <li>set sender ID to 0x104, the LED does not respond. Filter works properly</li>
                         </ul>
                     </li>
                 </ul>
             </li>
-            <br/>
-                
+            <br />
+
         </ul>
 
         <h1 id="week2">Week 2</h1>
@@ -85,17 +153,18 @@
             <li>May 25, 2020
                 <ul>
                     <li>Nucleo64 CAN demo wiring diagram</li>
-                    <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram" title = "Wiring diagram" width = "500"/>  
+                    <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram" title="Wiring diagram"
+                        width="500" />
                 </ul>
             </li>
             <li>May 28, 2020
                 <ul>
                     <li>Update Project Webpage</li>
-                        <ol>
-                            <li>Added meta tags</li>
-                            <li>Added login and request access pages</li>
-                            <li>Added google map iframe</li>
-                        </ol>
+                    <ol>
+                        <li>Added meta tags</li>
+                        <li>Added login and request access pages</li>
+                        <li>Added google map iframe</li>
+                    </ol>
                 </ul>
             </li>
             <li>May 29, 2020
@@ -111,12 +180,14 @@
                 <ul>
                     <li>Create weekly status report for week 2</li>
                     <li>Improve status report page</li>
-                    <li>Remake resume. The current resume style is not attractive and lack key skill information. Will need to find a good format and fill in skills</li>
+                    <li>Remake resume. The current resume style is not attractive and lack key skill information. Will
+                        need to find a good format and fill in skills</li>
                 </ul>
             </li>
             <li>June 2, 2020
                 <ul>
-                    <li>Remake cover letter. The current cover letter lacks the introduction of the school program. Will add a paragraph for it</li>
+                    <li>Remake cover letter. The current cover letter lacks the introduction of the school program. Will
+                        add a paragraph for it</li>
                     <li>Prepare for data com quiz 1</li>
                 </ul>
             </li>
@@ -128,10 +199,13 @@
             </li>
             <li>June 4, 2020
                 <ul>
-                    <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need to find a time to finish it)</li>
-                    <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is wrong. For assignment 6b, seems we still lack some knowledge</li>
+                    <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need to find a
+                        time to finish it)</li>
+                    <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is wrong. For
+                        assignment 6b, seems we still lack some knowledge</li>
                     <li>Worked on project login and request_access pages. Now the input boxes are aligned</li>
-                    <img src="../images/input_box_alignment.png" alt="input_boxes" title = "input_box_alignment" width = "300"/>
+                    <img src="../images/input_box_alignment.png" alt="input_boxes" title="input_box_alignment"
+                        width="300" />
                     <li>Add copyright footers to each page</li>
                     <li>Finished software assignment#1 Q14-a. Will continue to work on Q14-b</li>
                 </ul>
@@ -142,6 +216,8 @@
                 </ul>
             </li>
         </ul>
-        <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
-    </body>
+    </div>
+    <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
+</body>
+
 </html>
