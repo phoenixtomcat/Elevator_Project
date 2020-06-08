@@ -1,0 +1,45 @@
+* {
+    font-family: Arial, Verdana, sans-serif;
+    color: #665544;
+    text-align: center;
+}
+#nav, #feature, .article, #footer {
+    margin-top: 20px;
+    padding: 10px 0px 5px 0px;
+}
+#feature, .article {
+    height: 100px;
+}
+
+article {
+    background-color: rgb(223, 224, 229);
+  }
+  .col-xs-12, .col-md-4{
+    height: 700px;
+    background-clip: padding-box;
+    border: 10px solid transparent;
+  }
+.floor {
+    height: 220px;
+    border: 2px solid white;
+    margin-top: 5px;
+
+  }
+
+  header{
+      background-color: rgb(182, 147, 189);
+  }
+  
+  body{
+      padding-top: 33px;
+  }
+.navbar-brand, #home{
+    display: inline-block;
+
+}
+
+#button_array{
+    height: 445px;
+    border: 2px solid white;
+    margin-top: 5px;
+}

@@ -1,0 +1,22 @@
+.text_label{
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding: 0px 10px 0px 0px;
+}
+.text_input{
+    width: 150px;
+    text-align: left;
+}
+form {
+    text-align: center;
+}
+.input{
+    padding: 10px 0px 10px 0px;
+    width: 268px;
+    margin: auto;
+}
+
+#submit {
+    float: right;
+}
