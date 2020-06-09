@@ -1,18 +1,17 @@
 <?php
-$submitted = !empty($_POST);
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Form Handler Page</title>
-        <body>
-            <p>Form submitted? <?php echo (int) $submitted; ?></p>
-            <p>Your login info is</p>
-            <ul>
-                <li><b>username</b>: <?php echo $_POST['username']; ?></li>
-                <li><b>passowrd</b>: <?php echo $_POST['password']; ?></li>
-            </ul>
-        </body>
-    </head>
+session_start();
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-</html>
+if($username == "username"&&$password=="password"){
+    $_SESSION['username']=$username;
+    require '../index_page/index.php';
+    require'../login_page/sucess_LI.html';
+    echo "<p>Congratulations, you are now logged in</p>";
+    echo '<a href="member.php">Click here</a>';
+}
+else{
+    require '../login_page/login.html';
+    require '../login_page/fail_LI.html';
+}
+?>
