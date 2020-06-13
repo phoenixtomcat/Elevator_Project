@@ -13,32 +13,39 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="../login_page/login.css">
-        <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
+    <link rel="stylesheet" type="text/css" href="../login_page/login.css">
+    <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
 </head>
 
 <body>
     <div id="page" class="container">
-        
+
         <br />
         <br />
         <br />
 
-    <form action="../login_page/login.php" method="POST">
-        <br />
-        <br />
-        <div class="input">
-            <label for="user" class="text_label">Username: </label>
-            <input id="user" class="text_input" type="text" name="username" required />
-        </div>
-        <div class="input">
-            <label for="pass" class="text_label">Password: </label>
-            <input id="pass" class="text_input" type="password" name="password" required />
-        </div>
-        <div class="input"><input id="submit" type="submit" value="Log in" /></div>
+        <form action="../login_page/login.php" method="POST">
+            <br />
+            <br />
+            <div class="input">
+                <label for="user" class="text_label">Username: </label>
+                <input id="user" class="text_input" type="text" name="username" required />
+            </div>
+            <div class="input">
+                <label for="pass" class="text_label">Password: </label>
+                <input id="pass" class="text_input" type="password" name="password" required />
+            </div>
+            <div class="input" style="display: inline-block;">
+                <a href="request_access.html" id="request_access"><img id="request_access_img" src="../images/request_access1.png"></a>
+            </div>
+            
+            <div class="input" style="display: inline-block;">
+                <input id="submit" src="../images/login1.png" type="image" alt="Log in" />
+            </div>
+            <script src="login.js"></script>
+        </form>
 
-    </form>
-</div>
+    </div>
 </body>
 <footer>
     <br />
