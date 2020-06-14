@@ -14,181 +14,357 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
+    <style>
+        body {
+            position: relative;
+        }
+
+        ul.nav-list {
+            top: 70px;
+            position: fixed;
+            font-size: medium;
+            font-weight: bold;
+            line-height: 30px;
+            list-style-type: none;
+        }
+
+        ul.nav-list li a{
+            padding: 5px 5px 5px 5px;
+            color: rgb(39, 79, 189);
+            border-radius: 4px;
+        }
+
+        ul.nav-list li a:hover {
+            padding: 5px 5px 5px 5px;
+            background-color: rgb(39, 79, 189);
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .week_log {
+            position: relative;
+            top: 70px;
+            padding: 3px 10px 3px 10px;
+            border-radius: 7px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="page" class="container">
 
-        <br/>
-        <br/>
-        <br/>
+        <nav class="col-sm-3">
+            <ul class="nav-list">
+                <li><a href="#week1">Week 1</a></li>
+                <li><a href="#week2">Week 2</a></li>
+                <li><a href="#week3">Week 3</a></li>
+                <li><a href="#week4">Week 4</a></li>
+            </ul>
+        </nav>
 
-        <h1>Weipeng's Log Book</h1>
-        <h1 id="week1">Week 1</h1>
+        <div class="col-sm-9">
+            <h1>Weipeng's Log Book</h1>
+            <div id="week1">
+                <div class="week_log" style="background-color: aqua;">
+                    <h1>Week 1</h1>
+                    <ul style="line-height: 30px;">
+                        <li>May 21, 2020
+                            <ul>
+                                <li>Finished project webpage framework</li>
+                                <li>Finished github set up</li>
+                            </ul>
+                        </li>
+                        <br />
+                        <li>May 22, 2020
+                            <ul>
+                                <li>Set up Nucleo board for programming</li>
+                                <li>Can't set up Atollic, switch to CubeIDE</li>
+                                <li>Encounter "GDB server" error. Solved by switch power source to ST-link</li>
+                            </ul>
+                        </li>
+                        <br />
+                        <li>May 23, 2020
+                            <ul>
+                                <li>continue on Nucleo board programming</li>
+                                <li>code can be complied and uploaded successfully, when push blue button, difficult to
+                                    tell
+                                    if
+                                    it's
+                                    triggered because of reciving message</li>
+                                <li>need to figure out a way to verify message is actually received</li>
+                                <li>try to work with external button and LEDs
+                                    <ul>
+                                        <li>Buttons are set to active low by default</li>
+                                        <li>Blue Button is PC13</li>
+                                        <li>Pinout Map
+                                            <table>
+                                                <tr>
+                                                    <td>Floor</td>
+                                                    <td>Button</td>
+                                                    <td>LED</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 1 </td>
+                                                    <td> PC13 </td>
+                                                    <td> PA5 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 2 </td>
+                                                    <td> PC12 </td>
+                                                    <td> PA6 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 3 </td>
+                                                    <td> PC11 </td>
+                                                    <td> PA7 </td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the
+                                            pin to
+                                            HAL_GPIO_EXTI_IQRHandler()</li>
+                                        <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different
+                                            button
+                                            flag
+                                        </li>
+                                        <li>In main function, will send out different floor message according to button
+                                            flags
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Set up filter
+                                    <ul>
+                                        <li>Assume need to accept ID 0x100 to 0x103</li>
+                                        <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because
+                                            standard
+                                            ID
+                                            only
+                                            has 11 digits)</li>
+                                        <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9
+                                            digits
+                                            have
+                                            to
+                                            exact match)</li>
+                                        <li>set sender ID to 0x100 ~ 0x103, the LEDs works properly</li>
+                                        <li>set sender ID to 0x104, the LED does not respond. Filter works properly</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <br />
 
-        <ul style="line-height: 30px;">
-            <li>May 21, 2020
-                <ul>
-                    <li>Finished project webpage framework</li>
-                    <li>Finished github set up</li>
-                </ul>
-            </li>
+                    </ul>
+                </div>
+            </div>
             <br />
-            <li>May 22, 2020
-                <ul>
-                    <li>Set up Nucleo board for programming</li>
-                    <li>Can't set up Atollic, switch to CubeIDE</li>
-                    <li>Encounter "GDB server" error. Solved by switch power source to ST-link</li>
-                </ul>
-            </li>
+            <div id="week2">
+                <div class="week_log" style="background-color: plum;">
+                    <h1>Week 2</h1>
+                    <ul style="line-height: 30px;">
+                        <li>May 25, 2020
+                            <ul>
+                                <li>Nucleo64 CAN demo wiring diagram</li>
+                                <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram"
+                                    title="Wiring diagram" width="500" />
+                            </ul>
+                        </li>
+                        <li>May 28, 2020
+                            <ul>
+                                <li>Update Project Webpage</li>
+                                <ol>
+                                    <li>Added meta tags</li>
+                                    <li>Added login and request access pages</li>
+                                    <li>Added google map iframe</li>
+                                </ol>
+                            </ul>
+                        </li>
+                        <li>May 29, 2020
+                            <ul>
+                                <li>Transfer Nishant's finite state machine logic from word to html</li>
+                                <li>Add basic states diagram and target setting algorithm</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <br />
-            <li>May 23, 2020
-                <ul>
-                    <li>continue on Nucleo board programming</li>
-                    <li>code can be complied and uploaded successfully, when push blue button, difficult to tell if it's
-                        triggered because of reciving message</li>
-                    <li>need to figure out a way to verify message is actually received</li>
-                    <li>try to work with external button and LEDs
-                        <ul>
-                            <li>Buttons are set to active low by default</li>
-                            <li>Blue Button is PC13</li>
-                            <li>Pinout Map
-                                <table>
-                                    <tr>
-                                        <td>Floor</td>
-                                        <td>Button</td>
-                                        <td>LED</td>
-                                    </tr>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> PC13 </td>
-                                        <td> PA5 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 2 </td>
-                                        <td> PC12 </td>
-                                        <td> PA6 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 3 </td>
-                                        <td> PC11 </td>
-                                        <td> PA7 </td>
-                                    </tr>
-                                </table>
-                            </li>
-                            <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the pin to
-                                HAL_GPIO_EXTI_IQRHandler()</li>
-                            <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different button flag
-                            </li>
-                            <li>In main function, will send out different floor message according to button flags</li>
-                        </ul>
-                    </li>
-                    <li>Set up filter
-                        <ul>
-                            <li>Assume need to accept ID 0x100 to 0x103</li>
-                            <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because standard ID only
-                                has 11 digits)</li>
-                            <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9 digits have to
-                                exact match)</li>
-                            <li>set sender ID to 0x100 ~ 0x103, the LEDs works properly</li>
-                            <li>set sender ID to 0x104, the LED does not respond. Filter works properly</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            <div id="week3">
+                <div class="week_log" style="background-color: yellow">
+                    <h1>Week 3</h1>
+                    <ul style="line-height: 30px;">
+                        <li>June 1, 2020
+                            <ul>
+                                <li>Create weekly status report for week 2</li>
+                                <li>Improve status report page</li>
+                                <li>Remake resume. The current resume style is not attractive and lack key skill
+                                    information.
+                                    Will
+                                    need to find a good format and fill in skills</li>
+                            </ul>
+                        </li>
+                        <li>June 2, 2020
+                            <ul>
+                                <li>Remake cover letter. The current cover letter lacks the introduction of the school
+                                    program.
+                                    Will
+                                    add a paragraph for it</li>
+                                <li>Prepare for data com quiz 1</li>
+                            </ul>
+                        </li>
+                        <li>June 3, 2020
+                            <ul>
+                                <li>Prepare for math quiz 2</li>
+                                <li>Finished math assignment 6. Not sure if using F or f to do the calculate</li>
+                            </ul>
+                        </li>
+                        <li>June 4, 2020
+                            <ul>
+                                <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need
+                                    to
+                                    find a
+                                    time to finish it)</li>
+                                <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is
+                                    wrong.
+                                    For
+                                    assignment 6b, seems we still lack some knowledge</li>
+                                <li>Worked on project login and request_access pages. Now the input boxes are aligned
+                                </li>
+                                <img src="../images/input_box_alignment.png" alt="input_boxes"
+                                    title="input_box_alignment" width="300" />
+                                <li>Add copyright footers to each page</li>
+                                <li>Finished software assignment#1 Q14-a. Will continue to work on Q14-b</li>
+                            </ul>
+                        </li>
+                        <li>June 5, 2020
+                            <ul>
+                                <li>finished software assignment#1 Q14-b. Will need someone to review the page</li>
+                            </ul>
+                        </li>
+                        <li>June 7, 2020
+                            <ul>
+                                <li>change Eduard's navigation bar a little and generalized it to all our pages</li>
+                                <li>Try to build a nested dropdown menu, find a source here: <a
+                                        href="https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation">https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation</a>
+                                </li>
+                                <img src="../images/nested-dropdown-example.png" alt="dropdown example"
+                                    title="dropdown example" width="300">
+                                <li>The nested dropdown doesn't work. The secondary dropdown menu position shifted</li>
+                                <li>May require JavaScript function to do it?</li>
+                            </ul>
+                        </li>
+                        <li>June 8, 2020
+                            <ul>
+                                <li>remake the project home page with slide show with carousel</li>
+                                <img src="../images/home_slide_show_example.png" alt="slide show example"
+                                    title="slide show example" width="500">
+                                <li>restructure the header with grip. Want the team logo to disappear when window is
+                                    narrow.
+                                </li>
+                                <li>hasn't found a way to hide the logo. Online sources are more for bootstrap 4: <a
+                                        href="https://mdbootstrap.com/snippets/jquery/ascensus/131016">https://mdbootstrap.com/snippets/jquery/ascensus/131016</a>
+                                </li>
+                                <li>Try to change the bootstrap to version 4, need adjustments for the slide show. I can
+                                    have
+                                    the slide show works, but the prev and next buttons are invisible. Also the
+                                    .d-md-none
+                                    doesn't work well</li>
+                                <li>Rollback to bootstrap 3 since the slide show buttons' issue</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <br />
-
-        </ul>
-
-        <h1 id="week2">Week 2</h1>
-        <ul style="line-height: 30px;">
-            <li>May 25, 2020
-                <ul>
-                    <li>Nucleo64 CAN demo wiring diagram</li>
-                    <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram" title="Wiring diagram"
-                        width="500" />
-                </ul>
-            </li>
-            <li>May 28, 2020
-                <ul>
-                    <li>Update Project Webpage</li>
-                    <ol>
-                        <li>Added meta tags</li>
-                        <li>Added login and request access pages</li>
-                        <li>Added google map iframe</li>
-                    </ol>
-                </ul>
-            </li>
-            <li>May 29, 2020
-                <ul>
-                    <li>Transfer Nishant's finite state machine logic from word to html</li>
-                    <li>Add basic states diagram and target setting algorithm</li>
-                </ul>
-            </li>
-        </ul>
-        <h1 id="week3">Week 3</h1>
-        <ul style="line-height: 30px;">
-            <li>June 1, 2020
-                <ul>
-                    <li>Create weekly status report for week 2</li>
-                    <li>Improve status report page</li>
-                    <li>Remake resume. The current resume style is not attractive and lack key skill information. Will
-                        need to find a good format and fill in skills</li>
-                </ul>
-            </li>
-            <li>June 2, 2020
-                <ul>
-                    <li>Remake cover letter. The current cover letter lacks the introduction of the school program. Will
-                        add a paragraph for it</li>
-                    <li>Prepare for data com quiz 1</li>
-                </ul>
-            </li>
-            <li>June 3, 2020
-                <ul>
-                    <li>Prepare for math quiz 2</li>
-                    <li>Finished math assignment 6. Not sure if using F or f to do the calculate</li>
-                </ul>
-            </li>
-            <li>June 4, 2020
-                <ul>
-                    <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need to find a
-                        time to finish it)</li>
-                    <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is wrong. For
-                        assignment 6b, seems we still lack some knowledge</li>
-                    <li>Worked on project login and request_access pages. Now the input boxes are aligned</li>
-                    <img src="../images/input_box_alignment.png" alt="input_boxes" title="input_box_alignment"
-                        width="300" />
-                    <li>Add copyright footers to each page</li>
-                    <li>Finished software assignment#1 Q14-a. Will continue to work on Q14-b</li>
-                </ul>
-            </li>
-            <li>June 5, 2020
-                <ul>
-                    <li>finished software assignment#1 Q14-b. Will need someone to review the page</li>
-                </ul>
-            </li>
-            <li>June 7, 2020
-                <ul>
-                    <li>change Eduard's navigation bar a little and generalized it to all our pages</li>
-                    <li>Try to build a nested dropdown menu, find a source here: <a href="https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation">https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation</a></li>
-                    <img src="../images/nested-dropdown-example.png" alt="dropdown example" title="dropdown example" width="300">
-                    <li>The nested dropdown doesn't work. The secondary dropdown menu position shifted</li>
-                    <li>May require JavaScript function to do it?</li>
-                </ul>
-            </li>
-            <li>June 8, 2020
-                <ul>
-                    <li>remake the project home page with slide show with carousel</li>
-                    <img src="../images/home_slide_show_example.png" alt="slide show example" title="slide show example" width="500">
-                    <li>restructure the header with grip. Want the team logo to disappear when window is narrow.</li>
-                    <li>hasn't found a way to hide the logo. Online sources are more for bootstrap 4: <a href="https://mdbootstrap.com/snippets/jquery/ascensus/131016">https://mdbootstrap.com/snippets/jquery/ascensus/131016</a></li>
-                    <li>Try to change the bootstrap to version 4, need adjustments for the slide show. I can have the slide show works, but the prev and next buttons are invisible. Also the .d-md-none doesn't work well</li>
-                    <li>Rollback to bootstrap 3 since the slide show buttons' issue</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
+            <div id="week4">
+                <div class="week_log" style="background-color: greenyellow">
+                    <h1>Week 4</h1>
+                    <ul style="line-height: 30px;">
+                        <li>June 10, 2020
+                            <ul>
+                                <li>Try to set up LAMP at personal Rpi4</li>
+                                <li>"sudo apt-get install lamp-server^" didn't work. couldn't find the package. Have to
+                                    install apache2, php, mySQL, phpMyAdmin individually</li>
+                                <li>The mysql-client part of the instruction is outdated. Used mariadb-server instead
+                                </li>
+                                <li>Used <a
+                                        href="https://howtoraspberrypi.com/how-to-install-web-server-raspberry-pi-lamp/">this</a>
+                                    resource to finish the rest</li>
+                                <li>Successfully access the mySQL database and create a new user</li>
+                            </ul>
+                        </li>
+                        <li>June 11, 2020
+                            <ul>
+                                <li>Switch my main workstation to Mac. Set up git, vscode, XAMPP, etc for the project
+                                </li>
+                                <li>Becuase I feel my knowledge regarding HTML, CSS, and JavaScript are not concrete, I
+                                    decide to take this chance to review web knowledge that is required by the project
+                                </li>
+                                <li>Some project webpage components, such as the navigation bar and bootstrap
+                                    functionalities are done by others. Need to practise how to make them</li>
+                                <li>Built a personal practice website from ground up</li>
+                                <li>Build the same style of nav bar with the help from <a
+                                        href="https://www.w3schools.com/bootstrap/bootstrap_navbar.asp">here</a></li>
+                            </ul>
+                        </li>
+                        <li>June 12, 2020
+                            <ul>
+                                <li>Continue to practise my web skills on the personal website</li>
+                                <li>Build a second vertical nav bar, called scrollsp, that can interact with the main
+                                    content. Get resource from <a
+                                        href="https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">here</a></li>
+                                <img src="../images/scrollspy.png" width="600" alt="scrollspy screenshot">
+                                <li>Built log-in and sign-up pages with bootstrap. Get resource from <a
+                                        href="https://www.w3schools.com/bootstrap/bootstrap_forms.asp">here</a></li>
+                                <img src="../images/login-bootstrap.png" width="600"
+                                    alt="login page built with bootstrap">
+                                <li>Practise putting an image along with inputs</li>
+                                <img src="../images/side image.png" width="600" alt="image aside other element">
+                                <li>Try to have image rollover effect on project log in page
+                                    <ul>
+                                        <li>Try to use the pseudo element method (:hover, :active) to make image
+                                            rollover,
+                                            but it doesn't work. Guess if the target element is covered by other
+                                            elements,
+                                            the mouse event is not triggered</li>
+                                        <li>Use JavaScript to realize the effect. Create a set of 3 images: one for
+                                            inactive
+                                            status, one for mouse hover status, and another one for mouse click status
+                                        </li>
+                                        <img src="../images/image rollover1.png" width="400" alt="button designs">
+                                        <li>Create 3 event listener for the button. Then change source image according
+                                            to
+                                            coresponding events. The idea was inspired by <a
+                                                href="https://stackoverflow.com/questions/18032220/css-change-image-src-on-imghover">this</a>.
+                                        </li>
+                                        <img src="../images/image rollover2.png" width="400"
+                                            alt="buttons at inactive status">
+                                    </ul>
+                                </li>
+                                <li>encounter issue after Eduard putting navbar and bootstrap codes in one place</li>
+                                <li>It is quite wired that the same code works in PC, but not at my Mac and Rpi4</li>
+                                <li>It seems the .php files failed to run properly</li>
+                                <li>Found the reason: the apache servers in Mac and Rpi4 didn't prioritize index.php over index.html, while the server in PC does so. Just need to specify the page path to index.php, then everything works fine</li>
+                            </ul>
+                        </li>
+                        <li>June 13, 2020
+                            <ul>
+                                <li>Convert my look book to the scrollspy format</li>
+                                <li>The conversiont didn't go very well. The side navigation list was not highlighted automatically when main content is scrolled.</li>
+                                <li>Found that if content sections are in different heights, the scrollspy format doesn't work</li>
+                                <li>Try to convert the daily activity to sub menu items, but still had the same problem</li>
+                                <li>Cannot have the scrollspy format worked, rollback to original format</li>
+                                <li>Manually create a side panel and make a ancher list to scroll to weekly contents. Since the top nav bar hides some space, have to wrap the week section into a div and offset each section by 70px</li>
+                                <li>Beautify the log book with coloured sections and border radius</li>
+                            </ul>
+                        </li>
+                        <br />
+                    </ul>
+                </div>
+            </div>
+            <br />
+        </div>
+        <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
 </body>
 
 </html>
