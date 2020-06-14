@@ -10,7 +10,7 @@ function myMove(floor, pot)
         target_raw_floor_number = 240;
     }
     else if(floor == "3"){
-        target_raw_floor_number = 0;
+        target_raw_floor_number = 15;
     }
 
     var elem = document.getElementById("elevator1");   
