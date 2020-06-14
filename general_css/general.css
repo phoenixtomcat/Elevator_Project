@@ -1,6 +1,6 @@
-head {
-    font-size: medium;
-    font-family: Georgia, Times, 'Times New Roman', serif;
+* {
+    font-family: Arial, Verdana, sans-serif;
+    color: #35322f;
 }
 body {
     font-size: medium;
@@ -16,3 +16,5 @@ header {
 .nav-list{
     padding: 5px;
 }
+
+

@@ -22,6 +22,7 @@ article {
     height: 700px;
     background-clip: padding-box;
     border: 10px solid transparent;
+    position: relative;
   }
 .floor {
     height: 220px;
@@ -46,4 +47,15 @@ article {
     height: 445px;
     border: 2px solid white;
     margin-top: 5px;
+}
+
+input{
+  outline: none;
+}
+
+#elevator1{
+    position: absolute;
+    top: center;
+    left: 50%;
+    margin-left: -100px;
 }

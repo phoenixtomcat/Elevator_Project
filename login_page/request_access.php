@@ -1,25 +1,35 @@
 <?php
 $submitted = !empty($_POST);
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Form Handler Page</title>
-        <body>
-            <p>Form submitted? <?php echo (int) $submitted; ?></p>
-            <p>Your login info is</p>
-            <ul>
-                <li><b>First Name</b>: <?php echo $_POST['firstname']; ?></li>
-                <li><b>Last Name</b>: <?php echo $_POST['lastname']; ?></li>
-                <li><b>Email</b>: <?php echo $_POST['email']; ?></li>
-                <li><b>Website</b>: <?php echo $_POST['url']; ?></li>
-                <li><b>Birthday</b>: <?php echo $_POST['birthday']; ?></li>
-                <li><b>Faculty or student</b>: <?php echo $_POST['fac_or_student']; ?></li>
-                <li><b>Involvement</b>: <?php echo $_POST['involvement']; ?></li>
-                <li><b>Willing to help</b>: <?php echo $_POST['fac_or_student']; ?></li>
-                <li><b>Request Details</b>: <?php echo $_POST['accessText']; ?></li>
-            </ul>
-        </body>
-    </head>
 
-</html>
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$username = $_POST['username']; //U can also use $_GET array
+$password =$_POST['password'];
+$website = $_POST['url'];
+$birthday = $_POST['birthday'];
+$fac_or_student = $_POST['fac_or_student'];
+$involvement = $_POST['involvement'];
+$help_improve = $_POST['help_improve'];
+$accessText = $_POST['accessText'];
+
+if($username&&$password)
+{
+    require '../login_page/login.html'; //take to login page
+    require '../login_page/req_aces_sucess.html'; //success
+    $headers = array_keys($_POST);
+    $file = fopen("members_info.csv","a");
+    if(!filesize("members_info.csv")){
+        fputcsv($file, $headers ); //write headers (key of the $_POST array (id,username,password,etc)
+        fputcsv($file, $_POST ); //write values to file
+    }
+    else{
+        fputcsv($file, $_POST );
+    }
+    fclose($file);
+}
+else{
+    require '../login_page/request_access.html'; //if fails loop back to req_access page
+    require '../login_page/req_aces_fail.html';
+}
+?>
