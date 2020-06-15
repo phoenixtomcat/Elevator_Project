@@ -8,17 +8,14 @@
     <meta http-equiv="author" content="Weipeng" />
     <meta http-equiv="pragma" content="no-cache" />
     <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <style>
         body {
             position: relative;
         }
-
+        
         ul.nav-list {
             top: 70px;
             position: fixed;
@@ -27,13 +24,13 @@
             line-height: 30px;
             list-style-type: none;
         }
-
-        ul.nav-list li a{
+        
+        ul.nav-list li a {
             padding: 5px 5px 5px 5px;
             color: rgb(39, 79, 189);
             border-radius: 4px;
         }
-
+        
         ul.nav-list li a:hover {
             padding: 5px 5px 5px 5px;
             background-color: rgb(39, 79, 189);
@@ -41,7 +38,7 @@
             color: white;
             border-radius: 4px;
         }
-
+        
         .week_log {
             position: relative;
             top: 70px;
@@ -87,11 +84,7 @@
                         <li>May 23, 2020
                             <ul>
                                 <li>continue on Nucleo board programming</li>
-                                <li>code can be complied and uploaded successfully, when push blue button, difficult to
-                                    tell
-                                    if
-                                    it's
-                                    triggered because of reciving message</li>
+                                <li>code can be complied and uploaded successfully, when push blue button, difficult to tell if it's triggered because of reciving message</li>
                                 <li>need to figure out a way to verify message is actually received</li>
                                 <li>try to work with external button and LEDs
                                     <ul>
@@ -121,31 +114,19 @@
                                                 </tr>
                                             </table>
                                         </li>
-                                        <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the
-                                            pin to
-                                            HAL_GPIO_EXTI_IQRHandler()</li>
-                                        <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different
-                                            button
-                                            flag
+                                        <li>set EXIT15_10_IRQHandler() to check which line flag is set, then pass the pin to HAL_GPIO_EXTI_IQRHandler()
                                         </li>
-                                        <li>In main function, will send out different floor message according to button
-                                            flags
+                                        <li>According to the passed-in pin, HAL_GPIO_EXTI_Callback() will set different button flag
+                                        </li>
+                                        <li>In main function, will send out different floor message according to button flags
                                         </li>
                                     </ul>
                                 </li>
                                 <li>Set up filter
                                     <ul>
                                         <li>Assume need to accept ID 0x100 to 0x103</li>
-                                        <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because
-                                            standard
-                                            ID
-                                            only
-                                            has 11 digits)</li>
-                                        <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9
-                                            digits
-                                            have
-                                            to
-                                            exact match)</li>
+                                        <li>Set filter.FilterIdHight to 0x0100&lt&lt5 (shift 5 digit to 5 because standard ID only has 11 digits)</li>
+                                        <li>Set filter.FilterMaskIdHigh to 0xFF80 (for the 11-digit ID, the left 9 digits have to exact match)</li>
                                         <li>set sender ID to 0x100 ~ 0x103, the LEDs works properly</li>
                                         <li>set sender ID to 0x104, the LED does not respond. Filter works properly</li>
                                     </ul>
@@ -165,8 +146,7 @@
                         <li>May 25, 2020
                             <ul>
                                 <li>Nucleo64 CAN demo wiring diagram</li>
-                                <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram"
-                                    title="Wiring diagram" width="500" />
+                                <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram" title="Wiring diagram" width="500" />
                             </ul>
                         </li>
                         <li>May 28, 2020
@@ -197,18 +177,12 @@
                             <ul>
                                 <li>Create weekly status report for week 2</li>
                                 <li>Improve status report page</li>
-                                <li>Remake resume. The current resume style is not attractive and lack key skill
-                                    information.
-                                    Will
-                                    need to find a good format and fill in skills</li>
+                                <li>Remake resume. The current resume style is not attractive and lack key skill information. Will need to find a good format and fill in skills</li>
                             </ul>
                         </li>
                         <li>June 2, 2020
                             <ul>
-                                <li>Remake cover letter. The current cover letter lacks the introduction of the school
-                                    program.
-                                    Will
-                                    add a paragraph for it</li>
+                                <li>Remake cover letter. The current cover letter lacks the introduction of the school program. Will add a paragraph for it</li>
                                 <li>Prepare for data com quiz 1</li>
                             </ul>
                         </li>
@@ -220,18 +194,11 @@
                         </li>
                         <li>June 4, 2020
                             <ul>
-                                <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need
-                                    to
-                                    find a
-                                    time to finish it)</li>
-                                <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is
-                                    wrong.
-                                    For
-                                    assignment 6b, seems we still lack some knowledge</li>
+                                <li>Watched Natural Science week 3 lecture 2 part A (part B is not available yet, need to find a time to finish it)</li>
+                                <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is wrong. For assignment 6b, seems we still lack some knowledge</li>
                                 <li>Worked on project login and request_access pages. Now the input boxes are aligned
                                 </li>
-                                <img src="../images/input_box_alignment.png" alt="input_boxes"
-                                    title="input_box_alignment" width="300" />
+                                <img src="../images/input_box_alignment.png" alt="input_boxes" title="input_box_alignment" width="300" />
                                 <li>Add copyright footers to each page</li>
                                 <li>Finished software assignment#1 Q14-a. Will continue to work on Q14-b</li>
                             </ul>
@@ -244,11 +211,9 @@
                         <li>June 7, 2020
                             <ul>
                                 <li>change Eduard's navigation bar a little and generalized it to all our pages</li>
-                                <li>Try to build a nested dropdown menu, find a source here: <a
-                                        href="https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation">https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation</a>
+                                <li>Try to build a nested dropdown menu, find a source here: <a href="https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation">https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation</a>
                                 </li>
-                                <img src="../images/nested-dropdown-example.png" alt="dropdown example"
-                                    title="dropdown example" width="300">
+                                <img src="../images/nested-dropdown-example.png" alt="dropdown example" title="dropdown example" width="300">
                                 <li>The nested dropdown doesn't work. The secondary dropdown menu position shifted</li>
                                 <li>May require JavaScript function to do it?</li>
                             </ul>
@@ -256,19 +221,12 @@
                         <li>June 8, 2020
                             <ul>
                                 <li>remake the project home page with slide show with carousel</li>
-                                <img src="../images/home_slide_show_example.png" alt="slide show example"
-                                    title="slide show example" width="500">
-                                <li>restructure the header with grip. Want the team logo to disappear when window is
-                                    narrow.
+                                <img src="../images/home_slide_show_example.png" alt="slide show example" title="slide show example" width="500">
+                                <li>restructure the header with grip. Want the team logo to disappear when window is narrow.
                                 </li>
-                                <li>hasn't found a way to hide the logo. Online sources are more for bootstrap 4: <a
-                                        href="https://mdbootstrap.com/snippets/jquery/ascensus/131016">https://mdbootstrap.com/snippets/jquery/ascensus/131016</a>
+                                <li>hasn't found a way to hide the logo. Online sources are more for bootstrap 4: <a href="https://mdbootstrap.com/snippets/jquery/ascensus/131016">https://mdbootstrap.com/snippets/jquery/ascensus/131016</a>
                                 </li>
-                                <li>Try to change the bootstrap to version 4, need adjustments for the slide show. I can
-                                    have
-                                    the slide show works, but the prev and next buttons are invisible. Also the
-                                    .d-md-none
-                                    doesn't work well</li>
+                                <li>Try to change the bootstrap to version 4, need adjustments for the slide show. I can have the slide show works, but the prev and next buttons are invisible. Also the .d-md-none doesn't work well</li>
                                 <li>Rollback to bootstrap 3 since the slide show buttons' issue</li>
                             </ul>
                         </li>
@@ -283,13 +241,10 @@
                         <li>June 11, 2020
                             <ul>
                                 <li>Try to set up LAMP at personal Rpi4</li>
-                                <li>"sudo apt-get install lamp-server^" didn't work. couldn't find the package. Have to
-                                    install apache2, php, mySQL, phpMyAdmin individually</li>
+                                <li>"sudo apt-get install lamp-server^" didn't work. couldn't find the package. Have to install apache2, php, mySQL, phpMyAdmin individually</li>
                                 <li>The mysql-client part of the instruction is outdated. Used mariadb-server instead
                                 </li>
-                                <li>Used <a
-                                        href="https://howtoraspberrypi.com/how-to-install-web-server-raspberry-pi-lamp/">this</a>
-                                    resource to finish the rest</li>
+                                <li>Used <a href="https://howtoraspberrypi.com/how-to-install-web-server-raspberry-pi-lamp/">this</a> resource to finish the rest</li>
                                 <li>Successfully access the mySQL database and create a new user</li>
                             </ul>
                         </li>
@@ -297,48 +252,31 @@
                             <ul>
                                 <li>Switch my main workstation to Mac. Set up git, vscode, XAMPP, etc for the project
                                 </li>
-                                <li>Becuase I feel my knowledge regarding HTML, CSS, and JavaScript are not concrete, I
-                                    decide to take this chance to review web knowledge that is required by the project
+                                <li>Becuase I feel my knowledge regarding HTML, CSS, and JavaScript are not concrete, I decide to take this chance to review web knowledge that is required by the project
                                 </li>
-                                <li>Some project webpage components, such as the navigation bar and bootstrap
-                                    functionalities are done by others. Need to practise how to make them</li>
+                                <li>Some project webpage components, such as the navigation bar and bootstrap functionalities are done by others. Need to practise how to make them</li>
                                 <li>Built a personal practice website from ground up</li>
-                                <li>Build the same style of nav bar with the help from <a
-                                        href="https://www.w3schools.com/bootstrap/bootstrap_navbar.asp">here</a></li>
+                                <li>Build the same style of nav bar with the help from <a href="https://www.w3schools.com/bootstrap/bootstrap_navbar.asp">here</a></li>
                             </ul>
                         </li>
                         <li>June 13, 2020
                             <ul>
                                 <li>Continue to practise my web skills on the personal website</li>
-                                <li>Build a second vertical nav bar, called scrollsp, that can interact with the main
-                                    content. Get resource from <a
-                                        href="https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">here</a></li>
+                                <li>Build a second vertical nav bar, called scrollsp, that can interact with the main content. Get resource from <a href="https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">here</a></li>
                                 <img src="../images/scrollspy.png" width="600" alt="scrollspy screenshot">
-                                <li>Built log-in and sign-up pages with bootstrap. Get resource from <a
-                                        href="https://www.w3schools.com/bootstrap/bootstrap_forms.asp">here</a></li>
-                                <img src="../images/login-bootstrap.png" width="600"
-                                    alt="login page built with bootstrap">
+                                <li>Built log-in and sign-up pages with bootstrap. Get resource from <a href="https://www.w3schools.com/bootstrap/bootstrap_forms.asp">here</a></li>
+                                <img src="../images/login-bootstrap.png" width="600" alt="login page built with bootstrap">
                                 <li>Practise putting an image along with inputs</li>
                                 <img src="../images/side image.png" width="600" alt="image aside other element">
                                 <li>Try to have image rollover effect on project log in page
                                     <ul>
-                                        <li>Try to use the pseudo element method (:hover, :active) to make image
-                                            rollover,
-                                            but it doesn't work. Guess if the target element is covered by other
-                                            elements,
-                                            the mouse event is not triggered</li>
-                                        <li>Use JavaScript to realize the effect. Create a set of 3 images: one for
-                                            inactive
-                                            status, one for mouse hover status, and another one for mouse click status
+                                        <li>Try to use the pseudo element method (:hover, :active) to make image rollover, but it doesn't work. Guess if the target element is covered by other elements, the mouse event is not triggered</li>
+                                        <li>Use JavaScript to realize the effect. Create a set of 3 images: one for inactive status, one for mouse hover status, and another one for mouse click status
                                         </li>
                                         <img src="../images/image rollover1.png" width="400" alt="button designs">
-                                        <li>Create 3 event listener for the button. Then change source image according
-                                            to
-                                            coresponding events. The idea was inspired by <a
-                                                href="https://stackoverflow.com/questions/18032220/css-change-image-src-on-imghover">this</a>.
+                                        <li>Create 3 event listener for the button. Then change source image according to coresponding events. The idea was inspired by <a href="https://stackoverflow.com/questions/18032220/css-change-image-src-on-imghover">this</a>.
                                         </li>
-                                        <img src="../images/image rollover2.png" width="400"
-                                            alt="buttons at inactive status">
+                                        <img src="../images/image rollover2.png" width="400" alt="buttons at inactive status">
                                     </ul>
                                 </li>
                                 <li>encounter issue after Eduard putting navbar and bootstrap codes in one place</li>
@@ -363,7 +301,8 @@
                                 <li>After adding .php control on all .html pages, there is repeated issue that a notice of session_start() appears on top of each page.</li>
                                 <li>The log in page shows error message that the username is missing from php.</li>
                                 <li>The first issue is caused by using the top_header.php, which includes a session_start() and repeats if top_header.php is called at other .php files</li>
-                                <li>The second issue happens because the login page starts a session when the page is opened, but the username and password haven't been input yet. Add an authenticate.php to link the login form and remove session_start() from login.php.</li>
+                                <li>The second issue happens because the login page starts a session when the page is opened, but the username and password haven't been input yet. Add an authenticate.php to link the login form and remove session_start() from
+                                    login.php.</li>
                             </ul>
                         </li>
                         <br />

@@ -1,64 +1,66 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Elevator</title>
-        <meta name="description" content="Elevator Page" />
-        <meta name="robots" content="noindex nofollow" />
-        <meta http-equiv="author" content="Eduard" />
-        <meta http-equiv="pragma" content="no-cache" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" type="text/css" href="elevator2.css" />
-        <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
-    </head>
-    <body>
-        <div id="page" class="container">
-            <div class="row" id="content">
-                <article class="col-xs-12 col-md-4">
-                    <script src="../elevator/elevator.js"></script>
-                    <section class="floor">
-                        <h2 class="headflr" id="headfl3">Floor 3</h2>
-                            <input type="image" class="dn" id="dwnfl3" onClick=cha_col('dwnfl3') src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100"/>
-                    </section>
-                    <section class="floor">
-                        <h2 class="headflr" id="headfl2">Floor 2</h2>
-                            <div class="updn2">
-                                <input type="image" class="up" id="dwnfl2" onClick=cha_col('dwnfl2') src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100"/>
-                                <input type="image" class="dn" id="upfl2" onClick=cha_col('upfl2') src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100"/>
-                            </div>
-                    </section>
-                    <section class="floor">
-                        <h2 class="headflr" id="headfl1">Floor 1</h2>
-                        <input type="image" class="up" id="upfl1" onClick=cha_col('upfl1') src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100"/>
-                    </section>           
-                </article>
-                <article class="col-xs-12 col-md-4">
-                    <div class="floor" id="elevator_1">
-                        <img id="elevator1" src="../images/elevator1.png" height="200" title="Elevator"/>
+<head>
+    <title>Elevator</title>
+    <meta name="description" content="Elevator Page" />
+    <meta name="robots" content="noindex nofollow" />
+    <meta http-equiv="author" content="Eduard" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="elevator2.css" />
+    <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
+</head>
+
+<body>
+    <div id="page" class="container">
+        <div class="row" id="content">
+            <article class="col-xs-12 col-md-4">
+                <script src="../elevator/elevator.js"></script>
+                <section class="floor">
+                    <h2 class="headflr" id="headfl3">Floor 3</h2>
+                    <input type="image" class="dn" id="dwnfl3" onClick=cha_col( 'dwnfl3') src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100" />
+                </section>
+                <section class="floor">
+                    <h2 class="headflr" id="headfl2">Floor 2</h2>
+                    <div class="updn2">
+                        <input type="image" class="up" id="dwnfl2" onClick=cha_col( 'dwnfl2') src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100" />
+                        <input type="image" class="dn" id="upfl2" onClick=cha_col( 'upfl2') src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100" />
                     </div>
-                    <div class="floor" id="elevator_2"></div>
-                    <div class="floor" id="elevator_3"></div>
-                </article>
-                <article class="col-xs-12 col-md-4">
-                    <div class="floor">
-                        <h2 class="elvhead" id="elvcnt">Elevator Controls</h2>
-                        <img  id="flrnbr" src="../images/3.png" width = 100/>
-                        <h3 class="elvhead" id="flr_nbr_hed">Current Floor Number</h3>
-                    </div>
-                    <div id="button_array">
-                        <br/>
-                        <input class="elvbut" id="elv1" type="image" onClick=cha_col('elv1') src="../images/Buttons/Buttons for Eduard/Buttons--01.png" width="100"/>
-                        <br/>
-                        <input class="elvbut" id="elv2" type="image" onClick=cha_col('elv2') src="../images/Buttons/Buttons for Eduard/Buttons--03.png" width="100"/>
-                        <br/>
-                        <input class="elvbut" id="elv3" type="image" onClick=cha_col('elv3') src="../images/Buttons/Buttons for Eduard/Buttons--05.png" width="100"/>
-                    </div>
-                </article>
-            </div>
+                </section>
+                <section class="floor">
+                    <h2 class="headflr" id="headfl1">Floor 1</h2>
+                    <input type="image" class="up" id="upfl1" onClick=cha_col( 'upfl1') src="../images/Buttons/Buttons for Eduard/Buttons--07.png" width="100" />
+                </section>
+            </article>
+            <article class="col-xs-12 col-md-4">
+                <div class="floor" id="elevator_1">
+                    <img id="elevator1" src="../images/elevator1.png" height="200" title="Elevator" />
+                </div>
+                <div class="floor" id="elevator_2"></div>
+                <div class="floor" id="elevator_3"></div>
+            </article>
+            <article class="col-xs-12 col-md-4">
+                <div class="floor">
+                    <h2 class="elvhead" id="elvcnt">Elevator Controls</h2>
+                    <img id="flrnbr" src="../images/3.png" width=1 00/>
+                    <h3 class="elvhead" id="flr_nbr_hed">Current Floor Number</h3>
+                </div>
+                <div id="button_array">
+                    <br/>
+                    <input class="elvbut" id="elv1" type="image" onClick=cha_col( 'elv1') src="../images/Buttons/Buttons for Eduard/Buttons--01.png" width="100" />
+                    <br/>
+                    <input class="elvbut" id="elv2" type="image" onClick=cha_col( 'elv2') src="../images/Buttons/Buttons for Eduard/Buttons--03.png" width="100" />
+                    <br/>
+                    <input class="elvbut" id="elv3" type="image" onClick=cha_col( 'elv3') src="../images/Buttons/Buttons for Eduard/Buttons--05.png" width="100" />
+                </div>
+            </article>
         </div>
-        <footer class="grid_12">
-            <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
-         </footer>   
-    </body>
+    </div>
+    <footer class="grid_12">
+        <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
+    </footer>
+</body>
+
 </html>
