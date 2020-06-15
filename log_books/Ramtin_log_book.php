@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_SESSION['username'])){
 
-    require '../top_header/top_header.php';
+    require '../top_header/bar_LI.html';
     require '../log_books/Ramtin_log_book.html';
 
 } else{
