@@ -280,7 +280,7 @@
                 <div class="week_log" style="background-color: greenyellow">
                     <h1>Week 4</h1>
                     <ul style="line-height: 30px;">
-                        <li>June 10, 2020
+                        <li>June 11, 2020
                             <ul>
                                 <li>Try to set up LAMP at personal Rpi4</li>
                                 <li>"sudo apt-get install lamp-server^" didn't work. couldn't find the package. Have to
@@ -293,7 +293,7 @@
                                 <li>Successfully access the mySQL database and create a new user</li>
                             </ul>
                         </li>
-                        <li>June 11, 2020
+                        <li>June 12, 2020
                             <ul>
                                 <li>Switch my main workstation to Mac. Set up git, vscode, XAMPP, etc for the project
                                 </li>
@@ -307,7 +307,7 @@
                                         href="https://www.w3schools.com/bootstrap/bootstrap_navbar.asp">here</a></li>
                             </ul>
                         </li>
-                        <li>June 12, 2020
+                        <li>June 13, 2020
                             <ul>
                                 <li>Continue to practise my web skills on the personal website</li>
                                 <li>Build a second vertical nav bar, called scrollsp, that can interact with the main
@@ -347,7 +347,7 @@
                                 <li>Found the reason: the apache servers in Mac and Rpi4 didn't prioritize index.php over index.html, while the server in PC does so. Just need to specify the page path to index.php, then everything works fine</li>
                             </ul>
                         </li>
-                        <li>June 13, 2020
+                        <li>June 14, 2020
                             <ul>
                                 <li>Convert my look book to the scrollspy format</li>
                                 <li>The conversiont didn't go very well. The side navigation list was not highlighted automatically when main content is scrolled.</li>
@@ -356,6 +356,14 @@
                                 <li>Cannot have the scrollspy format worked, rollback to original format</li>
                                 <li>Manually create a side panel and make a ancher list to scroll to weekly contents. Since the top nav bar hides some space, have to wrap the week section into a div and offset each section by 70px</li>
                                 <li>Beautify the log book with coloured sections and border radius</li>
+                            </ul>
+                        </li>
+                        <li>June 15, 2020
+                            <ul>
+                                <li>After adding .php control on all .html pages, there is repeated issue that a notice of session_start() appears on top of each page.</li>
+                                <li>The log in page shows error message that the username is missing from php.</li>
+                                <li>The first issue is caused by using the top_header.php, which includes a session_start() and repeats if top_header.php is called at other .php files</li>
+                                <li>The second issue happens because the login page starts a session when the page is opened, but the username and password haven't been input yet. Add an authenticate.php to link the login form and remove session_start() from login.php.</li>
                             </ul>
                         </li>
                         <br />
