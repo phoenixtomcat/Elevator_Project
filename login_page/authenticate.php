@@ -19,6 +19,7 @@ function verify_credential ($username, $password) :bool {
 }
 
 if(verify_credential($username, $password)){
+
     $_SESSION['username']=$username;
     require '../index_page/index.php';
     include '../login_page/suces_LI.html';
