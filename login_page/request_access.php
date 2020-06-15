@@ -1,6 +1,7 @@
 <?php
-$submitted = !empty($_POST);
 
+
+$submitted = !empty($_POST);
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
@@ -16,6 +17,7 @@ $accessText = $_POST['accessText'];
 if($username&&$password)
 {
     require '../login_page/login.html'; //take to login page
+    
     require '../login_page/req_aces_sucess.html'; //success
     $headers = array_keys($_POST);
     $file = fopen("members_info.csv","a");
@@ -28,7 +30,12 @@ if($username&&$password)
     }
     fclose($file);
 }
+else if($username == ""&&$password==""){
+    require '../top_header/bar_LO.html';
+    require '../login_page/request_access.html';
+}
 else{
+    require '../top_header/bar_LO.html';
     require '../login_page/request_access.html'; //if fails loop back to req_access page
     require '../login_page/req_aces_fail.html';
 }
