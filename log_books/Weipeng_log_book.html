@@ -303,6 +303,7 @@
                                 <li>The first issue is caused by using the top_header.php, which includes a session_start() and repeats if top_header.php is called at other .php files</li>
                                 <li>The second issue happens because the login page starts a session when the page is opened, but the username and password haven't been input yet. Add an authenticate.php to link the login form and remove session_start() from
                                     login.php.</li>
+                                <li>Add authenication from JSON file. Now is ready for getting credentials from database</li>
                             </ul>
                         </li>
                         <br />
