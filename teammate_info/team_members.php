@@ -4,8 +4,8 @@ session_start();
 
 if (isset($_SESSION['username'])){
 
-    require '../top_header/top_header.php';
-    require '../team_members/team_members.html';
+    require '../top_header/bar_LI.html';
+    require '../teammate_info/team_members.html';
 
 } else{
     require '../login_page/login.php';
