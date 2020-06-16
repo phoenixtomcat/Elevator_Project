@@ -21,3 +21,40 @@ request_access.addEventListener('mousedown', function(){change_src(request_acces
 log_in.addEventListener('mouseover', function(){change_src(log_in, login_src2)}, false);
 log_in.addEventListener('mouseout', function(){change_src(log_in, login_src1)}, false);
 log_in.addEventListener('mousedown', function(){change_src(log_in, login_src3)}, false);
+
+
+var elUsername = document.getElementById('user');
+var elMsg = document.getElementById('feedback1');
+var elPassword = document.getElementById('pass');
+var elMsg2 = document.getElementById('feedback2');
+
+function checkUsername(){
+if (elUsername.value.length < 7){
+    elMsg.innerHTML = '<p>*Must be at least 7 characters</p>'
+} else {
+    elMsg.innerHTML = '';
+}
+}
+
+function checkPassword(){
+    var i = 0;
+    if (elPassword.value.length < 7){
+      elMsg2.innerHTML = '<p>*Must be at least 7 characters</p>';
+
+    } else {
+        elMsg2.innerHTML = '';
+    }
+
+}
+    
+
+elUsername.addEventListener('blur',checkUsername, false);
+elPassword.addEventListener('blur',checkPassword, false);
+
+function setup(){
+    var textinput;
+    textinput = document.getElementById('user');
+    textinput.focus();
+}
+
+window.addEventListener('load', setup, false);
