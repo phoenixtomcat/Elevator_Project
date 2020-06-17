@@ -1,43 +1,59 @@
 /*CSS for the Teammate page*/
-.button{
-  background-color: yellow;
-  border: none;
-  color:black;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin: 4px 2px;
-  cursor: pointer;
+
+.button {
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 body {
-    background-color: brown;
+    background-color: pink;
     color: blanchedalmond;
-  }
-  
-h1 {
-  color: silver;
-  text-align: center;
 }
 
-table{
-  margin: auto;
-  border-collapse: collapse;
+@media ( min-width: 768px) {
+    body {
+        background-color: blue;
+    }
 }
-table thead th{
-  border: 5px black solid;
-  font-size: xx-large;
-  width: 300px;
-  height: 100px;
-  text-align: center;
+
+@media ( min-width: 992px) {
+    body {
+        background-color: brown;
+    }
 }
+
+h1 {
+    color: silver;
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table thead th {
+    border: 5px black solid;
+    font-size: xx-large;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+}
+
 table tbody td{
   border: 5px black solid;
   text-align: center;
   height: 400px;
 }
+
 figcaption{
   text-align: center;
   color: black;
