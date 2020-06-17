@@ -155,14 +155,17 @@
 
                     </div>
                 </div>
-                <div class="form-group">
-
-                    <label for="accessText">Other details: </label>
-                    <textarea class="form-control" rows="5" id="accessText" name="accessText"
-                        form="accessForm"></textarea>
-                    <p id="charactersLeft">Characters remaining:180</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-weight: bold;">Other details</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <!-- <label for="accessText">Other details: </label> -->
+                            <textarea class="form-control" rows="5" id="accessText" name="accessText"
+                                form="accessForm"></textarea>
+                            <p id="charactersLeft">Characters remaining:180</p>
+                        </div>
+                    </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-offset-9">
                         <button type="submit" class="btn btn-default">Sign me up!</button>
@@ -171,66 +174,6 @@
 
             </form>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <form action="request_access2.php" method="POST" id="accessForm">
-            <fieldset style="width: 300px; margin: 0px 0px 10px 0px;">
-                <legend>Contact Details</legend>
-                <div class="fieldset_div">
-                    <div class="input_row"><label for="firstname" class="input_label">First Name*: </label>
-                        <input id="firstname" class="input_box" type="text" name="firstname" required /></div>
-                    <div class="input_row"><label for="lastname" class="input_label">Last Name*: </label>
-                        <input id="lastname" class="input_box" type="text" name="lastname" required /></div>
-                    <div class="input_row"><label for="email" class="input_label">Email*: </label>
-                        <input id="email" class="input_box" type="email" name="email" required /></div>
-                    <div class="input_row"><label for="username" class="input_label">Username*: </label>
-                        <input id="username" class="input_box" type="text" name="username" required /></div>
-                    <div class="input_row"><label for="password" class="input_label">Password*: </label>
-                        <input id="email" class="input_box" type="password" name="password" required /></div>
-                    <div class="input_row"><label for="url" class="input_label">Website: </label>
-                        <input id="url" class="input_box" type="url" name="url" /></div>
-                    <div class="input_row"><label for="bdate" class="input_label">Birthday: </label>
-                        <input id="bdate" class="input_box" type="date" name="birthday" /></div>
-                    <br/>
-                    <div class="input_row">
-                        <label class="text_label"><input type="radio" name="fac_or_student" value="faculty"
-                                checked="checked" /> Faculty</label>
-                        <label><input type="radio" name="fac_or_student" value="student" /> Student</label>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset style="width: 300px;">
-                <legend>Tell us a bit about yourself</legend>
-                <p>Check all apply to you:</p>
-                <input type="checkbox" name="involvement" value="none"> Have no involvement in project <br />
-                <input type="checkbox" name="involvement" value="instructor">  Have no involvement in project <br />
-                <input type="checkbox" name="involvement" value="instructor_other">  Have no involvement in project 
-                <br />
-                <input type="checkbox" name="involvement" value="student">  Have no involvement in project  <br />
-                <input type="checkbox" name="involvement" value="student_other"> A student in a different project <br />
-                <input type="checkbox" name="involvement" value="admin"> A college administrator <br />
-                <input type="checkbox" name="involvement" value="external"> An external reviewer <br />
-                <p>Would you like to help improve the project?
-                    <select name="help_improve">
-                        <option value="no_answer" selected></option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </p>
-                <textarea id="accessText" style="width: 500px; height: 200px;" name="accessText" form="accessForm">Other details...</textarea>
-            </fieldset>
-            <br />
-            <div style="width: 534px;"><input type="submit" value="submit" style="float: right;" /></div>
-        </form> -->
     </div>
     <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
 </body>
