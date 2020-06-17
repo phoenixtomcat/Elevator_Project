@@ -3,13 +3,20 @@
     color: #35322f;
     text-align: center;
 }
-#nav, #feature, .article, #footer {
+
+#nav,
+#feature,
+.article,
+#footer {
     margin-top: 20px;
     padding: 10px 0px 5px 0px;
 }
-#feature, .article {
+
+#feature,
+.article {
     height: 100px;
 }
+
 li {
     display: inline;
     padding: 5px;
@@ -17,45 +24,58 @@ li {
 
 article {
     background-color: rgb(223, 224, 229);
-  }
-  .col-xs-12, .col-md-4{
+}
+
+.col-xs-12,
+.col-md-4 {
     height: 700px;
     background-clip: padding-box;
     border: 10px solid transparent;
     position: relative;
-  }
+}
+
 .floor {
     height: 220px;
     border: 2px solid white;
     margin-top: 5px;
-
-  }
-
-  header{
-      background-color: rgb(182, 147, 189);
-  }
-  
-  body{
-      padding-top: 60px;
-  }
-.navbar-brand, #home{
-    display: inline-block;
-
 }
 
-#button_array{
+header {
+    background-color: rgb(182, 147, 189);
+}
+
+body {
+    padding-top: 60px;
+}
+
+.navbar-brand,
+#home {
+    display: inline-block;
+}
+
+#button_array {
     height: 445px;
     border: 2px solid white;
     margin-top: 5px;
 }
 
-input{
-  outline: none;
+input {
+    outline: none;
 }
 
-#elevator1{
+#elevator1 {
     position: absolute;
     top: center;
     left: 50%;
     margin-left: -100px;
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
 }

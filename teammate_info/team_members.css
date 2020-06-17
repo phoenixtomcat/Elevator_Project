@@ -53,3 +53,13 @@ table tbody td {
     text-align: center;
     height: 400px;
 }
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
+}

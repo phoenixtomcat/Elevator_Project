@@ -4,19 +4,34 @@
     text-align: right;
     padding: 0px 10px 0px 0px;
 }
+
 .input_box {
     width: 197px;
     text-align: left;
 }
+
 div.fieldset_div {
     width: 337px;
 }
-div.input_row{
+
+div.input_row {
     height: 50px;
 }
+
 #bdate {
     padding: 0px 2px 0px 2px;
 }
+
 fieldset {
     border-radius: 6px;
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
 }
