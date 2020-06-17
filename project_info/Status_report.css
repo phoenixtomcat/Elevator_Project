@@ -1,15 +1,17 @@
 body {
     background-color: peachpuff;
 }
-.pageheader{
+
+.pageheader {
     text-align: center;
 }
-table{
+
+table {
     margin: auto;
     border-collapse: collapse;
 }
 
-table td{
+table td {
     border: 5px black solid;
     width: 300px;
     height: 150px;
@@ -17,9 +19,21 @@ table td{
     font-size: xx-large;
     font-weight: bold;
 }
-.passed{
+
+.passed {
     background-color: aqua;
 }
-.future{
+
+.future {
     background-color: orange;
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
 }

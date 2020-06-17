@@ -24,62 +24,64 @@ ul {
     border: 1px solid black;
     height: 600px;
     background-color: rgb(223, 224, 229);
-  }
-  /* Clear floats after the columns */
-  .row:after {
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
 
-  .floor {
+.floor {
     border: 1px solid black;
     height: 198px;
+}
 
-  }
+.headflr {
+    text-align: center;
+}
 
-  .headflr {
-      text-align: center;
-  }
-
-  .updn2 {
+.updn2 {
     margin-left: auto;
     margin-right: auto;
     display: block;
     width: 50%;
-  }
-  .updn {
+}
+
+.updn {
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
+}
 
-
-  .elvbut {
+.elvbut {
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
+}
 
-  .elvhead {
+.elvhead {
     text-align: center;
-  }
+}
 
-  #flrnbr {
+#flrnbr {
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
+}
 
-  #title {
+#title {
     width: 100%;
     background-color: rgba(255, 217, 0, 0.788);
     border: 1px solid black;
     height: 100px;
     vertical-align: middle;
-  }
+}
 
-  #elevator1 {
+#elevator1 {
     animation-name: elevator;
     animation-duration: 4s;
     margin-left: auto;
@@ -103,6 +105,16 @@ ul {
     100% {
         top: 0px;
     }
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
 }
 
 

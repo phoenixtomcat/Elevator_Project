@@ -48,10 +48,20 @@ table thead th {
     text-align: center;
 }
 
-table tbody td{
-  border: 5px black solid;
-  text-align: center;
-  height: 400px;
+table tbody td {
+    border: 5px black solid;
+    text-align: center;
+    height: 400px;
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
 }
 
 figcaption{
@@ -59,3 +69,4 @@ figcaption{
   color: black;
   size: 25px;
 }
+

@@ -3,15 +3,30 @@
     color: #35322f;
     text-align: left;
 }
-body{
+
+body {
     padding-top: 45px;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-article{
+
+article {
     padding-top: 30px;
 }
+
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
+}
+
 figure, figcaption{
     text-align: center;
+
 }

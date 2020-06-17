@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <!--[if lt IE 9]>
+   		<script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+	<![endif] -->
+
+
     <style>
         body {
             position: relative;
@@ -302,7 +307,8 @@
                                 <li>The log in page shows error message that the username is missing from php.</li>
                                 <li>The first issue is caused by using the top_header.php, which includes a session_start() and repeats if top_header.php is called at other .php files</li>
                                 <li>The second issue happens because the login page starts a session when the page is opened, but the username and password haven't been input yet. Add an authenticate.php to link the login form and remove session_start() from
-                                    login.php.</li>
+                                    login.php.
+                                </li>
                                 <li>Add authenication from JSON file. Now is ready for getting credentials from database</li>
                             </ul>
                         </li>

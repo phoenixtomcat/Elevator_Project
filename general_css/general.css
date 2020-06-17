@@ -2,19 +2,31 @@
     font-family: Arial, Verdana, sans-serif;
     color: #35322f;
 }
+
 body {
     font-size: medium;
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
-.navbar-brand, #home{
-    display: inline-block;
 
+.navbar-brand,
+#home {
+    display: inline-block;
 }
+
 header {
     font-size: medium;
 }
-.nav-list{
+
+.nav-list {
     padding: 5px;
 }
 
-
+header,
+section,
+footer,
+aside,
+nav,
+article,
+figure {
+    display: block;
+}
