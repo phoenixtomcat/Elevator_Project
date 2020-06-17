@@ -10,5 +10,6 @@ if (isset($_SESSION['username'])){
 } else{
     require '../login_page/login.php';
     require '../login_page/not_LI.html';
+    
 }
 ?>

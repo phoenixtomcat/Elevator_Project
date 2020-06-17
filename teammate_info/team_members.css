@@ -38,3 +38,8 @@ table tbody td{
   text-align: center;
   height: 400px;
 }
+figcaption{
+  text-align: center;
+  color: black;
+  size: 25px;
+}
