@@ -9,21 +9,180 @@
     <meta http-equiv="pragma" content="no-cache" />
     <link rel="stylesheet" type="text/css" href="request_access.css">
     <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="page" class="container">
-       
+        <br />
+        <br />
+        <br />
+        <div>
+            <h1>Request Access</h1>
+        </div>
+        <br />
+        <div class="col-sm-6">
+            <form action="#" class="form-horizontal">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-weight: bold;">Contact details</div>
+                    <div class="panel-body">
 
-        <br />
-        <br />
-        <br />
+                        <div class="form-group">
+                            <label for="firstname" class="control-label col-sm-4">First Name*:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="firstname" placeholder="Enter First Name"
+                                    name="firstname" required>
+                            </div>
+                        </div>
 
-        <h1>Request Access</h1>
-        <form action="request_access2.php" method="POST" id="accessForm">
+                        <div class="form-group">
+                            <label for="lastname" class="control-label col-sm-4">Last Name*:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name"
+                                    name="lastname" required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="email" class="control-label col-sm-4">Email*:</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email"
+                                    name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="control-label col-sm-4">Username*:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="username" placeholder="Enter Username"
+                                    name="username" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd1" class="control-label col-sm-4">Password*:</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="pwd1" placeholder="Enter Password"
+                                    name="password1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd2" class="control-label col-sm-4">Re-enter Password*:</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="pwd2" placeholder="Re-enter Password"
+                                    name="password2" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="url" class="control-label col-sm-4">Website:</label>
+                            <div class="col-sm-8">
+                                <input type="url" class="form-control" id="url" placeholder="Your Website"
+                                    name="username" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bdate" class="control-label col-sm-4">Date of Birth*:</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="bdate" placeholder="Enter Date of Birth"
+                                    name="bdate" required>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-weight: bold;">Tell us a bit about yourself</div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div>You are: </Div>
+                                <label class="radio-inline"><input type="radio" name="fac_or_student" value="faculty"
+                                        checked="checked" /> Faculty</label>
+                                <label class="radio-inline"><input type="radio" name="fac_or_student" value="student" />
+                                    Student</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="control-label col-sm-4">Gender:</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="gender" name="gender">
+                                    <option></option>
+                                    <option>keep it secret</option>
+                                    <option>female</option>
+                                    <option>male</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div>Check all apply to you: </div>
+                                <label class="checkbox"><input type="checkbox" name="involvement" value="none"> Have no
+                                    involvement in project </label>
+                                <label class="checkbox"><input type="checkbox" name="involvement" value="instructor"> An
+                                    instructor in project </label>
+                                <label class="checkbox"><input type="checkbox" name="involvement"
+                                        value="instructor_other"> An instructor in a different project </label>
+                                <label class="checkbox"><input type="checkbox" name="involvement" value="student"> A
+                                    student in this project </label>
+                                <label class="checkbox"><input type="checkbox" name="involvement"
+                                        value="student_other">A student in a different project</label>
+                                <label class="checkbox"><input type="checkbox" name="involvement" value="admin">A
+                                    college administrator</label>
+                                <label class="checkbox"><input type="checkbox" name="involvement" value="external">An
+                                    external viewer</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="help_improve" class="control-label col-sm-4">Would you liek to help improve the
+                                project? </label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="help_improve" name="help_improve">
+                                    <option value="no_answer" selected></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="accessText">Other details: </label>
+                    <textarea class="form-control" rows="5" id="accessText" name="accessText"
+                        form="accessForm"></textarea>
+                    <p id="charactersLeft">Characters remaining:180</p>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-9">
+                        <button type="submit" class="btn btn-default">Sign me up!</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <form action="request_access2.php" method="POST" id="accessForm">
             <fieldset style="width: 300px; margin: 0px 0px 10px 0px;">
                 <legend>Contact Details</legend>
                 <div class="fieldset_div">
@@ -41,6 +200,7 @@
                         <input id="url" class="input_box" type="url" name="url" /></div>
                     <div class="input_row"><label for="bdate" class="input_label">Birthday: </label>
                         <input id="bdate" class="input_box" type="date" name="birthday" /></div>
+                    <br/>
                     <div class="input_row">
                         <label class="text_label"><input type="radio" name="fac_or_student" value="faculty"
                                 checked="checked" /> Faculty</label>
@@ -52,10 +212,10 @@
                 <legend>Tell us a bit about yourself</legend>
                 <p>Check all apply to you:</p>
                 <input type="checkbox" name="involvement" value="none"> Have no involvement in project <br />
-                <input type="checkbox" name="involvement" value="instructor"> An instructorin this project <br />
-                <input type="checkbox" name="involvement" value="instructor_other"> An instructor in a different project
+                <input type="checkbox" name="involvement" value="instructor">  Have no involvement in project <br />
+                <input type="checkbox" name="involvement" value="instructor_other">  Have no involvement in project 
                 <br />
-                <input type="checkbox" name="involvement" value="student"> A student in this project <br />
+                <input type="checkbox" name="involvement" value="student">  Have no involvement in project  <br />
                 <input type="checkbox" name="involvement" value="student_other"> A student in a different project <br />
                 <input type="checkbox" name="involvement" value="admin"> A college administrator <br />
                 <input type="checkbox" name="involvement" value="external"> An external reviewer <br />
@@ -70,7 +230,7 @@
             </fieldset>
             <br />
             <div style="width: 534px;"><input type="submit" value="submit" style="float: right;" /></div>
-        </form>
+        </form> -->
     </div>
     <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
 </body>
