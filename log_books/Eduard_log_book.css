@@ -25,3 +25,8 @@ article,
 figure {
     display: block;
 }
+
+figure, figcaption{
+    text-align: center;
+
+}

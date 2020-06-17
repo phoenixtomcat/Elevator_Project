@@ -63,3 +63,10 @@ article,
 figure {
     display: block;
 }
+
+figcaption{
+  text-align: center;
+  color: black;
+  size: 25px;
+}
+
