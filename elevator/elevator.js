@@ -15,21 +15,81 @@ function myMove(floor, pot) {
     var id = setInterval(frame, 10); //sets speed
 
     function frame() {
+        close_door();
         if (pos == target_raw_floor_number) { //this is target
             clearInterval(id);
             floor_sign(floor);
+            floor_audio(floor);
+            open_door();
+           // setTimeout(close_door(), 1000);
             cha_back(pot);
 
         } else if (pos < target_raw_floor_number) {
             pos++;
+            if (pos == 240)
+            {
+                floor_sign(2);
+            }
             elem.style.top = pos + 'px';
         } else if (pos > target_raw_floor_number) {
             pos--;
+            if (pos == 240)
+            {
+                floor_sign(2);
+            }
             elem.style.top = pos + 'px';
         }
     }
 }
 
+function floor_audio(floor){
+    var x; 
+    switch (floor) {
+        case 1:
+           x = document.getElementById('audio_f1');
+           x.play();
+            break;
+
+        case 2:
+            x = document.getElementById('audio_f2');
+            x.play();
+            break;
+
+        case 3:
+            x = document.getElementById('audio_f3');
+            x.play();
+            break;
+    }
+}
+
+function open_door(){
+    document.getElementById('elevator1').src = '../images/image001.png';
+}
+
+function close_door(){
+    document.getElementById('elevator1').src = '../images/elevator1.png';
+}
+
+var play_music = document.getElementById('music');
+
+function elevator_music(){
+    var x = document.getElementById('music_toggle');
+    var y = document.getElementById('music_toggle_label');
+
+    if(x.style.backgroundColor == 'green'){
+        x.style.backgroundColor = 'red';
+        y.innerHTML = 'OFF';
+        play_music.pause();
+
+    }else{
+        x.style.backgroundColor = 'green';
+        y.innerHTML = 'ON';
+        play_music.loop = true;
+        play_music.play();
+        
+    }
+    
+}
 
 function floor_sign(floor) {
     switch (floor) {
