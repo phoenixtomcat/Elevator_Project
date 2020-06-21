@@ -46,8 +46,6 @@ function checkPassword(){
     }
 
 }
-    
-
 elUsername.addEventListener('blur',checkUsername, false);
 elPassword.addEventListener('blur',checkPassword, false);
 

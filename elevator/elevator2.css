@@ -79,3 +79,24 @@ article,
 figure {
     display: block;
 }
+
+#music{
+    height: 200px;
+}
+
+#music2{
+    border: 2px solid white;
+    margin-top: 5px;
+    height: 170px;
+}
+
+.music_on{
+    height: 20px;
+    width: 50px;
+}
+
+.music_off{
+    height: 20px;
+    width: 50px;
+}
+
