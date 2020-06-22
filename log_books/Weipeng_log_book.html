@@ -63,6 +63,7 @@
                 <li><a href="#week2">Week 2</a></li>
                 <li><a href="#week3">Week 3</a></li>
                 <li><a href="#week4">Week 4</a></li>
+                <li><a href="#week5">Week 5</a></li>
             </ul>
         </nav>
 
@@ -314,6 +315,69 @@
                             </ul>
                         </li>
                         <br />
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week5">
+                <div class="week_log" style="background-color: orange;">
+                    <h1>Week 5</h1>
+                    <ul style="line-height: 30px;">
+                        <li>June 21, 2020
+                            <ul>
+                                <li>try to save sign-up user data to the json file
+                                    <ul>
+                                        <li>Since the sign up and log in process will eventually implement with database, so this is only for practise and will only be deployed at my personal website</li>
+                                        <li>Try to use the json_encode() and file_put_content(.. $flags=FILE_APPEND), but it doesn't work. The new data will be appended directly outside the original json structure.</li>
+                                        <li>Try to use array_merge() function (<a href="https://www.php.net/manual/en/function.array-merge.php">Source</a>), the array is appended into the structure, but not separated as a secondary array.</li>
+                                        <li>Try to use array_push() function (<a href="https://www.php.net/manual/en/function.array-push.php">Source</a>), then all the new user data will be appended to the end of the structure as a single element</li>
+                                        <img src="../images/weipeng json put content code.png" width="600" alt="json code to put content into json file">
+                                    </ul>
+                                </li>
+                                <li>set up database at local computer
+                                    <ul>
+                                        <li>Try to follow Michael's first database slide to set up mySQL at my MAC</li>
+                                        <li>Encounter a big issue - after drop user root@localhost and create user root@%, the mysql database disappear. I can still log in as root user without password, but SHOW DATABASES does not show mysql database. And I can't edit other databases as well. Keep getting error "Access Denied from user ''@'localhost'..."</li>
+                                        <li>Try to reset root password in safe mode by following <a href="https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52">this instruction</a>, but the safe mode server didn't run properly, so couldn't reset password.</li>
+                                        <li>End up reinstalling XAMPP, and the mysql came back.</li>
+                                        <li>Instead of deleting the root user, I created a new user and give it all privileges following the option 1 instruction.</li>
+                                        <li>The new user was still problematic, couldn't use it to login mysql</li>
+                                        <li>Instead of creating user at "%", I used "localhost", then everything works.</li>
+                                    </ul>
+                                </li>
+                                <li>Practise creating some database from terminal
+                                    <ul>
+                                        <li>Managed to create elevatorNetwork and CAN_subNetwork tables</li>
+                                        <img src="../images/weipeng elevatornetwork table practise.png" width="600" alt="elevatorNetwork table">
+                                        <img src="../images/weipeng can subnetwork table practise.png" width="600" alt="CAN_subNetwork table">
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>June 22, 2020
+                            <ul>
+                                <li>Learn how to communicate back-end with database
+                                    <ul>
+                                        <li>After trying out the select statement from Michael's slide, I managed to get rows from database:</li>
+                                        <img src="../images/weipeng get rows from elevator table.png" width="600" alt="rows from database">
+                                        <li>Successfully inserted new row to database from back-end:</li>
+                                        <img src="../images/weipeng insert  row to elevator table.png" width="600" alt="insert row to database">
+                                    </ul>
+                                </li>
+                                <li>Try to implement credentials verification and user sign-up with database
+                                    <ul>
+                                        <li>Created a credentials table including user info such as: email, username, password, birthday, gender, is_student, is_teacher, is_staff, otherInfo</li>
+                                        <img src="../images/weipeng userCredential table.png" width="600" alt="user credential table">
+                                        <li>For the credentials verification, the back-end will prepare a SQL statement according to user-input email, which is the primary key for the credential database. If the email exists at the userCredentials table, then continue to check the corresponding password</li>
+                                        <img src="../images/weipeng user verification code.png" width="600" alt="user verification with database">
+                                        <li>For signing up new users, will form a new user array, then create SQL statement with the new user array</li>
+                                        <img src="../images/weipeng user sign-up code.png" width="600" alt="sign up new user to database">
+                                        <li>Will need to find a way to check duplicate user</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
