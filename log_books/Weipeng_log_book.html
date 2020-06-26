@@ -64,6 +64,7 @@
                 <li><a href="#week3">Week 3</a></li>
                 <li><a href="#week4">Week 4</a></li>
                 <li><a href="#week5">Week 5</a></li>
+                <li><a href="#week6">Week 6</a></li>
             </ul>
         </nav>
 
@@ -153,7 +154,7 @@
                         <li>May 25, 2020
                             <ul>
                                 <li>Nucleo64 CAN demo wiring diagram</li>
-                                <img src="../images/CAN demo wiring diagram.png" alt="Wiring diagram" title="Wiring diagram" width="500" />
+                                <img src="../images/weipeng_logbook/CAN demo wiring diagram.png" alt="Wiring diagram" title="Wiring diagram" width="500" />
                             </ul>
                         </li>
                         <li>May 28, 2020
@@ -205,7 +206,7 @@
                                 <li>After discuss the math assignment with Eduard, found my way to do assignment 6 is wrong. For assignment 6b, seems we still lack some knowledge</li>
                                 <li>Worked on project login and request_access pages. Now the input boxes are aligned
                                 </li>
-                                <img src="../images/input_box_alignment.png" alt="input_boxes" title="input_box_alignment" width="300" />
+                                <img src="../images/weipeng_logbook/input_box_alignment.png" alt="input_boxes" title="input_box_alignment" width="300" />
                                 <li>Add copyright footers to each page</li>
                                 <li>Finished software assignment#1 Q14-a. Will continue to work on Q14-b</li>
                             </ul>
@@ -220,7 +221,7 @@
                                 <li>change Eduard's navigation bar a little and generalized it to all our pages</li>
                                 <li>Try to build a nested dropdown menu, find a source here: <a href="https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation">https://stackoverflow.com/questions/44467377/bootstrap-4-multilevel-dropdown-inside-navigation</a>
                                 </li>
-                                <img src="../images/nested-dropdown-example.png" alt="dropdown example" title="dropdown example" width="300">
+                                <img src="../images/weipeng_logbook/nested-dropdown-example.png" alt="dropdown example" title="dropdown example" width="300">
                                 <li>The nested dropdown doesn't work. The secondary dropdown menu position shifted</li>
                                 <li>May require JavaScript function to do it?</li>
                             </ul>
@@ -228,7 +229,7 @@
                         <li>June 8, 2020
                             <ul>
                                 <li>remake the project home page with slide show with carousel</li>
-                                <img src="../images/home_slide_show_example.png" alt="slide show example" title="slide show example" width="500">
+                                <img src="../images/weipeng_logbook/home_slide_show_example.png" alt="slide show example" title="slide show example" width="500">
                                 <li>restructure the header with grip. Want the team logo to disappear when window is narrow.
                                 </li>
                                 <li>hasn't found a way to hide the logo. Online sources are more for bootstrap 4: <a href="https://mdbootstrap.com/snippets/jquery/ascensus/131016">https://mdbootstrap.com/snippets/jquery/ascensus/131016</a>
@@ -270,20 +271,20 @@
                             <ul>
                                 <li>Continue to practise my web skills on the personal website</li>
                                 <li>Build a second vertical nav bar, called scrollsp, that can interact with the main content. Get resource from <a href="https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">here</a></li>
-                                <img src="../images/scrollspy.png" width="600" alt="scrollspy screenshot">
+                                <img src="../images/weipeng_logbook/scrollspy.png" width="600" alt="scrollspy screenshot">
                                 <li>Built log-in and sign-up pages with bootstrap. Get resource from <a href="https://www.w3schools.com/bootstrap/bootstrap_forms.asp">here</a></li>
-                                <img src="../images/login-bootstrap.png" width="600" alt="login page built with bootstrap">
+                                <img src="../images/weipeng_logbook/login-bootstrap.png" width="600" alt="login page built with bootstrap">
                                 <li>Practise putting an image along with inputs</li>
-                                <img src="../images/side image.png" width="600" alt="image aside other element">
+                                <img src="../images/weipeng_logbook/side image.png" width="600" alt="image aside other element">
                                 <li>Try to have image rollover effect on project log in page
                                     <ul>
                                         <li>Try to use the pseudo element method (:hover, :active) to make image rollover, but it doesn't work. Guess if the target element is covered by other elements, the mouse event is not triggered</li>
                                         <li>Use JavaScript to realize the effect. Create a set of 3 images: one for inactive status, one for mouse hover status, and another one for mouse click status
                                         </li>
-                                        <img src="../images/image rollover1.png" width="400" alt="button designs">
+                                        <img src="../images/weipeng_logbook/image rollover1.png" width="400" alt="button designs">
                                         <li>Create 3 event listener for the button. Then change source image according to coresponding events. The idea was inspired by <a href="https://stackoverflow.com/questions/18032220/css-change-image-src-on-imghover">this</a>.
                                         </li>
-                                        <img src="../images/image rollover2.png" width="400" alt="buttons at inactive status">
+                                        <img src="../images/weipeng_logbook/image rollover2.png" width="400" alt="buttons at inactive status">
                                     </ul>
                                 </li>
                                 <li>encounter issue after Eduard putting navbar and bootstrap codes in one place</li>
@@ -331,7 +332,7 @@
                                         <li>Try to use the json_encode() and file_put_content(.. $flags=FILE_APPEND), but it doesn't work. The new data will be appended directly outside the original json structure.</li>
                                         <li>Try to use array_merge() function (<a href="https://www.php.net/manual/en/function.array-merge.php">Source</a>), the array is appended into the structure, but not separated as a secondary array.</li>
                                         <li>Try to use array_push() function (<a href="https://www.php.net/manual/en/function.array-push.php">Source</a>), then all the new user data will be appended to the end of the structure as a single element</li>
-                                        <img src="../images/weipeng json put content code.png" width="600" alt="json code to put content into json file">
+                                        <img src="../images/weipeng_logbook/weipeng json put content code.png" width="600" alt="json code to put content into json file">
                                     </ul>
                                 </li>
                                 <li>set up database at local computer
@@ -348,8 +349,8 @@
                                 <li>Practise creating some database from terminal
                                     <ul>
                                         <li>Managed to create elevatorNetwork and CAN_subNetwork tables</li>
-                                        <img src="../images/weipeng elevatornetwork table practise.png" width="600" alt="elevatorNetwork table">
-                                        <img src="../images/weipeng can subnetwork table practise.png" width="600" alt="CAN_subNetwork table">
+                                        <img src="../images/weipeng_logbook/weipeng elevatornetwork table practise.png" width="600" alt="elevatorNetwork table">
+                                        <img src="../images/weipeng_logbook/weipeng can subnetwork table practise.png" width="600" alt="CAN_subNetwork table">
                                     </ul>
                                 </li>
                             </ul>
@@ -359,25 +360,51 @@
                                 <li>Learn how to communicate back-end with database
                                     <ul>
                                         <li>After trying out the select statement from Michael's slide, I managed to get rows from database:</li>
-                                        <img src="../images/weipeng get rows from elevator table.png" width="600" alt="rows from database">
+                                        <img src="../images/weipeng_logbook/weipeng get rows from elevator table.png" width="600" alt="rows from database">
                                         <li>Successfully inserted new row to database from back-end:</li>
-                                        <img src="../images/weipeng insert  row to elevator table.png" width="600" alt="insert row to database">
+                                        <img src="../images/weipeng_logbook/weipeng insert  row to elevator table.png" width="600" alt="insert row to database">
                                     </ul>
                                 </li>
                                 <li>Try to implement credentials verification and user sign-up with database
                                     <ul>
                                         <li>Created a credentials table including user info such as: email, username, password, birthday, gender, is_student, is_teacher, is_staff, otherInfo</li>
-                                        <img src="../images/weipeng userCredential table.png" width="600" alt="user credential table">
+                                        <img src="../images/weipeng_logbook/weipeng userCredential table.png" width="600" alt="user credential table">
                                         <li>For the credentials verification, the back-end will prepare a SQL statement according to user-input email, which is the primary key for the credential database. If the email exists at the userCredentials table, then continue to check the corresponding password</li>
-                                        <img src="../images/weipeng user verification code.png" width="600" alt="user verification with database">
+                                        <img src="../images/weipeng_logbook/weipeng user verification code.png" width="600" alt="user verification with database">
                                         <li>For signing up new users, will form a new user array, then create SQL statement with the new user array</li>
-                                        <img src="../images/weipeng user sign-up code.png" width="600" alt="sign up new user to database">
+                                        <img src="../images/weipeng_logbook/weipeng user sign-up code.png" width="600" alt="sign up new user to database">
                                         <li>Will need to find a way to check duplicate user</li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
 
+                    </ul>
+                </div>
+            </div>
+            <br />
+                <div id="week6">
+                <div class="week_log" style="background-color: lightgreen;">
+                    <h1>Week 6</h1>
+                    <ul style="line-height: 30px;">
+                        <li>June 25, 2020
+                            <ul>
+                                <li>Continue to work on email duplicate check with AJAX</li>
+                                <ul>
+                                    <li>The JavaScript codes are basically given by Michael. Need to figure out the php side</li>
+                                    <li>the ajax function at JS will receive the message from "echo" in php. Found a good resource at <a href="https://www.w3schools.com/php/php_ajax_php.asp">here</a></li>
+                                    <li>Not sure why keep receiving responseText that contents more than just the echo message</li>
+                                    <li>var_dump() will also sends data back to JS.</li>
+                                    <li>Now JS can talk to php with ajax. Time to hook php with database</li>
+                                    <li>When try to select a non-existed row in a table, the execution result is true, just return an empty array. So if the database execution result is an empty array, means no duplicate entry</li>
+                                    <li>Successfully have the email checked! When email is duplicated, a red warning will show up, otherwise, a blue message will tell the email is ok.</li>
+                                    <img src="../images/weipeng_logbook/weipeng email duplicate example.png" width="600" />
+                                    <img src="../images/weipeng_logbook/weipeng email ok example.png" width="600" />
+                                </ul>
+                                <li>Implement all credentials functions in project webpage</li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>

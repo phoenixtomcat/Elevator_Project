@@ -33,7 +33,7 @@
         </div>
         <br />
         <div class="col-sm-6">
-            <form action="#" class="form-horizontal">
+            <form action="request_access2.php" class="form-horizontal" method="POST" onsubmit="validateForm(event)" id="requestAccessForm">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="font-weight: bold;">Contact details</div>
                     <div class="panel-body">
@@ -94,7 +94,7 @@
                             <label for="url" class="control-label col-sm-4">Website:</label>
                             <div class="col-sm-8">
                                 <input type="url" class="form-control" id="url" placeholder="Your Website"
-                                    name="username" required>
+                                    name="url">
                             </div>
                         </div>
 
@@ -102,7 +102,7 @@
                             <label for="bdate" class="control-label col-sm-4">Date of Birth*:</label>
                             <div class="col-sm-8">
                                 <input type="date" class="form-control" id="bdate" placeholder="Enter Date of Birth"
-                                    name="bdate" required>
+                                    name="bdate">
                             </div>
                         </div>
 
@@ -115,41 +115,35 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <div>You are: </Div>
+                                <label class="control-label">You are: </label><br />
                                 <label class="radio-inline"><input type="radio" name="fac_or_student" value="faculty"
                                         checked="checked" /> Faculty</label>
                                 <label class="radio-inline"><input type="radio" name="fac_or_student" value="student" />
                                     Student</label>
+                                <label class="radio-inline"><input type="radio" name="fac_or_student" value="other" />
+                                    Other</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="gender" class="control-label col-sm-4">Gender:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="gender" name="gender">
-                                    <option></option>
-                                    <option>keep it secret</option>
-                                    <option>female</option>
-                                    <option>male</option>
+                                    <option value="null"></option>
+                                    <option value="null">keep it secret</option>
+                                    <option value="female">female</option>
+                                    <option value="male">male</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <div>Check all apply to you: </div>
-                                <label class="checkbox"><input type="checkbox" name="involvement" value="none"> Have no
-                                    involvement in project </label>
-                                <label class="checkbox"><input type="checkbox" name="involvement" value="instructor"> An
-                                    instructor in project </label>
-                                <label class="checkbox"><input type="checkbox" name="involvement"
-                                        value="instructor_other"> An instructor in a different project </label>
-                                <label class="checkbox"><input type="checkbox" name="involvement" value="student"> A
-                                    student in this project </label>
-                                <label class="checkbox"><input type="checkbox" name="involvement"
-                                        value="student_other">A student in a different project</label>
-                                <label class="checkbox"><input type="checkbox" name="involvement" value="admin">A
-                                    college administrator</label>
-                                <label class="checkbox"><input type="checkbox" name="involvement" value="external">An
-                                    external viewer</label>
+                                <label class="control-label">Check all apply to you: </label>
+                                <label class="checkbox"><input type="checkbox" name="software"> Enrolled in Software Engineering </label>
+                                <label class="checkbox"><input type="checkbox" name="datacom"> Enrolled in Hardware Engineering </label>
+                                <label class="checkbox"><input type="checkbox" name="math"> Enrolled in Advanced Math </label>
+                                <label class="checkbox"><input type="checkbox" name="natural_science"> Enrolled in Natural Science</label>
+                                <label class="checkbox"><input type="checkbox" name="thermo"> Enrolled in Thermodaynamics</label>
+                                <label class="checkbox"><input type="checkbox" name="project"> Enrolled in Engineering Project</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -157,9 +151,9 @@
                                 project? </label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="help_improve" name="help_improve">
-                                    <option value="no_answer" selected></option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
+                                    <option selected></option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                             </div>
                         </div>
@@ -172,7 +166,7 @@
                         <div class="form-group">
                             <!-- <label for="accessText">Other details: </label> -->
                             <textarea class="form-control" rows="5" id="accessText" name="accessText"
-                                form="accessForm"></textarea>
+                                form="requestAccessForm"></textarea>
                             <p id="charactersLeft">Characters remaining: 180</p>
                         </div>
                     </div>
