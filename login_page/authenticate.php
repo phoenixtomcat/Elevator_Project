@@ -44,7 +44,7 @@ function verify_credential_db(){
             return false;
         else if ($row[0]['password'] == $password)
             //found username, password matched
-            return false;
+            return true;
         else
             //found username, password wrong
             return false;
