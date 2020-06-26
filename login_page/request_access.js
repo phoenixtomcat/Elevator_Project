@@ -85,6 +85,9 @@ function comparePassword() {
 }
 
 function checkUsernameDuplicate() {
+    /* to Check if username already exists at database
+    return: true  -- no duplicate
+            false -- duplicated or username length is zero */
     if (username.value.length != 0) {
         //Only send request when username value is not empty
         var xmlhttpShow = new XMLHttpRequest();
@@ -95,10 +98,12 @@ function checkUsernameDuplicate() {
                     //no duplicate
                     warning.innerHTML = "Username is ok";
                     warning.style.color = "blue";
+                    return true;
                 } else {
                     //found duplicated username
                     warning.innerHTML = "Username already exists";
                     warning.style.color = "red";
+                    return false;
                 }
 
             }
@@ -107,6 +112,7 @@ function checkUsernameDuplicate() {
         xmlhttpShow.send();
     }else{
         warning.innerHTML = "";
+        return false;
     }
 
 }
