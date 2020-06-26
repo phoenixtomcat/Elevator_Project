@@ -1,4 +1,5 @@
 var el;			// Get the message element <textarea>
+var username_flag //will be set to true if username is not duplicated
 
 function charCount(e) {
     /*Count remaining allowed char in text box
@@ -98,12 +99,12 @@ function checkUsernameDuplicate() {
                     //no duplicate
                     warning.innerHTML = "Username is ok";
                     warning.style.color = "blue";
-                    return true;
+                    username_flag = true;
                 } else {
                     //found duplicated username
                     warning.innerHTML = "Username already exists";
                     warning.style.color = "red";
-                    return false;
+                    username_flag = false;
                 }
 
             }
@@ -112,7 +113,6 @@ function checkUsernameDuplicate() {
         xmlhttpShow.send();
     }else{
         warning.innerHTML = "";
-        return false;
     }
 
 }
@@ -122,7 +122,7 @@ function validateForm(e){
     return: true  --all requirements met
             false --any requirement violated */
 
-    var result = checkUsernameDuplicate() &&
+    var result = username_flag &&
                 comparePassword() &&
                 firstname.value.length > 0 &&
                 lastname.value.length > 0 &&
