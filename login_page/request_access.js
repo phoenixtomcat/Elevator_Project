@@ -103,7 +103,7 @@ function checkUsernameDuplicate() {
 
             }
         }
-        xmlhttpShow.open('get', `username_duplication_check.php?q=${username.value}`, true);
+        xmlhttpShow.open('GET', 'username_duplication_check.php?q='+username.value, true);
         xmlhttpShow.send();
     }else{
         warning.innerHTML = "";
