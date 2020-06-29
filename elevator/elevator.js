@@ -1,4 +1,63 @@
-var pos = 0; //this is the current position of the elevator
+var pos = 465; //this is the current position of the elevator
+var floor_db;
+var warning = document.getElementById('warning');
+
+//AJAX functions to communicate with the backend/database
+function setFloorDB(floor){
+    var xmlhttpShow = new XMLHttpRequest();
+    // xmlhttpShow.onreadystatechange = function(){
+    //     if (this.readyState == 4 && this.status == 200){
+    //         if (typeof callback === 'function')
+    //             callback(this.responseText);
+    //     }
+    // }
+    xmlhttpShow.open('GET', 'elevator_control.php?q='+floor, true);
+    xmlhttpShow.send();
+}
+
+function getFloorDB(callback){
+    var xmlhttpShow = new XMLHttpRequest();
+    xmlhttpShow.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            if (typeof callback === 'function')
+                callback(this.responseText);
+        }
+    }
+    xmlhttpShow.open('GET', 'elevator_control.php?q=null', true);
+    xmlhttpShow.send();
+
+}
+
+//Callback function to init elevator position
+function elevatorInitCallback(result){
+    floor_db = result;
+    initElevator();
+}
+
+//Functions for GUI animation
+function initElevator(){
+    //Since AJAX is async, this function has to be called inside the callback function
+
+    //update GUI floor number
+    floor_sign(parseInt(floor_db));
+
+    //Move GUI elevator to corrent floor
+    var elem = document.getElementById("elevator1");
+    switch (floor_db){
+        case "1":
+            elem.style.top = "465px";
+            pos = 465;
+            break;
+        case "2":
+            elem.style.top = "240px";
+            pos = 240;
+            break;
+        case "3":
+            elem.style.top = "15px";
+            pos = 15;
+            break;
+    }
+}
 
 
 function myMove(floor, pot) {
@@ -12,7 +71,7 @@ function myMove(floor, pot) {
     }
 
     var elem = document.getElementById("elevator1");
-    var id = setInterval(frame, 10); //sets speed
+    var id = setInterval(frame, 20); //sets speed
 
     function frame() {
         close_door();
@@ -131,16 +190,19 @@ function cha_col(pot) {
 
         case "elv1":
             document.getElementById('elv1').src = '../images/Buttons/Buttons for Eduard/Buttons--02.png';
+            setFloorDB(1);
             myMove(1, pot);
             break;
 
         case "elv2":
             document.getElementById('elv2').src = '../images/Buttons/Buttons for Eduard/Buttons--04.png';
+            setFloorDB(2);
             myMove(2, pot);
             break;
 
         case "elv3":
             document.getElementById('elv3').src = '../images/Buttons/Buttons for Eduard/Buttons--06.png';
+            setFloorDB(3);
             myMove(3, pot);
             break;
     }
@@ -179,7 +241,8 @@ function cha_back(pot) {
 }
 
 
-
+//Update elevator info when page loads
+document.addEventListener("DOMContentLoaded", function(){getFloorDB(elevatorInitCallback)}, false);
 
 
 
@@ -212,3 +275,4 @@ function cha_col6() {
 function cha_col7() {
     document.getElementById('elv3').src = '../images/Buttons/Buttons for Eduard/Buttons--05.png';
 }
+

@@ -65,7 +65,7 @@ input {
 
 #elevator1 {
     position: absolute;
-    top: center;
+    top: 465px;
     left: 50%;
     margin-left: -100px;
 }
