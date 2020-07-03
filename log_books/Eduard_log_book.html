@@ -35,6 +35,8 @@
                 <li><a href="#wk3">Week Three</a></li>
                 <li><a href="#wk4">Week Four</a></li>
                 <li><a href="#wk5">Week Five</a></li>
+                <li><a href="#wk6">Week Six</a></li>
+
 
             </ul>
             <hr id="wk1">
@@ -284,6 +286,70 @@
                             class where it can be explained in full becasue I still do not feel like I have a very good grip on what exactly everything 
                             does and how it works. 
                         </li>
+                    </ul>
+                </ul>
+                <a href="#top">Top</a>
+            </article>
+            <hr id="wk6"/>
+            <article>
+                <h2>Week 6</h2>
+                <ul>
+                    <li>25/06/2020</li>
+                    <ul>
+                        <li>
+                            My task from the last meeting was to look ahead at connecting the website to the c++ code on the Pi and see 
+                            how challenging that would be.  Given that we are not at the schools any hardware type of code for the the Pi 
+                            will have challenges, but we already have code that works.  So I thoroughly went through and looked at the code
+                            that is on the Pi.  I can understand and follow it but it would be difficult to write my own code for that.  
+                        </li>
+                        <li>
+                            I then looked at the software course outline and some of the slides later on in the course and it looks like we may be
+                            working with C++ later on and might be working on the type of functions that we would need later on.  This would still 
+                            prove difficult as there would be no easy debugging method to debug code on the Pi that has to connect to the CAN network
+                        </li>
+                        <li>
+                            Came to the conclusion that a good next step in the project would be to try and hook up our website to the code provided
+                            already on the Pi just to prove that it can work and maybe once we have learned a bit more in the software course
+                            we can make our own C++ functions.  Will share these thought's with group at meeting. 
+                        </li>
+                    </ul>
+                    <li>26/06/2020</li>
+                    <ul>
+                        <li>Next goal is to hook up the elevator to our website.  I will be gone a couple day's next week so I will work on that 
+                            when I get back. 
+                        </li>
+                    </ul>
+                    <li>02/07/2020</li>
+                    <ul>
+                        <li>
+                            Checked back in with group and Weipeng has gotten the website to control the elevator which is great news!  However, as I was planning to work on That
+                            I will have to find something else to do.  
+                        </li>
+                        <li>
+                            Decided to start on the logic code for the elevator to run.  Talked with group members and decided to create the logic
+                            in PHP since javascript is available to any users of the website and C code would be on the Pi which could prove tough 
+                            for debugging.  
+                        </li>
+                        <li>
+                            Wrote pesudo code for the logic in visual studio code tried to figure out how the layout for the project should go.  
+                        </li>
+                    </ul>
+                    <li>03/07/2020</li>
+                    <ul>
+                        <li>
+                            Started to fill in pesudo code with acutual commands and array functions.  And tried to incoreperate it with the 
+                            javascript so that it would all work together.  After further comtemplation I realized that my origonal idea of how to connect it 
+                            won't work and will have to brainstorm a new way to do it.  I wanted to treat the button pushing as an intrrupt and although this may work
+                            there will need to be some major adjustments.  Also global variables do not seem to work the same in php as in C. I was thinking more along the lines of C code than html, php and javascript.
+                            Will talk to members of my group to see if they have any ideas.                         
+                        </li>
+                        <li> 
+                            Focused on debugging my logic function which will output the floor that the elevator should go to
+                            next.  Debugging took quite a while but got it working and tested it out with the test plan below and the results
+                            were all correct. A more compleate test plan will be compleated when the logic function is connected to the 
+                            rest of the code.  
+                        </li>
+                        <li><a href="../reference/LogicTestPlan.pdf" target="_blank" >Test Plan</a></li>
                     </ul>
                 </ul>
                 <a href="#top">Top</a>
