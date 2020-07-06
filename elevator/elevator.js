@@ -251,7 +251,7 @@ function cha_back(pot) {
 //Update elevator info when page loads
 document.addEventListener("DOMContentLoaded", function(){getFloorDB(elevatorInitCallback)}, false);
 
-document.addEventListener("DOMContentLoaded", function(){countlogin(elevatorInitCallback))
+//document.addEventListener("DOMContentLoaded", function(){countlogin(elevatorInitCallback)}, false);
 
 
 //delay functions.  Can be taken out later 
