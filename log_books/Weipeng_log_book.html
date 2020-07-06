@@ -548,6 +548,55 @@
                 </div>
             </div>
             <br />
+            <div id="week7">
+                <div class="week_log" style="background-color: cyan;">
+                    <h1>Week 7</h1>
+                    <ul style="line-height: 30px;">
+                        <li>June 29, 2020
+                            <ul>
+                                <li>Try to make our web GUI work with the real elevator
+                                    <ul>
+                                        <li>Need to understand how the real elevator is controlled</li>
+                                        <li>From Micheal's demo code, the C++ code keeps reading currentFloor from elevatorNetwork where nodeID=1, so as long as the number of currentFloor in db is changed, the real elevator will act correspondingly.</li>
+                                        <li>The C++ program does not set status of the elevator in the database, which may be a problem if we want the GUI to sync with the real elavator. Will leave this for now.</li>
+                                        <li>To talk to the database without refreshing the page, will need to use ajax function. This will be similar to the username duplication check function.</li>
+                                        <li>Created a set of functions in elevator.js: setFloorDB(floor) and getFloorDB(). Whenever these functions are called, they will make http request to backend.</li>
+                                        <li>Created a elevator_control.php to handle the http request from above functions. If request command is null, it means get current floor from database, otherwise it will set the current floor to the request value.</li>
+                                        <li>getFloorDB() should have reture a value, but it only returns "undefined", which is similar to the issue I encountered for the username duplication check. Need further debugging.</li>
+                                        <li>The backend works properly. It can get value from database properly and echo the value.</li>
+                                        <li>Search the issue online, and found that actually ajax functions are async functions, which will have a time gap between make request and get response. The best way to deal with it is to use callback function, which I am not so sure how it works.</li>
+                                        <li>Found some useful resources at <a href="https://stackify.com/return-ajax-response-asynchronous-javascript-call/">here</a> and <a href="https://www.w3schools.com/xml/ajax_xmlhttprequest_response.asp">here</a></li>
+                                        <li>Basically, I need to pass in a function to the getFloorDB(). Whenever the response is received, the passed-in function will be called. The passed-in function will get the result from ajax function and continue to operate with that result.</li>
+                                        <li>In order to ensure the GUI elevator is sync with database, getFloorDB() will be called whenever the page is loaded. Then change the GUI according to result.</li>
+                                        <li>Since the default position of GUI elevator is at 3rd floor, the GUI may flash a change at the beginning. I think it's acceptable.</li>
+                                        <li>Considering there is nothing constantly checking the actual floor number in db and no elevator controlling logic, will slow down the GUI elevator animation to aviod floor change before sending another command</li>
+                                        <li>I can see the real elevator is moving when I push button in the GUI. The database value also changes accordingly.</li>
+                                        <img src="../images/weipeng_logbook/db value changed when button was pushed.png"/>
+                                        <li>Things to do: 1. the elevator GUI works separatedly from the real elevator, need some sorts of sync mechanism; 2. There is no any error handling and protection mechanism to the control system; 3. Need a way to integreate the elevator control logic. </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>July 4, 2020
+                            <ul>
+                                <li>Have a meeting with Nishant and Ramtin. Eduard can't attend because of work.</li>
+                                <li>Ramtin finished the stat page html and css coding, will continue to work on js. Nishant will start to work on diagnostic system, which will need him to create a new git repo for C++ program.</li>
+                                <li>Eduard wrote some functions for elevator control logic. We will work on integrating the elevator control logic with our program.</li>
+                                <li>Talked 2hr with Edurad at night. Realized several issues and generated an initial solution:
+                                    <ul>
+                                        <li>We decided to put the logic control at the backend, in order to take advantage of the array manupilation ability of php. However, this will cause an issue that the backend will not be informed when the database is updated by the C++ code, so we need something to constantly check the database.</li>
+                                        <li>Currently, the C++ code only use the current floor value to operate. It does not update elevator status(moving or stop). Also, the C++ code will update the db even before the real elevator actually finishes the command.</li>
+                                        <li>After discussion, we decided that Eduard will focus on the logic control integration. When a button is pressed, a button id will be passed to logic control backend. The backend will process the data, save the control array to json file, and update db values according to its processing result. Meanwhile, there should be a watchdog function constantly checking the database. Once the last command is executed successfully, the watchdog function will send the next target to db, until there is no next target in the control array.</li>
+                                        <li>I will work on the C++ code and my tasks are to understand what CAN messages are transmitted and received when elevator moves and to figure out a way to update elevator status to reflect the actual situation.</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br />
         </div>
         <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
 </body>
