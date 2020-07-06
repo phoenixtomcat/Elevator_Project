@@ -241,6 +241,60 @@
                 <li>Our goal for next week is to get the credentials for the pi database and try to create and edit the database there. </li>
             </ul>
         </ul>
+        <h2>Week 6 - Reading Week</h2>
+        <ul>
+            <h3>Sunday June 28th</h3>
+            <ul>
+                <li>Group meeting determines that I have to work on the statistical page for the reading week as a standalone part of the project</li>
+                <li>To keep expectations realistic and have time to work on other subjects, I will aim to <em> finish the end work of it by the end of the reading week</em> </li>
+                
+            </ul>
+            <h3>Wednesday 1st July</h3>
+            <ul>
+                <li style="color:red;">Happy Canada Day!</li>
+                <li>After revising Software (front end) for the first half of the Reading Week, I am ready to embark on a journey to make the statistical page work - a standalone part of the project</li>
+                <li>I start brainstorming everything I need for the statistical page</li>
+                <li>I reckon that I need at least 2 sections of the page, one that tracks how many logins and by whom was made into the website (from the login page)</li>
+                <li>And one for how many times a user accesses the elevator page</li>
+                <li>These ideas will grow as the project progresses</li>
+                <li>I got started on the HTML. It will be a simple webpage with minimal aesthetics</li>
+            </ul>
+            <h3>Thursday 2nd July</h3>
+            <ul>
+                <li>HTML is almost done. I had to look up some aspects from other people's works such as Eduard's Log book for the table of contents jump-to</li>
+                <li>It was straightforward. In the little time I have dedicated to the project, I start working on the CSS. Again, this will be a simple page with emphasis on the data</li>
+                <li>I will try to mimic the About page we have set up in terms of setup</li>
+                <li>I set up the page to be accessed from the about page and from the NAV bar at the top</li>
+                <li>You also need to be logged in before you can see the page. That means the php page is also up and running.</li>
+            </ul>
+            <h3>Saturday 4th July</h3>
+            <ul>
+                <li>Another team meeting to let each other know of the progress we have made so far in the week. Weipeng says that the website on the pi can now control the elevator actually!</li>
+                <li>I set to finish the CSS. A lot of it will be straightforward, so I emphasize on getting it right</li>
+                <li>I notice that I cannot login to the latest pulled page from master so I talk to Weipeng and set it up so I can. He also tells me that I can register on the pi website as well!</li>
+                <li>The CSS is done, but I notice that it won't get reflected on the local website (I don't have access to the pi code yet, so I will have to push to the repo and let weipeng do it himself).</li>
+                <li>I ask weipeng about the issue, he says it has got to do with Chrome ( I have to either hard refresh it with Ctrl+f5 or use another browser). When you make a change on the CSS, a simple refresh on chrome won't let you
+                    see the CSS changes. 
+                </li>
+                <li>So I changed my browser to Firefox and it works. Next up, Javascript and I should be good for the briefing coming up</li>
+            </ul>
+            <h3>Sunday 5th July</h3>
+            <ul>
+                <li>Tried researching about ways I could make Javascript work for keeping track on number of times logged in by a user (I would have to make a table within the database created by Weipeng)</li>
+                <li>And Also number of times a user enterred into the elevator room</li>
+                <li>For proof of concept, I will aim to program the generic number of times anyone has accessed the elevator page and anyone tried to log in.</li>
+                <li>For the specific people logging in, I would have to rely on IP addresses, so I search online and there are references to AJAX, JQuery and Nodejs. I don't know if I am allowed to use them. I will wait to ask michael.</li>
+                <li>Not much work afterwards; revision for thermodynamics midterm tomorrow morning
+                </li>
+            </ul>
+            <h3>Monday 6th July</h3>
+            <ul>
+            <li>Right after Thermo quiz, back onto making the js work for my generic stats page</li>
+            <li>Looking through the JS work done by Weipeng, it seems AJAX is fine to use, so I'll go ahead and use it</li>
+            <li>I went through the logic with Weipeng and decided to do it like this: In the local js file for the elevator page, I will create a function which will create  a JSON file of all the times the page refreshes. Then, in the stats.js file, it will read the JSON and give the results</li>
+            <li>I won't have time to do all of it today. I will just have to explain to Michael and Ali about the logic behind my plans. </li>
+            </ul>
+        </ul>
         <a href="../index_page/index.html">Click here to go back to the main page</a>
         </ul>
     </div>

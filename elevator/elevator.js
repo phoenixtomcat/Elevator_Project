@@ -34,6 +34,13 @@ function elevatorInitCallback(result){
     initElevator();
 }
 
+function countlogin(elevatorInit){
+    if (elevatorInitCallback >= 0){
+        counter++;
+    }
+
+}
+
 //Functions for GUI animation
 function initElevator(){
     //Since AJAX is async, this function has to be called inside the callback function
@@ -244,7 +251,7 @@ function cha_back(pot) {
 //Update elevator info when page loads
 document.addEventListener("DOMContentLoaded", function(){getFloorDB(elevatorInitCallback)}, false);
 
-
+document.addEventListener("DOMContentLoaded", function(){countlogin(elevatorInitCallback))
 
 
 //delay functions.  Can be taken out later 
