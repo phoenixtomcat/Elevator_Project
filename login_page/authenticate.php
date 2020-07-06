@@ -3,7 +3,7 @@
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$verification_bypass = true;  //<-----Please keep this false when you push in master!!!
+$verification_bypass = false;  //<-----Please keep this false when you push in master!!!
 
 function verify_credential_db(){
     global $username, $password, $verification_bypass;
