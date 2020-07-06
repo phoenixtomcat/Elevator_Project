@@ -29,7 +29,7 @@ elemt2.innerHTML = msg;
 var age_r = today.getTime() - r_birth.getTime(); // Age in milliseconds
 age_r = Math.floor(age_r / 31556900000);
 
-msg = '<p>Ramtin is ' + age_r + ' years old and lives  </p>';
+msg = '<p>Ramtin is ' + age_r + ' years old and lives  in Mississauga, Ontario</p>';
 
 var elemt3 = document.getElementById('r_birth');
 elemt3.innerHTML = msg;
