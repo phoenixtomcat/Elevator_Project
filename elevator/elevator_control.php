@@ -73,10 +73,7 @@ if ($floor_cmd == "null"){
     echo getFloorDB();
 }else {
     //set target floor at database
-    if ($floor_cmd == getFloorDB())
-        //already at the target floor
-        echo true;
-    else if ($floor_cmd == '1' || $floor_cmd == '2' || $floor_cmd=='3'){
+    if ($floor_cmd == '1' || $floor_cmd == '2' || $floor_cmd=='3'){
         echo setFloorDB($floor_cmd);
     }
 
