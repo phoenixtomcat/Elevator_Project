@@ -8,7 +8,7 @@ function getFloorDB(){
             null          -- execution failed or got empty array */
     //database parameters
     $db = new PDO(
-        'mysql:host=127.0.0.1;dbname=elevator',
+        'mysql:host=127.0.0.1;dbname=project_database',
         'ese_team',
         'ese'
     );
@@ -17,7 +17,7 @@ function getFloorDB(){
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     //prepare SQL statement
-    $query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1;';
+    $query = 'SELECT currentFloor FROM elevatorControl WHERE nodeID = 0;';
     $statement = $db->prepare($query);
 
     //execute the SQL statement and store return array at $row
@@ -45,7 +45,7 @@ function setFloorDB($floor) {
             false -- execution failed */
     //database parameters
     $db = new PDO(
-        'mysql:host=127.0.0.1;dbname=elevator',
+        'mysql:host=127.0.0.1;dbname=project_database',
         'ese_team',
         'ese'
     );
@@ -54,7 +54,7 @@ function setFloorDB($floor) {
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     //Create SQL statement
-    $query = 'UPDATE elevatorNetwork SET currentFloor=:floor WHERE nodeID = 1;';
+    $query = 'UPDATE elevatorControl SET requestedFloor=:floor WHERE nodeID = 0;';
 
     //execute SQL statement at database
     $statement = $db->prepare($query);
