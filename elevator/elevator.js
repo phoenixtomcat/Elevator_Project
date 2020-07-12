@@ -78,7 +78,7 @@ function myMove(floor, pot) {
     }
 
     var elem = document.getElementById("elevator1");
-    var id = setInterval(frame, 20); //sets speed
+    var id = setInterval(frame, 5); //sets speed
 
     function frame() {
         close_door();
