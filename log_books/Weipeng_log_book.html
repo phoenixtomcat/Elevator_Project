@@ -73,6 +73,7 @@
                 <li><a href="#week5">Week 5</a></li>
                 <li><a href="#week6">Week 6</a></li>
                 <li><a href="#week7">Week 7</a></li>
+                <li><a href="#week8">Week 8</a></li>
             </ul>
         </nav>
 
@@ -593,6 +594,60 @@
 
                             </ul>
                         </li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week8">
+                <div class="week_log" style="background-color: yellow;">
+                    <h1>Week 8</h1>
+                    <ul style="line-height: 30px;">
+                        <li>July 11, 2020
+                            <ul>
+                                <li>Create tables in database to be able to indicate elevator status and log elevator stats.</li>
+                                <ul>
+                                    <li>From Michael's hint given in last debriefing, the elevator control should keep broadcasting the current floor of the elevator.</li>
+                                    <li>Using the demo code->option2, we can tell the current floor at the data(Last byte of the data, floor 1 is 5, floor 2 is 6, and floor 3 is 7)</li>
+                                    <li>This floor number will not change until the elevator actually reaches the floor, so we can use it to indicate the status of the elevator.</li>
+                                    <li>The following tables have been created in the database for elevator control and statstics:
+                                        <ul>
+                                            <li>elevatorControl - main table to indicate requested floor, current floor and status</li>
+                                            <img src="../images/weipeng_logbook/elevatorControl table.png"/>
+                                            <li>elevatorNetwork - a table connects nodeID to its label</li>
+                                            <img src="../images/weipeng_logbook/elevatorNetwork table.png"/>
+                                            <li>floorStats - record number of hits, last stay time, total stay time for each floor</li>
+                                            <img src="../images/weipeng_logbook/floorStats table.png"/>
+                                            <li>floorHistory - add a new log everytime a floor is reached</li>
+                                            <img src="../images/weipeng_logbook/floorHistory table.png"/>
+                                        </ul>
+                                    </li>
+                                    <li>Table elevatorControl, floorStats, and floorHistory all refer to nodeID in elevatorNetwork as foreign key.</li>
+                                    <li>In order to add timestamp to a new row, use SQL default current_timestamp. Reference is <a href="https://www.mysqltutorial.org/mysql-timestamp.aspx">here</a></li>
+                                    <li>floorStats and elevatorControl have a column updated_at, which will be updated automatically when the row is changed. Use SQL default timestamp on update current_timestamp </li>
+                                    <li>To find the time stay in a floor, need a way to calculate the time different between 2 timestamps. Found a resource for DATEDIFF() in <a href="https://www.sqlteam.com/articles/working-with-time-spans-and-durations-in-sql-server">here</a></li>
+                                    <li>It seems the MariaDB doesn't use the DATEDIFF() in a way as the resource above. It only requires 2 timestamps and always output difference in days, but I want output in second. Found the MariaDB official reference at <a href="https://mariadb.com/kb/en/timestampdiff/">here</a>. Can use TIMESTAMPDIFF() to output time difference in second.</li>
+                                    <li>Next things I need are first and second record in the floorHistory. Have to use cascade SQL statements(select from select). Here are the SQL statements to update floorStats:</li>
+                                    <ul>
+                                        <li>UPDATE floorStats SET lastStaySec = (select timestampdiff(second, (select arrivalTime from (select arrivalTime from floorHistory order by arrivalTime desc limit 2) as tt order by arrivalTime  asc limit 1), (select arrivalTime from floorHistory order by arrivalTime desc limit 1)) as timeDiff from floorHistory limit 1), totalStaySec = (totalStaySec+ lastStaySec)
+                                            WHERE nodeID = 2;</li>
+                                        <li>UPDATE floorStats
+                                            SET hits = (select count(*) from floorHistory where nodeID=1)
+                                            WHERE nodeID = 1;</li>
+                                    </ul>
+                                </ul>
+                                <li>Add C++ functions to update the database.</li>
+                                <ul>
+                                    <li>General design flow chart:</li>
+                                    <img src="../images/weipeng_logbook/flow chart-94.jpg"/> 
+                                    <li>Added CAN_getCrtFloor() to get the real elevator status from the CAN broadcasting message.</li>
+                                    <li>Added db_setStatusBusy(), db_setStatusFree(), and db_logFloorChange() to update db tables whenever the elevator moves.</li>
+                                    <li>Keep getting "Segmentation fault" error. Fixed by getting rid of deleting wrong pointers.</li>
+                                    <li>The Segmentation error may still happened sometimes. Not sure why. If I commented out the deleting points lines, I don't get the segmentation fault error, but will get too many connections error from database.</li>
+                                    <li>It's generally working fine now. The floorStats and floorHistory tables can be updated along with the floor changes.</li>
+                                </ul>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
