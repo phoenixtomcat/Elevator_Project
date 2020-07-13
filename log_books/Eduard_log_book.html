@@ -36,6 +36,8 @@
                 <li><a href="#wk4">Week Four</a></li>
                 <li><a href="#wk5">Week Five</a></li>
                 <li><a href="#wk6">Week Six</a></li>
+                <li><a href="#wk7">Week Seven</a></li>
+
 
 
             </ul>
@@ -357,6 +359,42 @@
                             Talked with weipeng how we could incoperate my logic function with the rest of the code.  Decided after much discussion that I would work on the php code and incoperating with the java script
                             using ajax and json files for global variables, then Weipeng would add a busy signal to the data base so that it can be used in the PHP processing.
                         </li>
+                    </ul>
+                </ul>
+                <a href="#top">Top</a>
+            </article>
+            <hr id="wk7"/>
+            <article>
+                <h2>Week 7</h2>
+                <ul>
+                    <li>07/07/2020</li>
+                    <ul>
+                        <li>
+                            Worked on trying to add the json file to store the array's.  That went well but I was looking up how to deal with 
+                            race conditions and I couldn't find an easy way to solve for that in PHP.  It is possible that I am just missing something
+                            and have a gap in my knowledge.  However, after some reading and looking around I found a post that said that sessions will take care of
+                            race conditions.  So I tried for a bit to implement a json file with sessions gaurding against race conditions.  Then I thought 
+                            why don't we just use sessions for the array as they can be used as a global array. 
+                        </li>
+                        <li>
+                            Started to implement sessions and got some done but not too much.
+                        </li>
+                        <li>
+                            Split the logic function in two so that one function sets the values and the other decides which one to execute. 
+                        </li>
+                    </ul>
+                    <li>08/07/2020</li>
+                    <ul>
+                        <li>Added to the sessions frame work and tested and it worked.  However, it is not perfect and I think I should get rid of the array's in the 
+                            function altogether and just use them in the session.   
+                        </li>
+                        <li>
+                            Added in the ajax to the javascript so that the php file can be called and run as it needs. It seems to work but more testing should probaly be done. 
+                        </li>
+                    </ul>
+                    <li>13/07/2020</li>
+                    <ul>
+                        Went to push in the code and noticed that there were a couple of bugs in the code.  Didn't push it to master yet and tried to debug. 
                     </ul>
                 </ul>
                 <a href="#top">Top</a>
