@@ -276,16 +276,16 @@ function getFloorDB(){
                 null          -- execution failed or got empty array */
         //database parameters
         $db = new PDO(
-            'mysql:host=127.0.0.1;dbname=elevator',
-            'ed',
-            '1234'
+            'mysql:host=127.0.0.1;dbname=project_database',
+            'ese_team',
+            'ese'
         );
     
         //return arrays with keys that are the name of the fields
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
         //prepare SQL statement
-        $query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1;';
+        $query = 'SELECT currentFloor FROM elevatorControl WHERE nodeID = 0;';
         $statement = $db->prepare($query);
     
         //execute the SQL statement and store return array at $row
@@ -313,16 +313,16 @@ function getStatusDB(){
             null          -- execution failed or got empty array */
     //database parameters
     $db = new PDO(
-        'mysql:host=127.0.0.1;dbname=elevator',
-        'ed',
-        '1234'
+        'mysql:host=127.0.0.1;dbname=project_database',
+        'ese_team',
+        'ese'
     );
 
     //return arrays with keys that are the name of the fields
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     //prepare SQL statement
-    $query = 'SELECT stat FROM elevatorNetwork WHERE nodeID = 1;';
+    $query = 'SELECT status FROM elevatorControl WHERE nodeID = 0;';
     $statement = $db->prepare($query);
 
     //execute the SQL statement and store return array at $row
@@ -340,7 +340,7 @@ function getStatusDB(){
             return null;
         else
             //get current floor
-            return $row[0]['stat'];
+            return $row[0]['status'];
     }
 }
 
@@ -350,16 +350,16 @@ function setFloorDB($floor) {
                 false -- execution failed */
         //database parameters
         $db = new PDO(
-            'mysql:host=127.0.0.1;dbname=elevator',
-            'ed',       //ese_team
-            '1234'         //ese
+            'mysql:host=127.0.0.1;dbname=project_database',
+            'ese_team',       //ese_team
+            'ese'         //ese
         );
     
         //return arrays with keys that are the name of the fields
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
         //Create SQL statement
-        $query = 'UPDATE elevatorNetwork SET currentFloor=:floor WHERE nodeID = 1;';
+        $query = 'UPDATE elevatorControl SET requestedFloor=:floor WHERE nodeID = 0;';
     
         //execute SQL statement at database
         $statement = $db->prepare($query);
@@ -378,16 +378,16 @@ function setStatusDB($num) {
             false -- execution failed */
     //database parameters
     $db = new PDO(
-        'mysql:host=127.0.0.1;dbname=elevator',
-        'ed',       //ese_team
-        '1234'         //ese
+        'mysql:host=127.0.0.1;dbname=project_database',
+        'ese_team',       //ese_team
+        'ese'         //ese
     );
 
     //return arrays with keys that are the name of the fields
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     //Create SQL statement
-    $query = 'UPDATE elevatorNetwork SET stat=:num WHERE nodeID = 1;';
+    $query = 'UPDATE elevatorControl SET status=:num WHERE nodeID = 0;';
 
     //execute SQL statement at database
     $statement = $db->prepare($query);
@@ -449,8 +449,8 @@ else{
     setFloorDB($floor_target);
     
     //simulate elevator
-    sleep(5);
-    setStatusDB(0); //claim busy for our own
+    //sleep(5);
+    //setStatusDB(0); //claim busy for our own
     //echo $floor_target;
 }
 
