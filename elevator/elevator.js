@@ -15,6 +15,18 @@ function setFloorDB(floor){
     xmlhttpShow.send();
 }
 
+function setLogic(button_id){
+    var xmlhttpShow = new XMLHttpRequest();
+    // xmlhttpShow.onreadystatechange = function(){
+    //     if (this.readyState == 4 && this.status == 200){
+    //         if (typeof callback === 'function')
+    //             callback(this.responseText);
+    //     }
+    // }
+    xmlhttpShow.open('GET', 'elevator_logic.php?x=' + button_id, true);
+    xmlhttpShow.send();
+}
+
 function getFloorDB(callback){
     var xmlhttpShow = new XMLHttpRequest();
     xmlhttpShow.onreadystatechange = function(){
@@ -170,39 +182,46 @@ function cha_col(pot) {
     switch (pot) {
         case "dwnfl3":
             document.getElementById('dwnfl3').src = '../images/Buttons/Buttons for Eduard/Buttons--10.png';
+            setLogic(pot);
             setTimeout(cha_col1, 1000);
             break;
 
         case "dwnfl2":
             document.getElementById('dwnfl2').src = '../images/Buttons/Buttons for Eduard/Buttons--10.png';
+            setLogic(pot);           
             setTimeout(cha_col2, 1000);
             break;
 
         case "upfl2":
             document.getElementById('upfl2').src = '../images/Buttons/Buttons for Eduard/Buttons--09.png';
+            setLogic(pot);
             setTimeout(cha_col3, 1000);
             break;
 
         case "upfl1":
             document.getElementById('upfl1').src = '../images/Buttons/Buttons for Eduard/Buttons--09.png';
+            setLogic(pot);
             setTimeout(cha_col4, 1000);
             break;
 
         case "elv1":
             document.getElementById('elv1').src = '../images/Buttons/Buttons for Eduard/Buttons--02.png';
-            setFloorDB(1);
+            //setFloorDB(1);
+            setLogic(pot);
             myMove(1, pot);
             break;
 
         case "elv2":
             document.getElementById('elv2').src = '../images/Buttons/Buttons for Eduard/Buttons--04.png';
-            setFloorDB(2);
+            //setFloorDB(2);      
+            setLogic(pot);
             myMove(2, pot);
             break;
 
         case "elv3":
             document.getElementById('elv3').src = '../images/Buttons/Buttons for Eduard/Buttons--06.png';
-            setFloorDB(3);
+            //setFloorDB(3);
+            setLogic(pot);
             myMove(3, pot);
             break;
     }
