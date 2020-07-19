@@ -505,6 +505,7 @@ while(getStatusDB() == 1) {
     /*if(abs(getFloorDB() - getTargetDB()) == 2){
         if(in_array($_SESSION['elv'], '2') || in_array($_SESSION['flr'], '2d') || || in_array($_SESSION['flr'], '2u'))
     }*/
+    session_write_close();
 }
 //saftey percaution
 session_start();
