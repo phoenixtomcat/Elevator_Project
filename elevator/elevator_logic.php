@@ -491,7 +491,7 @@ session_write_close();
 //echo $floor_target;
 //array_shift($_SESSION['flr']);
 
-sleep(5);
+sleep(1);
 $tell = 0;
 while(getStatusDB() == 1) {
     //delay for a few seconds

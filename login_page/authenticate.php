@@ -3,10 +3,11 @@
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$authorized = 0;
 $verification_bypass = false;  //<-----Please keep this false when you push in master!!!
 
 function verify_credential_db(){
-    global $username, $password, $verification_bypass;
+    global $username, $password, $authorized, $verification_bypass;
 
     //bypass verification
     if($verification_bypass)
@@ -23,7 +24,7 @@ function verify_credential_db(){
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     //prepare SQL statement
-    $query = 'SELECT password FROM userCredentials WHERE username=:username;';
+    $query = 'SELECT password, authorized FROM userCredentials WHERE username=:username;';
     $statement = $db->prepare($query);
     $statement->bindValue('username', $username);
 
@@ -42,9 +43,11 @@ function verify_credential_db(){
         if ($row == [])
             //no such username
             return false;
-        else if ($row[0]['password'] == $password)
+        else if ($row[0]['password'] == $password){
             //found username, password matched
+            $authorized = $row[0]['authorized'];
             return true;
+        }
         else
             //found username, password wrong
             return false;
@@ -74,11 +77,12 @@ function verify_credential_json ():bool {
 if(verify_credential_db()){
     session_start();
     $_SESSION['username']=$username;
-    header("Location: ../index_page/index.php");
-    exit;
+    $_SESSION['authorized']=$authorized;
+    // header("Location: ../index_page/index.php");
+    // exit;
     // require '../top_header/bar_LI.html';
-    // require '../index_page/index.html';
-    // include '../login_page/sucess_LI.html';
+    require '../index_page/index.php';
+    include '../login_page/sucess_LI.html';
     
 }
 else{
