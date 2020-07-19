@@ -277,7 +277,7 @@ function getFloorDB(){
         //database parameters
         $db = new PDO(
             'mysql:host=127.0.0.1;dbname=project_database',
-            'ese_team',
+            'ese',
             'ese'
         );
     
@@ -307,6 +307,43 @@ function getFloorDB(){
         }
 }
 
+function getTargetDB(){
+    /* to get current floor number from database
+    return: current floor -- if SQL execution succeeded and got non-empty array
+            null          -- execution failed or got empty array */
+    //database parameters
+    $db = new PDO(
+        'mysql:host=127.0.0.1;dbname=project_database',
+        'ese',
+        'ese'
+    );
+
+    //return arrays with keys that are the name of the fields
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    //prepare SQL statement
+    $query = 'SELECT targetFloor FROM elevatorControl WHERE nodeID = 0;';
+    $statement = $db->prepare($query);
+
+    //execute the SQL statement and store return array at $row
+    $result = $statement->execute();
+    $row = $statement->fetchAll();
+
+    //check execution result
+    if (!$result){
+        //execution failed
+        return null;
+    }else{
+        //execution successfully
+        if ($row == [])
+            //get empty result back
+            return null;
+        else
+            //get current floor
+            return $row[0]['targetFloor'];
+    }
+}
+
 function getStatusDB(){
     /* to get current floor number from database
     return: current floor -- if SQL execution succeeded and got non-empty array
@@ -314,7 +351,7 @@ function getStatusDB(){
     //database parameters
     $db = new PDO(
         'mysql:host=127.0.0.1;dbname=project_database',
-        'ese_team',
+        'ese',
         'ese'
     );
 
@@ -351,7 +388,7 @@ function setFloorDB($floor) {
         //database parameters
         $db = new PDO(
             'mysql:host=127.0.0.1;dbname=project_database',
-            'ese_team',       //ese_team
+            'ese',
             'ese'         //ese
         );
     
@@ -372,6 +409,34 @@ function setFloorDB($floor) {
             return false;
 }
 
+function setCurrentFloorDB($floor) {
+    /* to set floor number at database
+    return: true  -- executed successfully
+            false -- execution failed */
+    //database parameters
+    $db = new PDO(
+        'mysql:host=127.0.0.1;dbname=project_database',
+        'ese',
+        'ese'         //ese
+    );
+
+    //return arrays with keys that are the name of the fields
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    //Create SQL statement
+    $query = 'UPDATE elevatorControl SET currentFloor=:floor WHERE nodeID = 0;';
+
+    //execute SQL statement at database
+    $statement = $db->prepare($query);
+    $statement->bindValue('floor', (int)$floor);
+    $result = $statement->execute($new_user);
+
+    if($result)
+        return true;
+    else
+        return false;
+}
+
 function setStatusDB($num) {
     /* to set floor number at database
     return: true  -- executed successfully
@@ -379,8 +444,8 @@ function setStatusDB($num) {
     //database parameters
     $db = new PDO(
         'mysql:host=127.0.0.1;dbname=project_database',
-        'ese_team',       //ese_team
-        'ese'         //ese
+        'ese',
+        'ese'        //ese
     );
 
     //return arrays with keys that are the name of the fields
@@ -431,10 +496,16 @@ $tell = 0;
 while(getStatusDB() == 1) {
     //delay for a few seconds
     sleep(3);
+    session_start();
     if(sizeof($_SESSION['elv']) == 0 && sizeof($_SESSION['flr']) == 0){
         $tell = 1;    
         break;
     }
+    //start of code to use to 
+    /*if(abs(getFloorDB() - getTargetDB()) == 2){
+        if(in_array($_SESSION['elv'], '2') || in_array($_SESSION['flr'], '2d') || || in_array($_SESSION['flr'], '2u'))
+    }*/
+    session_write_close();
 }
 //saftey percaution
 session_start();
@@ -445,12 +516,15 @@ else{
     setStatusDB(1); //claim busy for our own
     $current_flr = getFloorDB();
     $floor_target = run_elevator_logic();
-    session_write_close();
     setFloorDB($floor_target);
-    
+    session_write_close();
+
     //simulate elevator
-    //sleep(5);
-    //setStatusDB(0); //claim busy for our own
+    /*sleep(5);
+    setCurrentFloorDB($floor_target);
+    setStatusDB(0);
+    */
+
     //echo $floor_target;
 }
 
