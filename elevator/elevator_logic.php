@@ -401,7 +401,7 @@ function setFloorDB($floor) {
         //execute SQL statement at database
         $statement = $db->prepare($query);
         $statement->bindValue('floor', (int)$floor);
-        $result = $statement->execute($new_user);
+        $result = $statement->execute();
     
         if($result)
             return true;
@@ -429,7 +429,7 @@ function setCurrentFloorDB($floor) {
     //execute SQL statement at database
     $statement = $db->prepare($query);
     $statement->bindValue('floor', (int)$floor);
-    $result = $statement->execute($new_user);
+    $result = $statement->execute();
 
     if($result)
         return true;
@@ -457,7 +457,7 @@ function setStatusDB($num) {
     //execute SQL statement at database
     $statement = $db->prepare($query);
     $statement->bindValue('num', (int)$num);
-    $result = $statement->execute($new_user);
+    $result = $statement->execute();
 
     if($result)
         return true;
