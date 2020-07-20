@@ -287,6 +287,8 @@
                 <li>Not much work afterwards; revision for thermodynamics midterm tomorrow morning
                 </li>
             </ul>
+        </ul>
+        <h2>Week 7</h2>
             <h3>Monday 6th July</h3>
             <ul>
             <li>Right after Thermo quiz, back onto making the js work for my generic stats page</li>
@@ -294,6 +296,67 @@
             <li>I went through the logic with Weipeng and decided to do it like this: In the local js file for the elevator page, I will create a function which will create  a JSON file of all the times the page refreshes. Then, in the stats.js file, it will read the JSON and give the results</li>
             <li>I won't have time to do all of it today. I will just have to explain to Michael and Ali about the logic behind my plans. </li>
             </ul>
+            <h3>Monday 6th July</h3>
+            <ul>
+                <li>Right after Thermo quiz, back onto making the js work for my generic stats page</li>
+                <li>Looking through the JS work done by Weipeng, it seems AJAX is fine to use, so I'll go ahead and use it</li>
+                <li>I went through the logic with Weipeng and decided to do it like this: In the local js file for the elevator
+                    page, I will create a function which will create a JSON file of all the times the page refreshes. Then, in the
+                    stats.js file, it will read the JSON and give the results</li>
+                <li>I won't have time to do all of it today. I will just have to explain to Michael and Ali about the logic behind
+                    my plans. </li>
+            </ul>
+            <h3>Wednesday 8th July</h3>
+            <ul>
+                <li> Went through the PHP lectures again to build the codebase for the midterm as well as revise for the server side programming of the stats page</li>
+            </ul>
+            <h3>Friday 10th July</h3>
+            <ul>
+                <li>Revised the SQL lectures to prepare for the midterm and to get more information about how to tackle the stats page</li>
+                <li>Most of the focus was on studying for the datacomm midterm</li>
+            </ul>
+            <h3>Saturday and Sunday 11th and 12th July</h3>
+            <ul>
+                <li>Only studying for Datacomm midterm</li>
+                <li>Mother had suspected covid-19, so the consulting doctor had told all of the household to do a test within 24 hours.</li>
+                <li>I email michael about the test and possibly missing out on the debrief</li>
+            </ul>
+        </ul>
+        <h2>Week 7</h2>
+        <h3>Monday 6th July</h3>
+        <ul>
+            <li>After the datacomm midterm, I go to the test center for covid-19 and miss the debrief.</li>
+            <li>After coming back, I start revising for the math quiz</li>
+            <li>After revision for the math quiz, I devise a way to tackle this stats page format, like so:</li>
+            <li>Make a landing page that greets the viewer and enables them to see the general stats of the number of times a page was viewed and the number of times a user logs in</li>
+            <li>It's an effective way of making a simple stats page which is not important to the main functions of the website but is an added bonus. </li>
+            <li>I tweak the HTML to make it divided into page enterred and user logged in</li>
+        </ul>
+        <h3>Wednesday 6th July</h3>
+        <ul>
+            <li>My mother came back negative, but i am still awaiting results</li>
+            <li>After the math quiz, I revise the stats page front end</li>
+            <li>Instead of the older, simpler idea, I plan to instead greet the viewer (who by the way, must be logged in, otherwise, no pass allowed), and then choose to see the stats page for each individual registered user</li>
+            <li>From there, they go to their own respective pages and they see their logs of how much they signed in and how much did they enter the elevator page</li>
+            <li>But this way requires me to make multiple html pages which are for every user, </li>
+            <li>Or I have to find a way to lead it to a universal page, where the user is the  variable and the stats change respectively, and I don't think that's possible</li>
+        </ul>
+        <h3>Saturday and Sunday 18th and 19th July</h3>
+        <ul>
+            <li>Final revision: Keep everything in one page, users or no users, the stats for the page is very simple and has a counter-like graphic or a chart that indicates how many times logged in, and how many times enterred, as well as other information such as how many times a certain button on the elevator was pushed</li>
+        </ul>
+        <h2>Week 8</h2>
+        <h3>Monday 20th July</h3>
+        <ul>
+        <li>The php code is not working. It should keep track of the number of users that go onto the page. I ask Nishant to help me out by checking his code</li>
+        <li>I asked weipeng about how to import his database to be used in the final product as well.</li>
+        <li>The way I imported it was to go to the pi website, go to its localhost/phpmyadmin, login using ese,ese for both credentials, find the database (project_database), export it</li> 
+        <li>Then import it onto my localhost/phpmyadmin database</li> 
+        <li>I found that even though I am making changes on my local database, and I use mysql -u root -p, I cannot access either the project database or my own database on my local machine so with the help of Nishant, I figured out that there is a line of script that I have to feed into the database so it can give me access. GRANT ALL PRIVILEGES ON *.* TO 'ese_team'@'localhost' WITH GRANT OPTION;
+        FLUSH PRIVILEGES;</li>  
+        <li>On my own machine, the counter is almost done. Some functionalities such as mysql_select_db and mysql_query has been discontinued in PHP 7, which is what i use, so I had to spend a lot of time figuring out what is the replacement and how does it work</li>
+
+        </ul>
         </ul>
         <a href="../index_page/index.html">Click here to go back to the main page</a>
         </ul>
