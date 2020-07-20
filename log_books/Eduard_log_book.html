@@ -37,6 +37,7 @@
                 <li><a href="#wk5">Week Five</a></li>
                 <li><a href="#wk6">Week Six</a></li>
                 <li><a href="#wk7">Week Seven</a></li>
+                <li><a href="#wk8">Week Eight</a></li>
 
 
 
@@ -395,6 +396,48 @@
                     <li>13/07/2020</li>
                     <ul>
                         Went to push in the code and noticed that there were a couple of bugs in the code.  Didn't push it to master yet and tried to debug. 
+                    </ul>
+                </ul>
+                <a href="#top">Top</a>
+            </article>
+            <hr id="wk8"/>
+            <article>
+                <h2>Week 8</h2>
+                <ul>
+                    <li>13/07/2020</li>
+                    <ul>
+                        <li>
+                            I changed how I implemented sessions so that now instead of loading the values into an array
+                            all of the array functions are now implemented directly in the session. 
+                        </li>
+                        <li>
+                            Fixed the sessions bug's so that the PHP is implemented properly.  The problem with the sessions is that when the 
+                            one sessions is started no other program can access the sessions until it is finished.  So I have to stop the session and after
+                            I was done using it so that other parts of the program can access it while I am waiting.  After I figured out that this was the 
+                            problem the logic worked correctly, at least as it was programed.  
+                        </li>
+                    </ul>
+                    <li>14/07/2020</li>
+                    <ul>
+
+                        <li>
+                            Tried the code on the Pi to see if it could change the values in the database there but it couldn't.  Upon 
+                            further investigation the I just had to adjust my database code because the databases set up on my 
+                            computer and the database on the Pi is diffrent.
+                        </li>
+                        <li>
+                            Had a meeting with Weipeng where we discussed the logic of the elevator and one part of the logic that was not implemted 
+                            was if the elevator is moving and a button is pressed should it stop on the floor on it's way.  Right now, the elevator will
+                            not take commands once it is moving.  I will work on this for next week.  
+                        </li>
+                    </ul>
+                    <li>18/07/2020</li>
+                    <ul>
+                        <li>
+                            Worked on making the gui reflect the actual elevator.  Used Ajax to get the values from the database
+                            and used a function in the javascript that checks the values every second and then implements them.  Worked 
+                            well on my computer.
+                        </li>
                     </ul>
                 </ul>
                 <a href="#top">Top</a>
