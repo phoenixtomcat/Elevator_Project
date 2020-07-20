@@ -74,6 +74,7 @@
                 <li><a href="#week6">Week 6</a></li>
                 <li><a href="#week7">Week 7</a></li>
                 <li><a href="#week8">Week 8</a></li>
+                <li><a href="#week9">Week 9</a></li>
             </ul>
         </nav>
 
@@ -645,6 +646,44 @@
                                     <li>The Segmentation error may still happened sometimes. Not sure why. If I commented out the deleting points lines, I don't get the segmentation fault error, but will get too many connections error from database.</li>
                                     <li>It's generally working fine now. The floorStats and floorHistory tables can be updated along with the floor changes.</li>
                                 </ul>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week9">
+                <div class="week_log" style="background-color: orange;">
+                    <h1>Week 9</h1>
+                    <ul style="line-height: 30px;">
+                        <li>July 18, 2020
+                            <ul>
+                                <li>Working on the c++ to be able to report current floor to database and respond to the sudden change of request floor</li>
+                                <li>During the elevator moving toward its next target, add constantly checking and set current floor to the database</li>
+                                <li>Test: change request floor to 3, then change to floor 2 immdiately
+                                    <ol>
+                                        <li>Failed - elevator moved directly to floor 3</li>
+                                        <li>Failed - same</li>
+                                        <li>Failed - same</li>
+                                        <li>Success - the elevator stopped at floor 2, but it's in a very rush way, feeling like stopped unexpectely</li>
+                                        <li>Failed - same</li>
+                                    </ol>     
+                                </li>
+                                <li>The result is not very good. It seems like the elevator is moving too fast to actually respond to the change of request.</li>
+                                <li>Also the floor history log is not correct. Some logs show elevator moved from a floor to a same floor:</li>
+                                <img src="../images/weipeng_logbook/history log error.png"/>
+                                <li>It will be difficult to demo the ability of adapting to sudden change of request with the current elevator control loop. Considering re-make the elevator control loop.</li>
+                                <li>New elevator control loop:</li>
+                                <img src="../images/weipeng_logbook/new elevator control loop.jpeg" />
+                                <li>After implement this new control loop, the elevator is able to respond to sudden changed request</li>
+                            </ul>
+                        </li>
+                        <li>July 20, 2020
+                            <ul>
+                                <li>Fixed the elevator slow responding issue by adding back the CAN_close() to the end of CAN_getCrtFloor()</li>
+                                <li>Fixed the fragmentation fault error by removing the unused res pointers in database functions.</li>
+                                <li>Now the c++ program can run as long as user needs.</li>
                             </ul>
                         </li>
                         
