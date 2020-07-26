@@ -75,6 +75,7 @@
                 <li><a href="#week7">Week 7</a></li>
                 <li><a href="#week8">Week 8</a></li>
                 <li><a href="#week9">Week 9</a></li>
+                <li><a href="#week10">Week 10</a></li>
             </ul>
         </nav>
 
@@ -687,6 +688,34 @@
                             </ul>
                         </li>
                         
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week10">
+                <div class="week_log" style="background-color: rgb(0, 140, 255);">
+                    <h1>Week 10</h1>
+                    <ul style="line-height: 30px;">
+                        <li>July 26, 2020
+                            <ul>
+                                <li>Work on making elevator annouce floor number in school rpi when reaches a floor
+                                    <ul>
+                                        <li>Prevously, has successfully used "omxplayer -o alsa filepath" to play audio. Since the school rpi video streaming is down again, assume this command works and will put it in the test c program.</li>
+                                        <li>In audio.c, use fork() to off load the audio play command so that the main program can continue without waiting for audio finishes playing.</li>
+                                        <li>The multi-process c program is working properly. Will integrate to the elevator control program</li>
+                                        <li>Add a request floor and current target check in the main control loop. Once the current target is reached and it matches the request floor, the elevator floor number is announced.</li>
+                                    </ul>
+                                </li>
+                                <li>Ceate Sabbath mode with the demo loop
+                                    <ul>
+                                        <li>The Sabbath mode will have the elevator repeatedly moved between floor 1 and floor 3. Whenever it reaches a floor, it annouces the floor number, wait for 10 seconds, then moves to the next floor.</li>
+                                        <li>Simplify the move target control with an array = {1, 2, 3, 2}, then create a loop with index looping and incrementing</li>
+                                        <li>Used existing functions from the gui control loop, the Sabbath mode now works properly. The history and stats will also be updated in this mode.</li>
+                                        <img src="../images/weipeng_logbook/Sabbath mode.png"/>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>                        
                     </ul>
                 </div>
             </div>
