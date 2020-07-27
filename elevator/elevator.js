@@ -59,7 +59,6 @@ function initElevator(){
 
     //update GUI floor number
     floor_sign(parseInt(floor_db));
-
     //Move GUI elevator to corrent floor
     var elem = document.getElementById("elevator1");
     switch (floor_db){
@@ -78,6 +77,7 @@ function initElevator(){
     }
 }
 
+var count; 
 
 function myMove(floor) {
     var target_raw_floor_number;
@@ -88,9 +88,15 @@ function myMove(floor) {
     } else if (floor == "3") {
         target_raw_floor_number = 15;
     }
+    if(pos != target_raw_floor_number){
+        var elem = document.getElementById("elevator1");
+        var id = setInterval(frame, 5); //sets speed
+    }
+    else{
+        open_door();
 
-    var elem = document.getElementById("elevator1");
-    var id = setInterval(frame, 5); //sets speed
+    }
+
 
     function frame() {
         close_door();
@@ -98,8 +104,8 @@ function myMove(floor) {
             clearInterval(id);
             floor_sign(floor);
             floor_audio(floor);
-            open_door();
-           // setTimeout(close_door(), 1000);
+            //open_door();
+           //setTimeout(close_door(), 500);
 
         } else if (pos < target_raw_floor_number) {
             pos++;
