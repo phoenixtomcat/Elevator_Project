@@ -1,26 +1,88 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <title>Diagnostics</title>
+    <link rel="stylesheet" type="text/css" href="../diagnostics/diagnostics.css" />
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <p>Hi, this is the diagnostics page</p>
-    <script src="" async defer></script>
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-12" style="background-color: aqua;">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table id='db_table' class="table table-bordered table-striped mb-0">
+
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <form class="form-horizontal" id="control_table">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="font-weight: bold;">Control Panel</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="table" class="control-label col-sm-4">Table:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="tables" name="tables">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="action" class="control-label col-sm-4">Action:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="action" name="action">
+                                        <option value="null"></option>
+                                        <option value="1">Add a row</option>
+                                        <option value="2">Delete a row</option>
+                                        <option value="3">Update a cell value</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="column" class="control-label col-sm-4">Column:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="column" name="column">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="row" class="control-label col-sm-4">Row:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="row" name="row">
+                                        <option value="null"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="value" class="control-label col-sm-4">Value:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="value" 
+                                        name="value">
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-9">
+                                    <input id="go" src="../images/go_normal.png" type="image"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="../diagnostics/diagnostics.js"></script>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
 </body>
 
 </html>
