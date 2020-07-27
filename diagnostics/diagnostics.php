@@ -1,63 +1,22 @@
 <?php
-    require '../top_header/bar_LI.html';
 
-    $db = new PDO(
-    'mysql:host=127.0.0.1;dbname=project_database',
-    'ese',
-    'ese'
-);
+session_start();
 
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+if (isset($_SESSION['username'])){
 
-
-$reqFlr = $db->query('SELECT requestedFloor FROM elevatorControl');
-$curFlr = $db->query('SELECT currentFloor FROM elevatorControl');
-$stat = $db->query('SELECT status FROM elevatorControl');
-echo "<br />";
-echo "<br />";
-echo "<br />";
-echo "<br />";
-
-$servername = "localhost";
-$username = "ese";
-$password = "ese";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-echo "Connected successfully to the DataBase.";
-echo "<br />";
-echo "<br />";
-
-foreach ($reqFlr as $req){
-//var_dump($flr);
-echo "Requested Floor by the User ".$req['requestedFloor']."."."<br>";
-echo "<br />";
-}
-foreach ($curFlr as $cur){
-    echo "Current Floor of the Elevator ".$cur['currentFloor']."."."<br>";
-    echo "<br />";
-}
-
-foreach ($stat as $st){
-    //echo $st["status"];
-    //echo "<br />";
-
-    if($st["status"] == 1){
-        echo "Please, wait elevator is moving to the Requested Floor.";
-        echo "<br />";
-        echo "Vrr...Vrr!";
-        echo "<br />";
+    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] == 1){
+        //only authorized person can control the elevator
+        require '../top_header/bar_LI.html';
+        require '../diagnostics/diagnostics.html';
     }
     else{
-        echo "Elevator is Reached requested floor.";
-        echo "<br />";
+        require "../login_page/not_authorized.html";
+        require '../index_page/index.php';
     }
+    
+
+} else{
+    require '../login_page/login.php';
+    require '../login_page/not_LI.html';
 }
-    //require '../diagnostics/diagnostics.html';
 ?>
