@@ -1,5 +1,6 @@
 var db_table = document.getElementById("db_table");
 var table_dropdown = document.getElementById("tables");
+var execution_heading = document.getElementById('execution_panel_heading');
 var execution_dropdown = document.getElementById("execution_dropdown");
 var execution_panel_body = document.getElementById("execution_panel_body");
 var execution_warning = null;
@@ -7,6 +8,7 @@ var execution_panel_go_button = null;
 var timer = null;
 var current_show_table = null;
 var current_show_table_header = null;
+var current_show_table_body = null;
 var execution_type = null;
 
 // Functions for main table
@@ -63,10 +65,14 @@ function tableMaker(head_data, body_data){
 
 }
 
-
 function updateTable(result){
     var data = JSON.parse(result);
+
+    // save header and body for other functions
     current_show_table_header = data['header'];
+    current_show_table_body = data['body'];
+
+    // make the table
     db_table.innerHTML = tableMaker(data['header'], data['body']);
 }
 
@@ -111,12 +117,14 @@ function displayExecutionDropdown(option){
         execution_dropdown.addEventListener("change", function(){executionPanelUpdater(execution_dropdown.value)}, false);
     }
     else{
-        document.getElementById("execution_formgroup").innerHTML = "";       
+        document.getElementById("execution_formgroup").innerHTML = ""; 
+        execution_heading.innerHTML = "Execution";      
     }
     execution_panel_body.innerHTML = "";
+    
 }
 
-// Functions for Execution dropdown menu
+// Functions for displaying Execution dropdown menu
 function executionPanelUpdater(option){
     var form_group_msg = "";
 
@@ -125,15 +133,19 @@ function executionPanelUpdater(option){
         case "1":
             // add a new row
             execution_type = 'add';
+            execution_heading.innerHTML = "Execution - add a new row";
             form_group_msg += addRowExecution(current_show_table_header);
             break;
         case "2":
             // delete a row
             execution_type = 'delete';
+            execution_heading.innerHTML = "Execution - delete an existing row";
+            form_group_msg += removeRowExecution();
             break;
         case "3":
             // update a cell value
             execution_type = 'update';
+            execution_heading.innerHTML = "Execution - edit a cell value";
             break;
     }
     // add warning space
@@ -143,7 +155,7 @@ function executionPanelUpdater(option){
     form_group_msg += "</div>";
     form_group_msg += "</div>";
 
-    //  add go button
+    // add go button
     form_group_msg += "<div class='form-group'>";
     form_group_msg += "<div class='col-sm-offset-9'>";
     form_group_msg += "<input id=\"go\" src=\"../images/go_normal.png\" type=\"image\"/>";
@@ -164,7 +176,7 @@ function addRowExecution(header){
         form_group_msg += `<label for="${item}" class="control-label col-sm-4">${item}:</label>`;
         form_group_msg += "<div class='col-sm-8'>";
         if (item == "updated_at")
-            form_group_msg += `<input type="date" class="form-control" id="${item}" name="${item}">`;
+            form_group_msg += `<input type="datetime-local" class="form-control" id="${item}" name="${item}">`;
         else
             form_group_msg += `<input type="text" class="form-control" id="${item}" name="${item}">`;
         form_group_msg += "</div>";
@@ -173,9 +185,41 @@ function addRowExecution(header){
     return form_group_msg;
 }
 
+function removeRowExecution(){
+    var select_key;
+    var key_index;
+    var item;
+    var form_group_msg = "";
+
+    // determine the key to select a row
+    if (current_show_table_header.includes('logID'))
+        select_key = 'logID';
+    else if (current_show_table_header.includes('nodeID'))
+        select_key = 'nodeID';
+    else
+        select_key = current_show_table_header[0];
+    
+    // create form group message
+    form_group_msg += "<div class='form-group'>";
+    form_group_msg += `<label for=\"row_selection\" class=\"control-label col-sm-4\">Row(${select_key}):</label>`;
+    form_group_msg += "<div class=\"col-sm-8\">";
+    form_group_msg += "<select class=\"form-control\" id=\"row_selection\" name=\"row_selection\">";
+    form_group_msg += "<option value=\"null\"></option>"
+
+    key_index = current_show_table_header.indexOf(select_key);
+    for (item of current_show_table_body){
+        form_group_msg += `<option value=\"${item[key_index]}\">${item[key_index]}</option>`;
+    }
+    form_group_msg += "</select>";
+    form_group_msg += "</div>";
+    form_group_msg += "</div>";
+    
+    return form_group_msg
+}
+
 // Function for send out execution values to backend
 function ajaxExecDB(){
-    var data_string = JSON.stringify(getExecutionPanelValue());
+    var data_string;
 
     var xmlhttpShow = new XMLHttpRequest();
     xmlhttpShow.onreadystatechange = function () {
@@ -184,21 +228,49 @@ function ajaxExecDB(){
 
         }
     }
-    xmlhttpShow.open('GET', `setDbTable.php?q=${data_string}`, true);
+    // send to different backend file for different execution type
+    if (execution_type == 'add'){
+        data_string = JSON.stringify(getExecutionAddRowValues());
+        xmlhttpShow.open('GET', `addDbRow.php?q=${data_string}`, true);
+    }
+    else if (execution_type == 'delete'){
+        data_string = JSON.stringify(getExecutionDeleteRowValue());
+        if (data_string == 'null')
+            return null;
+        xmlhttpShow.open('GET', `rmDbRow.php?q=${data_string}`, true);
+    }
     xmlhttpShow.send();
 }
 
-function getExecutionPanelValue(){
+function getExecutionAddRowValues(){
     var item;
     var data = {};
-    // data['nodeID'] = 4;
-    // data['label'] = "floor_4";
     for (item of current_show_table_header){
         data[item] = document.getElementById(item).value;
     }
     data['tableName'] = current_show_table;
     return data;
 }
+
+function getExecutionDeleteRowValue(){
+    var data = {};
+    data['value'] = document.getElementById('row_selection').value;
+    if (data['value'] == 'null')
+        return null;
+    data['tableName'] = current_show_table;
+    
+    // determine the key to select a row
+    if (current_show_table_header.includes('logID'))
+        data['key'] = 'logID';
+    else if (current_show_table_header.includes('nodeID'))
+        data['key'] = 'nodeID';
+    else
+        data['key'] = current_show_table_header[0];
+
+    return data;
+
+}
+
 function stopFormSubmit(e){
     e.preventDefault();
     return false;
