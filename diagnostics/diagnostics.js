@@ -215,12 +215,7 @@ function removeRowExecution(){
     var form_group_msg = "";
 
     // determine the key to select a row
-    if (current_show_table_header.includes('logID'))
-        select_key = 'logID';
-    else if (current_show_table_header.includes('nodeID'))
-        select_key = 'nodeID';
-    else
-        select_key = current_show_table_header[0];
+    select_key = rowSelectKey();
     
     // create form group message
     form_group_msg += "<div class='form-group'>";
@@ -260,12 +255,7 @@ function editCellColumnExecution(){
 
     //create row dropdown
     // determine the key to select a row
-    if (current_show_table_header.includes('logID'))
-        select_key = 'logID';
-    else if (current_show_table_header.includes('nodeID'))
-        select_key = 'nodeID';
-    else
-        select_key = current_show_table_header[0];
+    select_key = rowSelectKey();
     key_index = current_show_table_header.indexOf(select_key);
     row_key_for_edit = select_key;
 
@@ -394,6 +384,17 @@ function getExecutionEditRowValue(){
     data['row_key'] = row_key_for_edit;
     data['new_value'] = document.getElementById('new_value').value;
     return data;
+}
+
+function rowSelectKey(){
+    if (current_show_table_header.includes('logID'))
+        return 'logID';
+    else if (current_show_table_header.includes('nodeID'))
+        return 'nodeID';
+    else if (current_show_table_header.includes('username'))
+        return 'username';
+    else
+        return current_show_table_header[0];
 }
 
 // utility functions

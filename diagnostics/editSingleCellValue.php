@@ -11,6 +11,10 @@ function getSingleCellValue(){
     $row_key = $data_array['row_key'];
     $new_value = $data_array['new_value'];
 
+    //if the row key is not an ID, add double quote to $row
+    if (strpos($row_key, 'ID') == false)
+    $row = "'" . $row . "'";
+
     //database parameters
     $db = new PDO(
         'mysql:host=127.0.0.1;dbname=project_database',
