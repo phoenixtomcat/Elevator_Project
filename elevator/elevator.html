@@ -3,6 +3,7 @@
 
 <head>
     <title>Elevator</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="Elevator Page" />
     <meta name="robots" content="noindex nofollow" />
     <meta http-equiv="author" content="Eduard" />
@@ -35,6 +36,7 @@
         <div class="row" id="content">
                 <article class="col-xs-12 col-md-4">
                     <script src="../elevator/elevator.js"></script>
+
                     <section class="floor">
                         <h2 class="headflr" id="headfl3">Floor 3</h2>
                         <input  name="submit" type="image" class="dn" value="dwnfl3" id="dwnfl3" onClick="cha_col('dwnfl3')" src="../images/Buttons/Buttons for Eduard/Buttons--08.png" width="100" />
@@ -72,6 +74,9 @@
                         <input class="elvbut" id="elv2" type="image" onClick="cha_col('elv2')" src="../images/Buttons/Buttons for Eduard/Buttons--03.png" width="100" />
                         <br/>
                         <input class="elvbut" id="elv3" type="image" onClick="cha_col('elv3')" src="../images/Buttons/Buttons for Eduard/Buttons--05.png" width="100" />
+                        <br>
+                        <button class="elvbut" id="voicebtn" name="voice">Voice</button>
+
                     </div>
                 </article>
             
@@ -86,11 +91,14 @@
                     <div style="text-align: center;">
                         <p style="color: red;" id='warning'></p>
                     </div>
+                    <p class="output">...diagnostic messages</p>
                 </div>         
             </article>
         </div>
     </div>
     <footer class="grid_12">
+        <script src="../elevator/voice.js"></script>
+
         <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
     </footer>
 </body>
