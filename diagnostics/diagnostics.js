@@ -10,8 +10,16 @@ var current_show_table = null;
 var current_show_table_header = null;
 var current_show_table_body = null;
 var execution_type = null;
+var column_edit = document.getElementById('column_to_edit');
+var row_edit = document.getElementById('row_selection');
+var row_key_for_edit = null;
 
 // Functions for main table
+function getLocalCellValue(col, row){
+    return current_show_table_body[row][col];
+}
+
+
 function setCrtShowTable(tableName){
     current_show_table = tableName;
 }
@@ -146,12 +154,18 @@ function executionPanelUpdater(option){
             // update a cell value
             execution_type = 'update';
             execution_heading.innerHTML = "Execution - edit a cell value";
+            form_group_msg += editCellColumnExecution();
+            break;
+        default:
+            execution_panel_body.innerHTML = "";
+            execution_heading.innerHTML = "Execution";
             break;
     }
+
     // add warning space
     form_group_msg += "<div class='form-group'>";
-    form_group_msg += "<div class='col-sm-offset-6'>";
-    form_group_msg += "<p id='execution_warning' style='color:red'></p>";
+    form_group_msg += "<div class='col-sm-offset-2'>";
+    form_group_msg += "<p id='execution_warning' style='color:blue'></p>";
     form_group_msg += "</div>";
     form_group_msg += "</div>";
 
@@ -162,10 +176,17 @@ function executionPanelUpdater(option){
     form_group_msg += "</div>";
     form_group_msg += "</div>";
 
+    //add warning and go button
     execution_panel_body.innerHTML = form_group_msg;
+
     execution_warning = document.getElementById("execution_warning");
     execution_panel_go_button = document.getElementById("go");
     execution_panel_go_button.addEventListener('click', function(){ajaxExecDB(), stopFormSubmit(event)}, false);
+    column_edit = document.getElementById('column_to_edit');
+    column_edit.addEventListener('change', ajaxShowSingleValueDB, false);
+    row_edit = document.getElementById('row_selection');
+    row_edit.addEventListener('change', ajaxShowSingleValueDB, false);
+
 }
 
 function addRowExecution(header){
@@ -182,7 +203,9 @@ function addRowExecution(header){
         form_group_msg += "</div>";
         form_group_msg += "</div>";
     }
+
     return form_group_msg;
+    
 }
 
 function removeRowExecution(){
@@ -214,7 +237,64 @@ function removeRowExecution(){
     form_group_msg += "</div>";
     form_group_msg += "</div>";
     
-    return form_group_msg
+    return form_group_msg;
+}
+
+function editCellColumnExecution(){
+    var item;
+    var key_index, select_key;
+    var form_group_msg = "";
+
+    //create column dropdown
+    form_group_msg += "<div class='form-group'>";
+    form_group_msg += `<label for=\"column_to_edit\" class=\"control-label col-sm-4\">Column:</label>`;
+    form_group_msg += "<div class=\"col-sm-8\">";
+    form_group_msg += "<select class=\"form-control\" id=\"column_to_edit\" name=\"column_to_edit\">";
+    form_group_msg += "<option value=\"null\"></option>"
+    for(item of current_show_table_header){
+        form_group_msg += `<option value=\"${item}\">${item}</option>`;
+    }
+    form_group_msg += "</select>";
+    form_group_msg += "</div>";
+    form_group_msg += "</div>";
+
+    //create row dropdown
+    // determine the key to select a row
+    if (current_show_table_header.includes('logID'))
+        select_key = 'logID';
+    else if (current_show_table_header.includes('nodeID'))
+        select_key = 'nodeID';
+    else
+        select_key = current_show_table_header[0];
+    key_index = current_show_table_header.indexOf(select_key);
+    row_key_for_edit = select_key;
+
+    form_group_msg += "<div class='form-group'>";
+    form_group_msg += `<label for=\"row_selection\" class=\"control-label col-sm-4\">Row(${select_key}):</label>`;
+    form_group_msg += "<div class=\"col-sm-8\">";
+    form_group_msg += "<select class=\"form-control\" id=\"row_selection\" name=\"row_selection\">";
+    form_group_msg += "<option value=\"null\"></option>"
+
+    for (item of current_show_table_body){
+        form_group_msg += `<option value=\"${item[key_index]}\">${item[key_index]}</option>`;
+    }
+    form_group_msg += "</select>";
+    form_group_msg += "</div>";
+    form_group_msg += "</div>";
+
+    //create new input field
+    form_group_msg += "<div class='form-group'>";
+    form_group_msg += `<label for="new_value" class="control-label col-sm-4">New value:</label>`;
+    form_group_msg += "<div class='col-sm-8'>";
+    if (item == "updated_at" || item == "arrivalTime")
+        form_group_msg += `<input type="datetime-local" class="form-control" id="new_value" name="new_value">`;
+    else
+        form_group_msg += `<input type="text" class="form-control" id="new_value" name="new_value">`;
+    form_group_msg += "</div>";
+    form_group_msg += "</div>";
+
+    return form_group_msg;
+
 }
 
 // Function for send out execution values to backend
@@ -222,10 +302,20 @@ function ajaxExecDB(){
     var data_string;
 
     var xmlhttpShow = new XMLHttpRequest();
-    xmlhttpShow.onreadystatechange = function () {
+    xmlhttpShow.onreadystatechange = async function () {
         if (this.readyState == 4 && this.status == 200) {
-            var resp = this.responseText;
-
+            // reset drop down menus 
+            if (execution_type == 'update'){
+                // need to wait 1 second to get the lastest table
+                await sleep(1000);
+                executionPanelUpdater('3');
+            }
+            else if (execution_type == 'delete'){
+                // need to wait 1 second to get the lastest table
+                await sleep(1000);
+                executionPanelUpdater('2');
+            }
+            
         }
     }
     // send to different backend file for different execution type
@@ -239,6 +329,29 @@ function ajaxExecDB(){
             return null;
         xmlhttpShow.open('GET', `rmDbRow.php?q=${data_string}`, true);
     }
+    else if (execution_type == 'update'){
+        data_string = JSON.stringify(getExecutionEditRowValue());
+        if (data_string == 'null')
+            return null;
+        xmlhttpShow.open('GET', `editSingleCellValue.php?q=${data_string}`, true);
+    }
+    xmlhttpShow.send();
+}
+
+function ajaxShowSingleValueDB(){
+    if(column_edit.value == 'null' || row_edit.value == 'null')
+        return;
+
+    var data_string = JSON.stringify(getExecutionEditRowValue());
+
+    var xmlhttpShow = new XMLHttpRequest();
+    xmlhttpShow.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            execution_warning.innerHTML = "Current Cell Value: " + this.responseText;
+
+        }
+    }
+    xmlhttpShow.open('GET', `getSingleCellValue.php?q=${data_string}`, true);
     xmlhttpShow.send();
 }
 
@@ -271,9 +384,27 @@ function getExecutionDeleteRowValue(){
 
 }
 
+function getExecutionEditRowValue(){
+    var data = {};
+    data['column'] = column_edit.value;
+    data['row'] = row_edit.value;
+    if (data['row'] == 'null' || data['column'] == 'null')
+        return null;
+    data['tableName'] = current_show_table;
+    data['row_key'] = row_key_for_edit;
+    data['new_value'] = document.getElementById('new_value').value;
+    return data;
+}
+
+// utility functions
 function stopFormSubmit(e){
     e.preventDefault();
     return false;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+    //source: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 }
 
 document.addEventListener("DOMContentLoaded", function(){ajaxTableDropdown(updateTableDropdown)}, false);
