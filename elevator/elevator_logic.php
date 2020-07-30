@@ -47,7 +47,7 @@ function elevator_logic_set($but_id){
     
     if($but_id == "1" || $but_id == "2" || $but_id == "3"){
         if (in_array($but_id,$_SESSION['elv'])){    //if the key exsists it's already been called, no need for repeats
-            echo "id exists";
+            // echo "id exists";
         }
         else {            //store value in $flr_but array
 
@@ -117,7 +117,7 @@ function run_elevator_logic(){
             else{
                 $target = "8";
             }
-            echo $target;
+            // echo $target;
             return($target);
 
 
@@ -133,8 +133,8 @@ function run_elevator_logic(){
             $updw = "up";
         }
         $diff = abs($diff);             //find absolute differnece in where the elevator has to go
-        echo " abs diff is" . $diff . "; ";
-        echo $updw . ";";
+        // echo " abs diff is" . $diff . "; ";
+        // echo $updw . ";";
 
 
        
@@ -148,7 +148,7 @@ function run_elevator_logic(){
                 if($flr_nbr == "2"){
                     $target = 2; 
                     array_splice($_SESSION['elv'], $i,1);       //should delete value in array if it exsists
-                    echo print_r($_SESSION['elv']) . "\n";
+                    // echo print_r($_SESSION['elv']) . "\n";
 
                 }
             }
@@ -165,12 +165,12 @@ function run_elevator_logic(){
                 }
             }
 
-            if($target != 2){
+            if(!isset($target) || $target != 2){
                 $target = array_shift($_SESSION['elv']);
             }
 
             foreach($_SESSION['elv'] as $i => $flr_nbr){    //checks if flr_but array has deuplicates to this floor or if it has the value of the target in it
-                if($flr_nbr == $current_flr || $flr_nbr == $target){
+                if($flr_nbr == $current_flr || (isset($target) && $flr_nbr == $target)){
                     array_splice($_SESSION['elv'], $i, 1);       //should delete value in array if it exsists
                 }
             }
@@ -201,16 +201,16 @@ function run_elevator_logic(){
                     array_splice($_SESSION['flr'], $i, 1);       //should delete value in array if it exsists
                 }
             }
-            echo $target;
-
-            return($target);
+            // echo $target;
+            if(isset($target))
+                return($target);
 
         }
 
     /***********************If the elevator is changing 1 floor *************************************** */
         elseif($diff == 1){             //only going one floor
             $target = array_shift($_SESSION['elv']);
-            echo print_r($_SESSION['elv']) . "\n";
+            // echo print_r($_SESSION['elv']) . "\n";
 
 
             //might be able to take this foreach out
@@ -249,15 +249,15 @@ function run_elevator_logic(){
                 }
             }
 
-            echo $target;
+            // echo $target;
 
             return $target;
         }
-        elseif (diff == 0)
+        elseif ($diff == 0)
         {
             $target = array_shift($_SESSION['elv']);
-            echo $current_flr;
-            echo $target;
+            // echo $current_flr;
+            // echo $target;
 
             return $current_flr;
         }
@@ -385,28 +385,39 @@ function setFloorDB($floor) {
         /* to set floor number at database
         return: true  -- executed successfully
                 false -- execution failed */
-        //database parameters
-        $db = new PDO(
-            'mysql:host=127.0.0.1;dbname=project_database',
-            'ese',
-            'ese'         //ese
-        );
-    
-        //return arrays with keys that are the name of the fields
-        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
-        //Create SQL statement
-        $query = 'UPDATE elevatorControl SET requestedFloor=:floor WHERE nodeID = 0;';
-    
-        //execute SQL statement at database
-        $statement = $db->prepare($query);
-        $statement->bindValue('floor', (int)$floor);
-        $result = $statement->execute();
-    
-        if($result)
-            return true;
-        else
+        try{
+            if ($floor < 0 || $floor > 3)
+                throw new InvalidFloorException();
+
+            //database parameters
+            $db = new PDO(
+                'mysql:host=127.0.0.1;dbname=project_database',
+                'ese',
+                'ese'         //ese
+            );
+        
+            //return arrays with keys that are the name of the fields
+            $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        
+            //Create SQL statement
+            $query = 'UPDATE elevatorControl SET requestedFloor=:floor WHERE nodeID = 0;';
+        
+            //execute SQL statement at database
+            $statement = $db->prepare($query);
+            $statement->bindValue('floor', (int)$floor);
+            $result = $statement->execute();
+
+            if(!$result)
+                throw new dbExecutionFailedException();
+        
+            return "Requested floor is set ";
+        }catch(InvalidFloorException $e){
+            return $e->getMessage();
+        }catch(dbExecutionFailedException $e){
+            return $e->getMessage();
+        }catch(Exception $e){
             return false;
+        }
 }
 
 function setCurrentFloorDB($floor) {
@@ -464,6 +475,21 @@ function setStatusDB($num) {
     else
         return false;
 }
+// define exceptions
+class InvalidFloorException extends Exception {
+    public function __construct ($message = null){
+        $message = $message ?: 'Floor input is not valid';
+        parent::__construct($message);
+    }
+
+}
+
+class dbExecutionFailedException extends Exception {
+    public function __construct ($message = null){
+        $message = $message ?: "Database execution failed";
+        parent::__construct($message);
+    }
+}
 
 
 
@@ -516,7 +542,8 @@ else{
     setStatusDB(1); //claim busy for our own
     $current_flr = getFloorDB();
     $floor_target = run_elevator_logic();
-    setFloorDB($floor_target);
+    $msg = setFloorDB($floor_target);
+    echo $msg;
     session_write_close();
 
     //simulate elevator
