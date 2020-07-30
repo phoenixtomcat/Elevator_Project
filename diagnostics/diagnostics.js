@@ -299,6 +299,7 @@ function ajaxExecDB(){
                 // need to wait 1 second to get the lastest table
                 await sleep(1000);
                 executionPanelUpdater('3');
+                execution_warning.innerHTML = this.responseText;
             }
             else if (execution_type == 'delete'){
                 // need to wait 1 second to get the lastest table
