@@ -364,12 +364,7 @@ function getExecutionDeleteRowValue(){
     data['tableName'] = current_show_table;
     
     // determine the key to select a row
-    if (current_show_table_header.includes('logID'))
-        data['key'] = 'logID';
-    else if (current_show_table_header.includes('nodeID'))
-        data['key'] = 'nodeID';
-    else
-        data['key'] = current_show_table_header[0];
+    data['key'] = rowSelectKey();
 
     return data;
 

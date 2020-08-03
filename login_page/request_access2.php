@@ -36,7 +36,8 @@ $new_user = [
     "in_thermo" => $in_thermo,
     "in_project" => $in_project,
     "help_improve" => $help_improve,
-    "other_info" => $accessText
+    "other_info" => $accessText,
+    "authorized" => 0
 ];
 
 function createNewUser(){
@@ -69,7 +70,8 @@ function createNewUser(){
                                         in_thermo, 
                                         in_project, 
                                         help_improve, 
-                                        other_info) 
+                                        other_info,
+                                        authorized) 
             VALUES (:firstname,
                     :lastname,
                     :email,
@@ -86,7 +88,8 @@ function createNewUser(){
                     :in_thermo,
                     :in_project,
                     :help_improve,
-                    :other_info)';
+                    :other_info,
+                    :authorized)';
 
     //execute SQL statement at database
     $statement = $db->prepare($query);
@@ -94,8 +97,10 @@ function createNewUser(){
 
     if($result)
         return true;
-    else
+    else{
+        $error2 = $statement->errorInfo();
         return false;
+    }
 
 }
 
