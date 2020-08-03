@@ -9,6 +9,11 @@ function rmRowDb(){
     $key = $data_array['key'];
     $value = $data_array['value'];
 
+    //if the row key is not an ID, add double quote to $row
+    if (strpos($key, 'ID') == false){
+        $value = "'" . $value . "'";
+    }
+
     //database parameters
     $db = new PDO(
         'mysql:host=127.0.0.1;dbname=project_database',
@@ -27,8 +32,11 @@ function rmRowDb(){
 
     if($result)
         return true;
-    else
+    else{
+        $error = $statement->errorInfo();
         return false;
+    }
+        
 
 }
 

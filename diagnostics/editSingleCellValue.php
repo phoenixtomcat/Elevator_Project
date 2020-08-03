@@ -12,8 +12,14 @@ function editSingleCellValue(){
     $new_value = $data_array['new_value'];
     
     //if the row key is not an ID, add double quote to $row
-    if (strpos($row_key, 'ID') == false)
-    $row = "'" . $row . "'";
+    if (strpos($row_key, 'ID') == false){
+        $row = "'" . $row . "'";
+    }
+
+    if (strpos($column, 'ID') == false){
+        $new_value = "'" . $new_value . "'";
+    }
+    
 
     //database parameters
     $db = new PDO(
@@ -37,7 +43,7 @@ function editSingleCellValue(){
         //check execution result
         if (!$result || $row != 1){
             //if execution failed or affectd row is not 1
-            throw new Exception('Failed to edit a cell value');
+            throw new Exception($statement->errorInfo());
         }
         $db->commit();
         
