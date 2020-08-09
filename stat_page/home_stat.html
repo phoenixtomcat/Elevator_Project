@@ -9,6 +9,11 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+    integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+    crossorigin="anonymous"></script>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <meta name="Robots" content="NOINDEX " />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     
   
@@ -17,37 +22,125 @@
         <![endif] -->
     </head>
     <body>
+        <div id="numStatPage"></div>
         <div id="page" class="container">
             <hr id="top">
             <div id="content" class="row">
-                <h1>Statistical Analysis of the Website</h1>
-                <h2>Table of Contents</h2>
-                <ul id="toc">
-                    <li><a href="#elevator">Elevator Statistics</a></li>
-                    <li><a href="#login">Login Statistics</a></li>
-                </ul>
+        <h1>Statistical Analysis of the Website</h1>
+        <br>
+        <br>
+        </ul>
 
-                <hr id="elevator">
-                <article>
-                    <h1>Elevator Statistics</h1>
-                    <p>Number of Times a user has enterred the Elevator page: </p>
-                </br>
-                    <a href="#top" class="button">Top</a>
-                </article>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+                <script>
+                    var numStatPage = localStorage.getItem('numStatPage');
 
-                <hr id="login">
-                <article>
-                    <h1>Login Statistics</h1>
-                    <p>Number of times any user has logged in: </p>
-                    </br>
-                    <p>Number of Times a user has enterred this page: </p>
-                    <a href="#top" class="button">Top</a>
-                </article>
-                <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
+                    if (numStatPage === null) {
+                        numStatPage = 2;
+                    }
+
+                    numStatPage++;
+                    
+
+                    localStorage.setItem("numStatPage", numStatPage);
+                </script>
+
+                <div id="numIndexPage"></div>
+                
+                <script>
+                      var numIndexPage = localStorage.getItem('numIndexPage');
+                    //document.getElementById("numIndexPage").innerHTML = localStorage.getItem("numIndexPage");
+                </script>
+                
+                <div id="numElevatorPage"></div>
+                <script>
+                    var numElevatorPage = localStorage.getItem('numElevatorPage');
+
+                    //document.getElementById("numElevatorPage").innerHTML = localStorage.getItem("numElevatorPage");
+       
+                </script>
+
+                <div id="numDiagPage"></div>
+                <script>
+                    var numDiagPage = localStorage.getItem('numDiagPage');
+
+                    //document.getElementById("numDiagPage").innerHTML = localStorage.getItem("numDiagPage");
+
+                </script>
+                <script>
+                    let myChart = document.getElementById('myChart').getContext('2d');
+
+                    // Global Options
+                    Chart.defaults.global.defaultFontFamily = 'Lato';
+                    Chart.defaults.global.defaultFontSize = 18;
+                    Chart.defaults.global.defaultFontColor = '#777';
+
+                    let massPopChart = new Chart(myChart, {
+                        type: 'bar', 
+                        data: {
+                            labels: ['Stat Page Visits', 'Index Page Visits', 'Elevator Page Visits', 'Diagnostics Page Visits'],
+                            datasets: [{
+                                labels: ["Number of visits : Stats Page"],
+                                
+                                data: [
+                                    numStatPage,
+                                    numIndexPage,
+                                    numElevatorPage,
+                                    numDiagPage,
+
+                                ],
+                                //backgroundColor:'green',
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)',
+                                    'rgba(54, 162, 235, 0.6)',
+                                    'rgba(255, 206, 86, 0.6)',
+                                    'rgba(55, 210, 86, 0.6)',
+                                ],
+                                borderWidth: 1,
+                                borderColor: '#777',
+                                hoverBorderWidth: 3,
+                                hoverBorderColor: '#000'
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Website Stats',
+                                fontSize: 25
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right',
+                                labels: {
+                                    fontColor: '#000'
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 0,
+                                    bottom: 0,
+                                    top: 0
+                                }
+                            },
+                            tooltips: {
+                                enabled: true
+                            }
+                        }
+                    });
+                </script>
+                
+       <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
             </div>
         </div>
-
-           
-    </body>
-<script src="../stat_page/stats.js"></script>
+    </body>   
+    <script type="text/javascript">
+        var gearPage = document.getElementById('GearPage');
+        if (null != gearPage) {
+            gearPage.parentNode.removeChild(gearPage);
+            document.title = "Error";
+        }
+    </script>
 </html>
