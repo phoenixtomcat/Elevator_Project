@@ -38,7 +38,9 @@
                 <li><a href="#wk6">Week Six</a></li>
                 <li><a href="#wk7">Week Seven</a></li>
                 <li><a href="#wk8">Week Eight</a></li>
-                <li><a href="#wk9">Week Eight</a></li>
+                <li><a href="#wk9">Week Nine</a></li>
+                <li><a href="#wk10/11">Week Ten/Eleven</a></li>
+
 
 
 
@@ -470,6 +472,42 @@
                         the code to send out a diffrent floor depending on which number is inputed.  If a diffrent number or phrase is 
                         reconized then it will return an error message.  Next will be to add this to the elevator code so that it moves 
                         based on the said input value.  
+                    </li>
+                </ul>
+            </ul>
+            <a href="#top">Top</a>
+        </article>
+        <hr id="wk10/11"/>
+        <article>
+            <h2>Week 10/11</h2>
+            <ul>
+                <li>02/08/2020</li>
+                <ul>
+                    <li>
+                        Added the voice control code to the project.  Made it's own javascript file for it and a made a button 
+                        on the elevator panel so that when the button is pressed the browser will listen for voice input from the 
+                        user.  This code was added into the exsisting code without too many problems.  After the input from the voice 
+                        is recorded it is passed to the move function which moves the elevator.  It should also detect wrong calls and 
+                        won't move the elvator on worong calls.  Tested it out on the localhost and there were no issues.  
+   
+                    </li>
+
+                </ul>
+                <li>03/08/2020</li>
+                <ul>
+                    <li>
+                        Tested the voice control with the code pushed to the Rpi and it was not working.  After looking around I fond that 
+                        Chrome disallows access to unknow sies for some resources (like the microphone).  Went in and added this website to an 
+                        exception list in chrome and had to also click allow when prompted on the page so that our website could access my computers 
+                        microphone.  Therefore this may not be the best way to do things but it works for now. 
+                    </li>
+                </ul>
+                <li>05/08/2020</li>
+                <ul>
+                    <li>
+                        Created th video for the elevator.  Shows how the elevator interacts with the website.  Had some issues with the Pi crashing and the camera at 
+                        the school being off.  However I was able to create the video of the basic logic functions.  Maybe should have 
+                        added more but wasn't sure how long it should be.  
                     </li>
                 </ul>
             </ul>
