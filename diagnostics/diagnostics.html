@@ -99,27 +99,7 @@
     </div>
     </div>
 <div id="numDiagPage"></div>
-<script>
-    var numDiagPage = localStorage.getItem('numDiagPage');
-
-    if (numDiagPage === null) {
-        numDiagPage = 4;
-    }
-
-    numDiagPage++;
-
-    localStorage.setItem("numDiagPage", numDiagPage);
-
-    document.getElementById('numDiagPage').innerHTML = numDiagPage;
-    localStorage.setItem("numDiagPage", numDiagPage);
-    </script>
+<script src="../diagnostics/statdiag.js"></script>
 </body>
-<script type="text/javascript">
-    var gearPage = document.getElementById('GearPage');
-    if (null != gearPage) {
-        gearPage.parentNode.removeChild(gearPage);
-        document.title = "Error";
-    }
-</script>
 
 </html>
