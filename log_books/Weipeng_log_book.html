@@ -36,7 +36,7 @@
 
         ul.nav-list li a {
             padding: 5px 5px 5px 5px;
-            color: rgb(39, 79, 189);
+            color: rgb(255, 255, 255);
             border-radius: 4px;
         }
 
@@ -56,7 +56,7 @@
         }
 
         div.week_log img {
-            width: 600px;
+            width: 85%;
         }
     </style>
 </head>
@@ -76,6 +76,8 @@
                 <li><a href="#week8">Week 8</a></li>
                 <li><a href="#week9">Week 9</a></li>
                 <li><a href="#week10">Week 10</a></li>
+                <li><a href="#week11">Week 11</a></li>
+                <li><a href="#week12">Week 12</a></li>
             </ul>
         </nav>
 
@@ -737,6 +739,47 @@
                                 <li>Disable go button default behaviour to avoid page refreshing. The data will be updated through Ajax functions</li>
                             </ul>
                         </li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week11">
+                <div class="week_log" style="background-color: rgb(0, 255, 85);">
+                    <h1>Week 11</h1>
+                    <ul style="line-height: 30px;">
+                        <li>July 28, 2020
+                            <ul>
+                                <li>Add Exception handler in editSingleCellValue(). Now using transaction to deal with database communication. If execution result is failed or the affected row is not 1, will rollback the transaction and return the error message</li>
+                                <li>Removed most echo lines from elevator_logic.php so that the only important messages will be showed in the frontend.</li>
+                            </ul>
+                        </li> 
+                       <li>July 30, 2020
+                            <ul>
+                                <li>Fixed several bugs regarding updating values via the diagnostic page:
+                                    <ul>
+                                        <li>A function did not use the rowSelectKey() functions, which results in the wrong row key is used.</li>
+                                        <li>When updating a cell value with letters, will need to append quotation marks around it.</li>
+                                        <li>Passed back real error message from "$statement->errorInfo()".</li>
+                                        <li>Add the authorized column to the request_access2.php.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       </li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div id="week12">
+                <div class="week_log" style="background-color: rgb(0, 255, 255);">
+                    <h1>Week 12</h1>
+                    <ul style="line-height: 30px;">
+                        <li>August 9, 2020
+                            <ul>
+                                <li>Make demo PowerPoint slides for final demo</li>
+                                <li>Help Ramtin debug the stats page. The problem is that the bar chart sometimes cannot show all the values properly, but it will correct itselft after switching to other page and switch back. The chart creation uses chart.min.js, which is an external script and takes in an object Chart. I debugged the Chart object and the values that passed in are correct. My guess is that it is either a bug inside the external script, or the getValue from localStorage takes time, so the passed-in values are null.</li>
+                            </ul>
+                        </li> 
+                       
                     </ul>
                 </div>
             </div>
