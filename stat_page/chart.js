@@ -1,7 +1,7 @@
-var numStatPage = localStorage.getItem('numStatPage');
-var numIndexPage = localStorage.getItem('numIndexPage');
-var numElevatorPage = localStorage.getItem('numElevatorPage');
-var numDiagPage = localStorage.getItem('numDiagPage');
+var numStatPage = parseInt(localStorage.getItem('numStatPage'));
+var numIndexPage = parseInt(localStorage.getItem('numIndexPage'));
+var numElevatorPage = parseInt(localStorage.getItem('numElevatorPage'));
+var numDiagPage = parseInt(localStorage.getItem('numDiagPage'));
 
 if (numStatPage === null) {
     numStatPage = 2;
@@ -56,7 +56,7 @@ let massPopChart = new Chart(myChart, {
             fontSize: 25
         },
         legend: {
-            display: true,
+            display: false,
             position: 'right',
             labels: {
                 fontColor: '#000'
