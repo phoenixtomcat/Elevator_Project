@@ -98,30 +98,8 @@
     </div>
 
     <div id="numIndexPage"></div>
-    
-    <script>
-        var numIndexPage = localStorage.getItem('numIndexPage');
-        //var numIndexPage = 12;
-        if (numIndexPage === null) {
-            numIndexPage = 12;
-            // console.log("Hello")
-        }
+    <script src="../index_page/statindex.js"></script>
 
-        numIndexPage++;
-
-        localStorage.setItem("numIndexPage", numIndexPage);
-
-        document.getElementById('numIndexPage').innerHTML = numIndexPage;
-        localStorage.setItem("p1", "Index Page");
-        localStorage.setItem("numIndexPage", numIndexPage);
-    </script>
-    <script type="text/javascript">
-        var gearPage = document.getElementById('GearPage');
-        if (null != gearPage) {
-            gearPage.parentNode.removeChild(gearPage);
-            document.title = "Error";
-        }
-    </script>
 </body>
 
 </html>

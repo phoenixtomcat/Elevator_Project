@@ -104,26 +104,7 @@
         <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
     </footer>
     <div id="numElevatorPage"></div>
-    <script>
-        var numElevatorPage = localStorage.getItem('numElevatorPage');
-
-        if (numElevatorPage === null) {
-            numElevatorPage = 6;
-        }
-
-        numElevatorPage++;
-
-        localStorage.setItem("numElevatorPage", numElevatorPage);
-
-        document.getElementById('numElevatorPage').innerHTML = numElevatorPage;
-        localStorage.setItem("numElevatorPage", numElevatorPage);
-    </script>
+    <script src="../elevator/statelev.js"></script>
 </body>
-<script type="text/javascript">
-    var gearPage = document.getElementById('GearPage');
-    if (null != gearPage) {
-        gearPage.parentNode.removeChild(gearPage);
-        document.title = "Error";
-    }
-</script>
+
 </html>
