@@ -4,6 +4,8 @@
 <head>
     <title>Diagnostics</title>
     <link rel="stylesheet" type="text/css" href="../diagnostics/diagnostics.css" />
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <meta name="Robots" content="NOINDEX " />
 </head>
 
 <body>
@@ -96,6 +98,28 @@
 
     </div>
     </div>
+<div id="numDiagPage"></div>
+<script>
+    var numDiagPage = localStorage.getItem('numDiagPage');
+
+    if (numDiagPage === null) {
+        numDiagPage = 4;
+    }
+
+    numDiagPage++;
+
+    localStorage.setItem("numDiagPage", numDiagPage);
+
+    document.getElementById('numDiagPage').innerHTML = numDiagPage;
+    localStorage.setItem("numDiagPage", numDiagPage);
+    </script>
 </body>
+<script type="text/javascript">
+    var gearPage = document.getElementById('GearPage');
+    if (null != gearPage) {
+        gearPage.parentNode.removeChild(gearPage);
+        document.title = "Error";
+    }
+</script>
 
 </html>

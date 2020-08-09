@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="elevator2.css" />
     <link rel="stylesheet" type="text/css" href="../general_css/general.css" />
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <meta name="Robots" content="NOINDEX " />
     <!--[if lt IE 9]>
    		<script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
     <![endif] -->
@@ -101,6 +103,27 @@
 
         <p style="text-align: center;">Copyright &copy 2020 Eduard Nishant Ramtin Weipeng</p>
     </footer>
-</body>
+    <div id="numElevatorPage"></div>
+    <script>
+        var numElevatorPage = localStorage.getItem('numElevatorPage');
 
+        if (numElevatorPage === null) {
+            numElevatorPage = 6;
+        }
+
+        numElevatorPage++;
+
+        localStorage.setItem("numElevatorPage", numElevatorPage);
+
+        document.getElementById('numElevatorPage').innerHTML = numElevatorPage;
+        localStorage.setItem("numElevatorPage", numElevatorPage);
+    </script>
+</body>
+<script type="text/javascript">
+    var gearPage = document.getElementById('GearPage');
+    if (null != gearPage) {
+        gearPage.parentNode.removeChild(gearPage);
+        document.title = "Error";
+    }
+</script>
 </html>
