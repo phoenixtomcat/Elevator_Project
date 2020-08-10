@@ -1,6 +1,6 @@
 var numIndexPage = localStorage.getItem('numIndexPage');
 if (numIndexPage === null) {
-    numIndexPage = 1;
+    numIndexPage = 0;
 }
 
 numIndexPage++;

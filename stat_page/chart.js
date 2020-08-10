@@ -4,7 +4,7 @@ var numElevatorPage = localStorage.getItem('numElevatorPage');
 var numDiagPage = localStorage.getItem('numDiagPage');
 
 if (numStatPage === null) {
-    numStatPage = 2;
+    numStatPage = 0;
 }
 
 numStatPage++;
@@ -12,18 +12,24 @@ numStatPage++;
 
 localStorage.setItem("numStatPage", numStatPage);
 
+function reset_counter() {
+    localStorage.removeItem('numStatPage');
+    localStorage.removeItem('numIndexPage');
+    localStorage.removeItem('numDiagPage');
+    localStorage.removeItem('numElevatorPage');
+}
 
-
+document.getElementById('reset').addEventListener('click', reset_counter);
 
 let myChart = document.getElementById('myChart').getContext('2d');
 
-// Global Options
-Chart.defaults.global.defaultFontFamily = 'Lato';
+
+Chart.defaults.global.defaultFontFamily = 'arial';
 Chart.defaults.global.defaultFontSize = 18;
 Chart.defaults.global.defaultFontColor = '#777';
 
-let massPopChart = new Chart(myChart, {
-    type: 'bar',
+let statchart = new Chart(myChart, {
+    type: 'pie',
     data: {
         labels: ['Stat Page Visits', 'Index Page Visits', 'Elevator Page Visits', 'Diagnostics Page Visits'],
         datasets: [{
@@ -36,12 +42,12 @@ let massPopChart = new Chart(myChart, {
                 numDiagPage,
 
             ],
-            //backgroundColor:'green',
+            
             backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(55, 210, 86, 0.6)',
+                'rgba(255, 99, 132, 0.6)', //red 
+                'rgba(54, 162, 235, 0.6)', //blue
+                'rgba(255, 206, 86, 0.6)', //yellow
+                'rgba(55, 210, 86, 0.6)', //green
             ],
             borderWidth: 1,
             borderColor: '#777',
@@ -53,10 +59,10 @@ let massPopChart = new Chart(myChart, {
         title: {
             display: true,
             text: 'Website Stats',
-            fontSize: 25
+            fontSize: 50
         },
         legend: {
-            display: true,
+            display: false,
             position: 'right',
             labels: {
                 fontColor: '#000'
