@@ -1,7 +1,7 @@
 var numElevatorPage = localStorage.getItem('numElevatorPage');
 
 if (numElevatorPage === null) {
-    numElevatorPage = 6;
+    numElevatorPage = 0;
 }
 
 numElevatorPage++;

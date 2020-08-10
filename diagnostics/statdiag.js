@@ -1,7 +1,7 @@
 var numDiagPage = localStorage.getItem('numDiagPage');
 
 if (numDiagPage === null) {
-    numDiagPage = 4;
+    numDiagPage = 0;
 }
 
 numDiagPage++;
